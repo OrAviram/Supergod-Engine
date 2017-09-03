@@ -4,8 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodsSandbox", "SupergodsSandbox\SupergodsSandbox.vcxproj", "{C9D9E9B6-CAF7-445E-8603-02922478025B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8} = {AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}
+		{80A61562-03E2-4029-9671-CD4A60414969} = {80A61562-03E2-4029-9671-CD4A60414969}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngine", "SupergodEngine\SupergodEngine.vcxproj", "{80A61562-03E2-4029-9671-CD4A60414969}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8} = {AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{A60EA026-2AE0-48D7-98B4-61A2A05ACD9F}"
 EndProject
@@ -14,6 +21,10 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodUtilities", "SupergodUtilities\SupergodUtilities.vcxproj", "{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngineTesting", "SupergodEngineTesting\SupergodEngineTesting.vcxproj", "{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8} = {AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}
+		{80A61562-03E2-4029-9671-CD4A60414969} = {80A61562-03E2-4029-9671-CD4A60414969}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
