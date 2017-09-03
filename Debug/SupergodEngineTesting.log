@@ -1,2 +1,1 @@
-﻿  TestUtils.cpp
-e:\documents\game development\supergodstuff\cpp\supergodengine_solution\supergodenginetesting\testutils.cpp(3): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "stdafx.h"' to your source?
+﻿
