@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\SupergodEngine",
+    "\\SupergodEngineTesting"
   ],
+  "SelectedNode": "\\SupergodEngine",
   "PreviewInSolutionExplorer": false
 }

@@ -18,6 +18,16 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CommonDefines.h" />
+    <ClInclude Include="Math\FMath.h" />
+    <ClInclude Include="Math\MathConstants.h" />
+    <ClInclude Include="Math\SMath.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Math\FMath.cpp" />
+    <ClCompile Include="Math\SMath.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{80A61562-03E2-4029-9671-CD4A60414969}</ProjectGuid>

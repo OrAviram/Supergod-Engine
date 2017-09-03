@@ -2,12 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Utilities">
-      <UniqueIdentifier>{87cc859b-5bb2-4f56-adb4-8f14d4eeef98}</UniqueIdentifier>
+      <UniqueIdentifier>{b168d1b3-aedc-4560-a8e1-8a89e7c0e3b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestUtils.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MathTests.cpp" />
   </ItemGroup>
 </Project>
