@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodsSandbox", "SupergodsSandbox\SupergodsSandbox.vcxproj", "{C9D9E9B6-CAF7-445E-8603-02922478025B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngine", "SupergodEngine\SupergodEngine.vcxproj", "{80A61562-03E2-4029-9671-CD4A60414969}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{A60EA026-2AE0-48D7-98B4-61A2A05ACD9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{247BCED9-07B9-43D0-BC9C-5C51C0917BE2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodUtilities", "SupergodUtilities\SupergodUtilities.vcxproj", "{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngineTesting", "SupergodEngineTesting\SupergodEngineTesting.vcxproj", "{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Debug|x64.ActiveCfg = Debug|x64
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Debug|x64.Build.0 = Debug|x64
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Debug|x86.ActiveCfg = Debug|Win32
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Debug|x86.Build.0 = Debug|Win32
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Release|x64.ActiveCfg = Release|x64
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Release|x64.Build.0 = Release|x64
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Release|x86.ActiveCfg = Release|Win32
+		{C9D9E9B6-CAF7-445E-8603-02922478025B}.Release|x86.Build.0 = Release|Win32
+		{80A61562-03E2-4029-9671-CD4A60414969}.Debug|x64.ActiveCfg = Debug|x64
+		{80A61562-03E2-4029-9671-CD4A60414969}.Debug|x64.Build.0 = Debug|x64
+		{80A61562-03E2-4029-9671-CD4A60414969}.Debug|x86.ActiveCfg = Debug|Win32
+		{80A61562-03E2-4029-9671-CD4A60414969}.Debug|x86.Build.0 = Debug|Win32
+		{80A61562-03E2-4029-9671-CD4A60414969}.Release|x64.ActiveCfg = Release|x64
+		{80A61562-03E2-4029-9671-CD4A60414969}.Release|x64.Build.0 = Release|x64
+		{80A61562-03E2-4029-9671-CD4A60414969}.Release|x86.ActiveCfg = Release|Win32
+		{80A61562-03E2-4029-9671-CD4A60414969}.Release|x86.Build.0 = Release|Win32
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Debug|x64.ActiveCfg = Debug|x64
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Debug|x64.Build.0 = Debug|x64
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Debug|x86.ActiveCfg = Debug|Win32
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Debug|x86.Build.0 = Debug|Win32
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Release|x64.ActiveCfg = Release|x64
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Release|x64.Build.0 = Release|x64
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Release|x86.ActiveCfg = Release|Win32
+		{AD1A4B35-70E7-4351-B7C0-E44A9244C1E8}.Release|x86.Build.0 = Release|Win32
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Debug|x64.ActiveCfg = Debug|x64
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Debug|x64.Build.0 = Debug|x64
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Debug|x86.ActiveCfg = Debug|Win32
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Debug|x86.Build.0 = Debug|Win32
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Release|x64.ActiveCfg = Release|x64
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Release|x64.Build.0 = Release|x64
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Release|x86.ActiveCfg = Release|Win32
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9D9E9B6-CAF7-445E-8603-02922478025B} = {247BCED9-07B9-43D0-BC9C-5C51C0917BE2}
+		{80A61562-03E2-4029-9671-CD4A60414969} = {A60EA026-2AE0-48D7-98B4-61A2A05ACD9F}
+		{8B33C7F7-A8B2-4FAE-884C-0965EE5B9D1B} = {247BCED9-07B9-43D0-BC9C-5C51C0917BE2}
+	EndGlobalSection
+EndGlobal
