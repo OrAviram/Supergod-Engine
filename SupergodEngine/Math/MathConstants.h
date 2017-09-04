@@ -29,5 +29,8 @@ namespace SupergodEngine { namespace Math
 		constexpr float SQRT5_OVER3 = SQRT5 / 3;
 		constexpr float SQRT5_OVER5 = SQRT5 / 5;
 		constexpr float SQRT5_OVER10 = SQRT5 / 10;
+		
+		constexpr float DEG_TO_RAD = PI / 180;
+		constexpr float RAD_TO_DEG = 180 / PI;
 	}
 } }
