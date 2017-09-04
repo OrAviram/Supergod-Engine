@@ -4,7 +4,9 @@
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
     <ClInclude Include="Math\FMath.h" />
-    <ClInclude Include="CommonDefines.h" />
+    <ClInclude Include="Common\CommonDefines.h" />
+    <ClInclude Include="Common\Math.h" />
+    <ClInclude Include="SupergodEngine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\SMath.cpp" />

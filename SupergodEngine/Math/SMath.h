@@ -1,8 +1,7 @@
 #pragma once
 
 #include "MathConstants.h"
-#include "../CommonDefines.h"
-#include <cmath>
+#include "../Common/CommonDefines.h"
 
 namespace SupergodEngine { namespace Math
 {

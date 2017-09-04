@@ -10,10 +10,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodsSandbox", "Supergo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngine", "SupergodEngine\SupergodEngine.vcxproj", "{80A61562-03E2-4029-9671-CD4A60414969}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{A60EA026-2AE0-48D7-98B4-61A2A05ACD9F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{247BCED9-07B9-43D0-BC9C-5C51C0917BE2}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SupergodEngineTesting", "SupergodEngineTesting\SupergodEngineTesting.vcxproj", "{A374EB0E-795F-47F0-8362-195DF1C816FC}"
 EndProject
 Global
@@ -51,10 +47,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C9D9E9B6-CAF7-445E-8603-02922478025B} = {247BCED9-07B9-43D0-BC9C-5C51C0917BE2}
-		{80A61562-03E2-4029-9671-CD4A60414969} = {A60EA026-2AE0-48D7-98B4-61A2A05ACD9F}
-		{A374EB0E-795F-47F0-8362-195DF1C816FC} = {247BCED9-07B9-43D0-BC9C-5C51C0917BE2}
 	EndGlobalSection
 EndGlobal

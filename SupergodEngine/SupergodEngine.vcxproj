@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CommonDefines.h" />
+    <ClInclude Include="Common\CommonDefines.h" />
+    <ClInclude Include="Common\Math.h" />
+    <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\FMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
     <ClInclude Include="Math\SMath.h" />
