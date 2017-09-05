@@ -2,7 +2,14 @@
 
 #define SUPERGOD_API __declspec(dllexport)
 #define ARRAY_ELEMENTS_COUNT(array) sizeof(array) / sizeof(*array)
-#define interface __interface
+
+/// <summary>
+/// Simply defines a struct.<para/>
+/// It used to use the __interface keyword, but apparently you can't export those to the dll.<para/>
+/// Use this just to be explicit it's an interface, but it's simply a struct.
+/// </summary>
+#define interface struct
+
 
 /// <summary>
 /// Represents an 8-bit unsigned integer.

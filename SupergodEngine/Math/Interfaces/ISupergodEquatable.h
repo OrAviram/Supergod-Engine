@@ -10,7 +10,7 @@ namespace SupergodEngine { namespace Math
 	/// T is the type being compared.
 	/// </summary>
 	template<class T>
-	interface ISupergodEquatable
+	interface SUPERGOD_API ISupergodEquatable
 	{
 		virtual bool Equals(const T& other) const = 0;
 		virtual bool CloseEnough(const T& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const = 0;

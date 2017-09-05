@@ -26,6 +26,8 @@
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
     <ClInclude Include="Math\Vectors\IVector.h" />
     <ClInclude Include="Math\Vectors\Vector.h" />
+    <ClInclude Include="Math\Vectors\Vector2D.h" />
+    <ClInclude Include="Math\Vectors\VectorUtils.h" />
     <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\FMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
@@ -34,6 +36,7 @@
   <ItemGroup>
     <ClCompile Include="Math\FMath.cpp" />
     <ClCompile Include="Math\SMath.cpp" />
+    <ClCompile Include="Math\Vectors\Vector2D.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

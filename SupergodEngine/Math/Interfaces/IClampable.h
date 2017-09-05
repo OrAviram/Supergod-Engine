@@ -9,7 +9,7 @@ namespace SupergodEngine { namespace Math
 	/// T is the type that can be clamped.
 	/// </summary>
 	template<class T>
-	interface IClampable
+	interface SUPERGOD_API IClampable
 	{
 		virtual T Clamp(const T& min, const T& max) const = 0;
 	};

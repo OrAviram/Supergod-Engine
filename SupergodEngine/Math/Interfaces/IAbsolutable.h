@@ -12,7 +12,7 @@ namespace SupergodEngine { namespace Math
 	/// T is the type you can get the absolute value of.
 	/// </summary>
 	template<class T>
-	interface IAbsolutable
+	interface SUPERGOD_API IAbsolutable
 	{
 		virtual T Abs() const = 0;
 	};

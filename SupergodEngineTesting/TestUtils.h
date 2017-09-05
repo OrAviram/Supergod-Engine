@@ -9,7 +9,7 @@ using namespace SupergodEngine;
 
 namespace AssertUtils
 {
-	void CloseEnough(float a, float b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+	static void CloseEnough(float a, float b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
 	{
 		// TODO: Make more detailed fail message.
 		Assert::IsTrue(Math::SMath::CloseEnough(a, b, threshold), L"Close enough failed!");
@@ -23,7 +23,7 @@ namespace AssertUtils
 /// <param name="end">The end index of the loop.</param>
 /// <param name="speed">How much should the current counter in the loop be increased by each iteration?</param>
 /// <param name="test">The test to run.</param>
-void TestMultiple(float start, float end, float speed, std::function<void(float)> test)
+static void TestMultiple(float start, float end, float speed, std::function<void(float)> test)
 {
 	for (float i = start; i < end; i += speed)
 		test(i);
@@ -34,7 +34,7 @@ void TestMultiple(float start, float end, float speed, std::function<void(float)
 /// </summary>
 /// <param name="length">The amount of times to run the test.</param>
 /// <param name="test">The test to run.</param>
-void TestMultiple(int length, std::function<void(int)> test)
+static void TestMultiple(int length, std::function<void(int)> test)
 {
 	TestMultiple(0, (float)length, 1, [&](float f) { test((int)f); });
 }
@@ -43,7 +43,7 @@ void TestMultiple(int length, std::function<void(int)> test)
 /// Runs test 30 times.
 /// </summary>
 /// <param name="test">The test to run.</param>
-void Test50(std::function<void(int)> test)
+static void Test50(std::function<void(int)> test)
 {
 	TestMultiple(30, test);
 }
@@ -53,7 +53,7 @@ void Test50(std::function<void(int)> test)
 /// </summary>
 /// <param name="speed">How much should the counter increase by each iteration?</param>
 /// <param name="test">The test to run.</param>
-void Test01(float speed, std::function<void(float)> test)
+static void Test01(float speed, std::function<void(float)> test)
 {
 	TestMultiple(0, 1, speed, test);
 }
@@ -62,7 +62,7 @@ void Test01(float speed, std::function<void(float)> test)
 /// Runs a test counting from 0 to 1 with a speed of 0.01.
 /// </summary>
 /// <param name="test">The test to run each iteration.</param>
-void Test01(std::function<void(float)> test)
+static void Test01(std::function<void(float)> test)
 {
 	Test01(.01f, test);
 }

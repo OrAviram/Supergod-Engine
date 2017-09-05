@@ -12,9 +12,12 @@
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
     <ClInclude Include="Math\Interfaces\IAbsolutable.h" />
     <ClInclude Include="Math\Interfaces\IClampable.h" />
+    <ClInclude Include="Math\Vectors\Vector2D.h" />
+    <ClInclude Include="Math\Vectors\VectorUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\SMath.cpp" />
     <ClCompile Include="Math\FMath.cpp" />
+    <ClCompile Include="Math\Vectors\Vector2D.cpp" />
   </ItemGroup>
 </Project>

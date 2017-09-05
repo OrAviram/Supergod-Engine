@@ -20,13 +20,13 @@ namespace SupergodEngine { namespace Math
 	/// T is the type of the vector.
 	/// </summary>
 	template<class T>
-	interface IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>
+	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>
 	{
 		virtual T Add(const T& other) const = 0;
 		virtual T Subtract(const T& other) const = 0;
 		virtual T Negated() const = 0;
 
-		virtual T Multiple(const T& other) const = 0;
+		virtual T Multiply(const T& other) const = 0;
 		virtual T Multiply(const float& scalar) const = 0;
 		virtual T Divide(const float& scalar) const = 0;
 
