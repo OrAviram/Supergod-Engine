@@ -2,6 +2,7 @@
 
 #define SUPERGOD_API __declspec(dllexport)
 #define ARRAY_ELEMENTS_COUNT(array) sizeof(array) / sizeof(*array)
+#define interface __interface
 
 /// <summary>
 /// Represents an 8-bit unsigned integer.

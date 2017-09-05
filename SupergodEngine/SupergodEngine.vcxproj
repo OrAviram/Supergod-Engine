@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClInclude Include="Common\CommonDefines.h" />
     <ClInclude Include="Common\Math.h" />
+    <ClInclude Include="Math\Interfaces\IAbsolutable.h" />
+    <ClInclude Include="Math\Interfaces\IClampable.h" />
+    <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
+    <ClInclude Include="Math\Vectors\IVector.h" />
+    <ClInclude Include="Math\Vectors\Vector.h" />
     <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\FMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
