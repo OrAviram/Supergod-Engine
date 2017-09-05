@@ -28,6 +28,8 @@ namespace SupergodEngine { namespace Math
 
 		virtual T Multiply(const T& other) const = 0;
 		virtual T Multiply(const float& scalar) const = 0;
+
+		virtual T Divide(const T& other) const = 0;
 		virtual T Divide(const float& scalar) const = 0;
 
 		virtual float Magnitude() const = 0;
@@ -38,7 +40,7 @@ namespace SupergodEngine { namespace Math
 		virtual const float& SmallestComponent() const = 0;
 		virtual float Dot(const T& other) const = 0;
 
-		virtual bool ContainsComponent(std::function<void(const float&)> test) const = 0;
+		virtual bool ContainsComponent(std::function<bool(const float&)> test) const = 0;
 		virtual T ClampComponents(const float& min, const float& max) const = 0;
 	};
 } }

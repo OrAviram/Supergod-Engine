@@ -21,6 +21,36 @@ namespace SupergodEngine { namespace Math
 		/// <summary>Creates a new 2D vector and initializes its components to x and y.</summary>
 		explicit Vector2D(const float& x, const float& y);
 
+		#pragma region Comparison methods (Equals, operators, ContainsComponent, CloseEnough).
+		/// <summary>
+		/// Is every component of this same as its corresponding component in other?
+		/// </summary>
+		bool Equals(const Vector2D& other) const override;
+
+		/// <summary>
+		/// Is every component of this close enough to its corresponding component in other with the threshold of threshold?<para/>
+		/// See SupergodEngine::Math::Smath::CloseEnough.
+		/// </summary>
+		/// <param name="threshold">The threshold for each component to be considered close enough.</param>
+		bool CloseEnough(const Vector2D& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+
+		/// <summary>
+		/// Does any component pass test?
+		/// </summary>
+		/// <param name="test">The test to run for each component.</param>
+		bool ContainsComponent(std::function<bool(const float&)> test) const override;
+		
+		/// <summary>
+		/// Is every component of this the same as its corresponding component in other?
+		/// </summary>
+		bool operator==(const Vector2D& other) const;
+
+		/// <summary>
+		/// Are any of the components of this NOT equal to their corresponding component in other?
+		/// </summary>
+		bool operator!=(const Vector2D& other) const;
+		#pragma endregion
+
 		#pragma region Magnitude, squared magnitude and normalization.
 		/// <summary>
 		/// Gets the magnitude (length) of this vector.
@@ -60,16 +90,26 @@ namespace SupergodEngine { namespace Math
 		Vector2D operator*(const Vector2D& other) const;
 
 		/// <summary>
-		/// Multiplies every component of this by other.
+		/// Multiplies every component of this by scalar.
 		/// </summary>
 		Vector2D operator*(const float& scalar) const;
+
+		/// <summary>
+		/// Multiplies every component of vector by scalar.
+		/// </summary>
+		friend Vector2D operator*(const float& scalar, const Vector2D& vector)
+		{
+			return vector * scalar;
+		}
+		#pragma endregion
+
+		// TODO: Implement and document those.
+		#pragma region Division.
+		Vector2D Divide(const float& scalar) const override;
+		Vector2D Divide(const Vector2D& scalar) const override;
 		#pragma endregion
 
 		#pragma region Those methods are here just so it will compile. I will organize and implement them later.
-		bool Equals(const Vector2D & other) const override;
-
-		bool CloseEnough(const Vector2D & other, const float & threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
-
 		Vector2D Abs() const override;
 
 		Vector2D Clamp(const Vector2D & min, const Vector2D & max) const override;
@@ -79,13 +119,10 @@ namespace SupergodEngine { namespace Math
 		Vector2D Subtract(const Vector2D & other) const override;
 
 		Vector2D Negated() const override;
-		Vector2D Divide(const float & scalar) const override;
 
 		const float & BiggestComponent() const override;
 
 		const float & SmallestComponent() const override;
-
-		bool ContainsComponent(std::function<void(const float&)> test) const override;
 
 		Vector2D ClampComponents(const float & min, const float & max) const override;
 		#pragma endregion

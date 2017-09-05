@@ -22,10 +22,41 @@ namespace SupergodEngineTesting
 			Assert::AreEqual(third.y, -2.3f);
 		}
 
-		// TODO: Maybe insert
-		//        EqualsTest, NotEqualTest, BiggestSmallestComponentTest,
-		//        ContainsAxisTest, CloseEnoughTest, IndexerTest here later.
+		TEST_METHOD(EqualityTests)
+		{
+			Assert::IsTrue(Vector2D(10, 10) == Vector2D(10, 10));
+			Assert::IsFalse(Vector2D(5, 10) == Vector2D(10, 10));
+			Assert::IsTrue(Vector2D(10, 10).Equals(Vector2D(10, 10)));
+			Assert::IsFalse(Vector2D(10, 10).Equals(Vector2D(10, 4)));
+
+			Assert::IsFalse(Vector2D(10, 10) != Vector2D(10, 10));
+			Assert::IsTrue(Vector2D(5, 10) != Vector2D(10, 10));
+		}
+
+		// TODO: Maybe insert BiggestSmallestComponentTest here later.
 		
+		TEST_METHOD(ContainsAxisTest)
+		{
+			Vector2D vector(1, 2);
+			Assert::IsTrue(vector.ContainsComponent([](float x) { return x == 1; }));
+			Assert::IsTrue(vector.ContainsComponent([](float x) { return x == 2; }));
+			Assert::IsFalse(vector.ContainsComponent([](float x) { return x == 3; }));
+		}
+
+		TEST_METHOD(CloseEnoughTest)
+		{
+			Vector2D left(4, 2);
+			Vector2D right(2, 4);
+
+			Assert::IsTrue(!left.CloseEnough(right));
+			Assert::IsTrue(!right.CloseEnough(left));
+
+			Assert::IsTrue(left.CloseEnough(right, 2));
+			Assert::IsTrue(right.CloseEnough(left, 2));
+		}
+
+		// TODO: Maybe insert IndexerTest here later.
+
 		TEST_METHOD(MagnitudeTest)
 		{
 			Vector2D vec(5, .6f);
@@ -52,30 +83,78 @@ namespace SupergodEngineTesting
 			float scalar = 5;
 			Vector2D expectedResult(5, 5);
 
-			//Assert::IsTrue(vector * scalar == expectedResult);
-			//Assert::IsTrue(scalar * vector == expectedResult);
+			Assert::IsTrue(vector * scalar == expectedResult);
+			Assert::IsTrue(scalar * vector == expectedResult);
 			//Assert::IsTrue(Vector.Multiply(vector, scalar) == expectedResult);
 			//Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
-			//
-			//vector = new Vector2D(3, 876);
-			//scalar = 2;
-			//expectedResult = new Vector2D(6, 1752);
-			//
-			//Assert::IsTrue(vector * scalar == expectedResult);
-			//Assert::IsTrue(scalar * vector == expectedResult);
+			
+			vector = Vector2D(3, 876);
+			scalar = 2;
+			expectedResult = Vector2D(6, 1752);
+			
+			Assert::IsTrue(vector * scalar == expectedResult);
+			Assert::IsTrue(scalar * vector == expectedResult);
 			//Assert::IsTrue(Vector.Multiply(vector, scalar) == expectedResult);
 			//Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
-			//
-			//vector = new Vector2D(5, .3f);
-			//scalar = -1.5f;
-			//expectedResult = new Vector2D(-7.5f, -.45f);
-			//
-			//Assert::IsTrue((vector * scalar).CloseEnough(expectedResult));
-			//Assert::IsTrue((scalar * vector).CloseEnough(expectedResult));
+			
+			vector = Vector2D(5, .3f);
+			scalar = -1.5f;
+			expectedResult = Vector2D(-7.5f, -.45f);
+			
+			Assert::IsTrue((vector * scalar).CloseEnough(expectedResult));
+			Assert::IsTrue((scalar * vector).CloseEnough(expectedResult));
 			//Assert::IsTrue(Vector.Multiply(vector, scalar).CloseEnough(expectedResult));
 			//Assert::IsTrue(vector.Multiply(scalar).CloseEnough(expectedResult));
 		}
 
-		// TODO: JUST DO STUFF HERE LATER. >:(
+		// TODO: Test division.
+
+		// TODO: Finish test.
+		TEST_METHOD(MultiplicationTest)
+		{
+			Vector2D left = Vector2D(1, 1);
+			Vector2D right = Vector2D(2, 0);
+			Vector2D expectedResult = Vector2D(2, 0);
+
+			Assert::IsTrue(left * right == expectedResult);
+			Assert::IsTrue(left.Multiply(right) == expectedResult);
+			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+
+			left = Vector2D(3, 10);
+			right = Vector2D(-1, 1.5f);
+			expectedResult = Vector2D(-3, 15);
+
+			Assert::IsTrue(left * right == expectedResult);
+			Assert::IsTrue(left.Multiply(right) == expectedResult);
+			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+
+			left = Vector2D(3, 5);
+			right = Vector2D(5, -.5f);
+			expectedResult = Vector2D(15, -2.5f);
+
+			Assert::IsTrue(left * right == expectedResult);
+			Assert::IsTrue(left.Multiply(right) == expectedResult);
+			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+		}
+
+		TEST_METHOD(DotTest)
+		{
+			Vector2D firstLeft(1, 5);
+			Vector2D firstRight(2, .5f);
+			float first = Vector::Dot(firstLeft, firstRight);
+			Assert::IsTrue(first == 4.5f);
+
+			Vector2D secondLeft = Vector2D(-2, -4);
+			Vector2D secondRight = Vector2D(5, 5);
+			float second = Vector::Dot(secondLeft, secondRight);
+			Assert::IsTrue(second == -30);
+
+			Vector2D thirdLeft = Vector2D(-2, -4);
+			Vector2D thirdRight = Vector2D(5, 5);
+			float third = thirdLeft.Dot(thirdRight);
+			Assert::IsTrue(third == -30);
+		}
+
+		// TODO: MAYBE test conversions (depends on if they will even exist).
 	};
 }

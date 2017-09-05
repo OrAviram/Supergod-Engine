@@ -1,4 +1,5 @@
 #include "Vector2D.h"
+#include "../SMath.h"
 #include "VectorUtils.h"
 #include <functional>
 
@@ -12,6 +13,36 @@ namespace SupergodEngine { namespace Math
 	Vector2D::Vector2D(const float& x, const float& y)
 		: x(x), y(y)
 	{
+	}
+
+	bool Vector2D::Equals(const Vector2D& other) const
+	{
+		return x == other.x && y == other.y;
+	}
+
+	bool Vector2D::CloseEnough(const Vector2D& other, const float& threshold) const
+	{
+		return SMath::CloseEnough(x, other.x, threshold) && SMath::CloseEnough(y, other.y, threshold);
+	}
+
+	bool Vector2D::ContainsComponent(std::function<bool(const float&)> test) const
+	{
+		for (size_t i = 0; i < ARRAY_ELEMENTS_COUNT(components); i++)
+		{
+			if (test(components[i]))
+				return true;
+		}
+		return false;
+	}
+
+	bool Vector2D::operator==(const Vector2D& other) const
+	{
+		return Equals(other);
+	}
+
+	bool Vector2D::operator!=(const Vector2D& other) const
+	{
+		return !(*this == other);
 	}
 
 	float Vector2D::Magnitude() const
@@ -55,14 +86,6 @@ namespace SupergodEngine { namespace Math
 	}
 
 	#pragma region Those methods are here just so it will compile. I will organize and implement them later.
-	bool Vector2D::Equals(const Vector2D & other) const
-	{
-		return false;
-	}
-	bool Vector2D::CloseEnough(const Vector2D & other, const float & threshold) const
-	{
-		return false;
-	}
 	Vector2D Vector2D::Abs() const
 	{
 		return Vector2D();
@@ -87,6 +110,10 @@ namespace SupergodEngine { namespace Math
 	{
 		return Vector2D();
 	}
+	Vector2D Vector2D::Divide(const Vector2D & scalar) const
+	{
+		return Vector2D();
+	}
 	const float & Vector2D::BiggestComponent() const
 	{
 		return x;
@@ -96,10 +123,6 @@ namespace SupergodEngine { namespace Math
 	{
 		return x;
 		// TODO: insert return statement here
-	}
-	bool Vector2D::ContainsComponent(std::function<void(const float&)> test) const
-	{
-		return false;
 	}
 	Vector2D Vector2D::ClampComponents(const float & min, const float & max) const
 	{

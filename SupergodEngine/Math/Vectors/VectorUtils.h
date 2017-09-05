@@ -12,6 +12,15 @@ namespace SupergodEngine { namespace Math
 	namespace Vector
 	{
 		/// <summary>
+		/// Gets the dot product of a and b. NOTE: The implementation is struct-specific, and this is just a static way to call the methods.
+		/// </summary>
+		template<class T>
+		SUPERGOD_API float Dot(const IVector<T>& a, const IVector<T>& b)
+		{
+			return a.Dot((const T&)b);
+		}
+
+		/// <summary>
 		/// Gets the squared magnitude of vector. This is faster than squaring the magnitude.
 		/// </summary>
 		template<class T>
