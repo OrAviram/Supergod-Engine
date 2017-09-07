@@ -66,5 +66,21 @@ namespace SupergodEngine { namespace Math
 		{
 			return vector * scalar;
 		}
+
+		/// <summary>
+		/// Divides every component of this by its corresponding component in other.
+		/// </summary>
+		T operator/(const T& other) const
+		{
+			return Divide(other);
+		}
+
+		/// <summary>
+		/// Divides every component of this by scalar.
+		/// </summary>
+		T operator/(const float& scalar) const
+		{
+			return Divide(scalar);
+		}
 	};
 } }

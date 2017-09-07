@@ -6,6 +6,5 @@ using namespace SupergodEngine;
 
 void main()
 {
-	
 	cin.get();
 }

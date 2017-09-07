@@ -82,19 +82,9 @@ namespace SupergodEngine { namespace Math
 		Vector2D Divide(const float& scalar) const override;
 
 		/// <summary>
-		/// Divides every component of this by scalar.
-		/// </summary>
-		Vector2D operator/(const float& scalar) const;
-
-		/// <summary>
 		/// Divides every component of this by its corresponding component in scalar.
 		/// </summary>
 		Vector2D Divide(const Vector2D& other) const override;
-
-		/// <summary>
-		/// Divides every component of this by its corresponding component in scalar.
-		/// </summary>
-		Vector2D operator/(const Vector2D& other) const;
 		#pragma endregion
 
 		#pragma region Those methods are here just so it will compile. I will organize and implement them later.
