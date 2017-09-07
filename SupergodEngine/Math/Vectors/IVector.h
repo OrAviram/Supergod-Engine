@@ -102,5 +102,29 @@ namespace SupergodEngine { namespace Math
 		{
 			return Divide(scalar);
 		}
+
+		/// <summary>
+		/// Adds every component of this with its corresponding component in other.
+		/// </summary>
+		T operator+(const T& other)
+		{
+			return Add(other);
+		}
+
+		/// <summary>
+		/// Adds every component of other from its corresponding component in this.
+		/// </summary>
+		T operator-(const T& other)
+		{
+			return Subtract(other);
+		}
+
+		/// <summary>
+		/// Negates every component of this.
+		/// </summary>
+		T operator-()
+		{
+			return Negated();
+		}
 	};
 } }
