@@ -85,6 +85,26 @@ namespace SupergodEngine { namespace Math
 		return Multiply(scalar);
 	}
 
+	Vector2D Vector2D::Divide(const float& scalar) const
+	{
+		return Vector2D(x / scalar, y / scalar);
+	}
+
+	Vector2D Vector2D::operator/(const float& scalar) const
+	{
+		return Divide(scalar);
+	}
+
+	Vector2D Vector2D::Divide(const Vector2D& other) const
+	{
+		return Vector2D(x / other.x, y / other.y);
+	}
+
+	Vector2D Vector2D::operator/(const Vector2D& other) const
+	{
+		return Divide(other);
+	}
+
 	#pragma region Those methods are here just so it will compile. I will organize and implement them later.
 	Vector2D Vector2D::Abs() const
 	{
@@ -103,14 +123,6 @@ namespace SupergodEngine { namespace Math
 		return Vector2D();
 	}
 	Vector2D Vector2D::Negated() const
-	{
-		return Vector2D();
-	}
-	Vector2D Vector2D::Divide(const float & scalar) const
-	{
-		return Vector2D();
-	}
-	Vector2D Vector2D::Divide(const Vector2D & scalar) const
 	{
 		return Vector2D();
 	}
