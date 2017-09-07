@@ -39,7 +39,7 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
-		/// Gets a unit vector pointing at the same direction of vector.
+		/// Gets a unit vector pointing at the same direction as vector.
 		/// </summary>
 		template<class T>
 		SUPERGOD_API T Normalize(const IVector<T>& vector)

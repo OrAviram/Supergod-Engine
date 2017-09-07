@@ -41,23 +41,6 @@ namespace SupergodEngine { namespace Math
 		bool ContainsComponent(std::function<bool(const float&)> test) const override;
 		#pragma endregion
 
-		#pragma region Magnitude, squared magnitude and normalization.
-		/// <summary>
-		/// Gets the magnitude (length) of this vector.
-		/// </summary>
-		float Magnitude() const override;
-		
-		/// <summary>
-		/// Gets the squared magnitude (length) of this vector. This is faster than squaring the magnitude.
-		/// </summary>
-		float SqrMagnitude() const override;
-		
-		/// <summary>
-		/// Gets a unit vector pointing in the same direction of this vector.
-		/// </summary>
-		Vector2D Normalized() const override;
-		#pragma endregion
-
 		#pragma region Multiplication (Dot and Multiply).
 		/// <summary>
 		/// Gets the dot product of this and other.

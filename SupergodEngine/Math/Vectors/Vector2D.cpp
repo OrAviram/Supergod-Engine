@@ -35,21 +35,6 @@ namespace SupergodEngine { namespace Math
 		return false;
 	}
 
-	float Vector2D::Magnitude() const
-	{
-		return Vector::Magnitude(*this);
-	}
-
-	float Vector2D::SqrMagnitude() const
-	{
-		return Vector::SqrMagnitude(*this);
-	}
-
-	Vector2D Vector2D::Normalized() const
-	{
-		return Vector::Normalize(*this);
-	}
-
 	float Vector2D::Dot(const Vector2D& other) const
 	{
 		return x * other.x + y * other.y;

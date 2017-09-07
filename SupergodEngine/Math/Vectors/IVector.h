@@ -32,16 +32,36 @@ namespace SupergodEngine { namespace Math
 		virtual T Divide(const T& other) const = 0;
 		virtual T Divide(const float& scalar) const = 0;
 
-		virtual float Magnitude() const = 0;
-		virtual float SqrMagnitude() const = 0;
-		virtual T Normalized() const = 0;
-
 		virtual const float& BiggestComponent() const = 0;
 		virtual const float& SmallestComponent() const = 0;
 		virtual float Dot(const T& other) const = 0;
 
 		virtual bool ContainsComponent(std::function<bool(const float&)> test) const = 0;
 		virtual T ClampComponents(const float& min, const float& max) const = 0;
+
+		/// <summary>
+		/// Gets the magnitude (length) of this vector.
+		/// </summary>
+		float Magnitude() const
+		{
+			return Vector::Magnitude(*this);
+		}
+
+		/// <summary>
+		/// Gets the squared magnitude (length) of this vector. This is faster than squaring the magnitude.
+		/// </summary>
+		float SqrMagnitude() const
+		{
+			return Vector::SqrMagnitude(*this);
+		}
+
+		/// <summary>
+		/// Gets a unit vector pointing to the same direction as this.
+		/// </summary>
+		T Normalized() const
+		{
+			return Vector::Normalize(*this);
+		}
 
 		/// <summary>
 		/// Multiplies this and other component-wise.
