@@ -27,12 +27,7 @@ namespace SupergodEngine { namespace Math
 
 	bool Vector2D::ContainsComponent(std::function<bool(const float&)> test) const
 	{
-		for (size_t i = 0; i < ARRAY_ELEMENTS_COUNT(components); i++)
-		{
-			if (test(components[i]))
-				return true;
-		}
-		return false;
+		return test(x) || test(y);
 	}
 
 	float Vector2D::Dot(const Vector2D& other) const
