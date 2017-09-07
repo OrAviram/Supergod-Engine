@@ -21,7 +21,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>Creates a new 2D vector and initializes its components to x and y.</summary>
 		explicit Vector2D(const float& x, const float& y);
 
-		#pragma region Comparison methods (Equals, operators, ContainsComponent, CloseEnough).
+		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>
 		/// Is every component of this same as its corresponding component in other?
 		/// </summary>
@@ -58,7 +58,7 @@ namespace SupergodEngine { namespace Math
 		Vector2D Normalized() const override;
 		#pragma endregion
 
-		#pragma region Multiplication (Dot, Multiply, and the operators).
+		#pragma region Multiplication (Dot and Multiply).
 		/// <summary>
 		/// Gets the dot product of this and other.
 		/// </summary>
@@ -73,27 +73,8 @@ namespace SupergodEngine { namespace Math
 		/// Multiplies every component of this by scalar.
 		/// </summary>
 		Vector2D Multiply(const float& scalar) const override;
-
-		/// <summary>
-		/// Multiplies this and other component-wise.
-		/// </summary>
-		Vector2D operator*(const Vector2D& other) const;
-
-		/// <summary>
-		/// Multiplies every component of this by scalar.
-		/// </summary>
-		Vector2D operator*(const float& scalar) const;
-
-		/// <summary>
-		/// Multiplies every component of vector by scalar.
-		/// </summary>
-		friend Vector2D operator*(const float& scalar, const Vector2D& vector)
-		{
-			return vector * scalar;
-		}
 		#pragma endregion
 
-		// TODO: Implement and document those.
 		#pragma region Division.
 		/// <summary>
 		/// Divides every component of this by scalar.

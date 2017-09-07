@@ -42,5 +42,29 @@ namespace SupergodEngine { namespace Math
 
 		virtual bool ContainsComponent(std::function<bool(const float&)> test) const = 0;
 		virtual T ClampComponents(const float& min, const float& max) const = 0;
+
+		/// <summary>
+		/// Multiplies this and other component-wise.
+		/// </summary>
+		T operator*(const T& other) const
+		{
+			return Multiply(other);
+		}
+
+		/// <summary>
+		/// Multiplies every component of this by scalar.
+		/// </summary>
+		T operator*(const float& scalar) const
+		{
+			return Multiply(scalar);
+		}
+
+		/// <summary>
+		/// Multiplies every component of vector by scalar.
+		/// </summary>
+		friend T operator*(const float& scalar, const T& vector)
+		{
+			return vector * scalar;
+		}
 	};
 } }

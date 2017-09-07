@@ -65,16 +65,6 @@ namespace SupergodEngine { namespace Math
 		return Vector2D(x * scalar, y * scalar);
 	}
 
-	Vector2D Vector2D::operator*(const Vector2D& other) const
-	{
-		return Multiply(other);
-	}
-
-	Vector2D Vector2D::operator*(const float& scalar) const
-	{
-		return Multiply(scalar);
-	}
-
 	Vector2D Vector2D::Divide(const float& scalar) const
 	{
 		return Vector2D(x / scalar, y / scalar);
