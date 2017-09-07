@@ -41,6 +41,23 @@ namespace SupergodEngine { namespace Math
 		bool ContainsComponent(std::function<bool(const float&)> test) const override;
 		#pragma endregion
 
+		#pragma region Addition, subtraction and negation.
+		/// <summary>
+		/// Adds every component of this with its corresponding component in other.
+		/// </summary>
+		Vector2D Add(const Vector2D& other) const override;
+
+		/// <summary>
+		/// Subtracts every component of other from its corresponding component in this.
+		/// </summary>
+		Vector2D Subtract(const Vector2D& other) const override;
+		
+		/// <summary>
+		/// Negates every component of this.
+		/// </summary>
+		Vector2D Negated() const override;
+		#pragma endregion
+
 		#pragma region Multiplication (Dot and Multiply).
 		/// <summary>
 		/// Gets the dot product of this and other.
@@ -74,12 +91,6 @@ namespace SupergodEngine { namespace Math
 		Vector2D Abs() const override;
 
 		Vector2D Clamp(const Vector2D & min, const Vector2D & max) const override;
-
-		Vector2D Add(const Vector2D & other) const override;
-
-		Vector2D Subtract(const Vector2D & other) const override;
-
-		Vector2D Negated() const override;
 
 		const float & BiggestComponent() const override;
 

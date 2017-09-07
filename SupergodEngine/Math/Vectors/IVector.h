@@ -106,7 +106,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Adds every component of this with its corresponding component in other.
 		/// </summary>
-		T operator+(const T& other)
+		T operator+(const T& other) const
 		{
 			return Add(other);
 		}
@@ -114,7 +114,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Adds every component of other from its corresponding component in this.
 		/// </summary>
-		T operator-(const T& other)
+		T operator-(const T& other) const
 		{
 			return Subtract(other);
 		}
@@ -122,7 +122,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Negates every component of this.
 		/// </summary>
-		T operator-()
+		T operator-() const
 		{
 			return Negated();
 		}

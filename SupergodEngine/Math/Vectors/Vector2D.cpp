@@ -30,6 +30,21 @@ namespace SupergodEngine { namespace Math
 		return test(x) || test(y);
 	}
 
+	Vector2D Vector2D::Add(const Vector2D& other) const
+	{
+		return Vector2D(x + other.x, y + other.y);
+	}
+
+	Vector2D Vector2D::Subtract(const Vector2D & other) const
+	{
+		return Vector2D(x - other.x, y - other.y);
+	}
+
+	Vector2D Vector2D::Negated() const
+	{
+		return Vector2D(-x, -y);
+	}
+
 	float Vector2D::Dot(const Vector2D& other) const
 	{
 		return x * other.x + y * other.y;
@@ -61,18 +76,6 @@ namespace SupergodEngine { namespace Math
 		return Vector2D();
 	}
 	Vector2D Vector2D::Clamp(const Vector2D & min, const Vector2D & max) const
-	{
-		return Vector2D();
-	}
-	Vector2D Vector2D::Add(const Vector2D & other) const
-	{
-		return Vector2D();
-	}
-	Vector2D Vector2D::Subtract(const Vector2D & other) const
-	{
-		return Vector2D();
-	}
-	Vector2D Vector2D::Negated() const
 	{
 		return Vector2D();
 	}

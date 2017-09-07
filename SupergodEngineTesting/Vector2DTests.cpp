@@ -73,8 +73,87 @@ namespace SupergodEngineTesting
 
 		// TODO: Maybe insert
 		//        ProjectOntoTest, ReflectionTest, AngleTest, DistanceTests,
-		//        LookPointAtTests, ClampingTests, LerpTests, AdditionTest,
-		//        SubtractionTest, NegatingTest here later.
+		//        LookPointAtTests, ClampingTests, LerpTests here later.
+
+		// TODO: Finish test.
+		TEST_METHOD(AdditionTest)
+		{
+			Vector2D left(1, 1);
+			Vector2D right(3, 5);
+			Vector2D expectedResult(4, 6);
+
+			Assert::IsTrue(left + right == expectedResult);
+			Assert::IsTrue(left.Add(right) == expectedResult);
+			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+
+			left = Vector2D(3, 876);
+			right = Vector2D(-1, -500);
+			expectedResult = Vector2D(2, 376);
+
+			Assert::IsTrue(left + right == expectedResult);
+			Assert::IsTrue(left.Add(right) == expectedResult);
+			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+
+			left = Vector2D(5, -2.3f);
+			right = Vector2D(5, 0.3f);
+			expectedResult = Vector2D(10, -2);
+
+			Assert::IsTrue(left + right == expectedResult);
+			Assert::IsTrue(left.Add(right) == expectedResult);
+			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+		}
+
+		// TODO: Finish test.
+		TEST_METHOD(SubtractionTest)
+		{
+			Vector2D left(1, 1);
+			Vector2D right(3, 5);
+			Vector2D expectedResult(-2, -4);
+
+			Assert::IsTrue(left - right == expectedResult);
+			Assert::IsTrue(left.Subtract(right) == expectedResult);
+			//Assert::IsTrue(Vector.Subtract(left, right) == expectedResult);
+
+			left = Vector2D(3, 876);
+			right = Vector2D(-1, -500);
+			expectedResult = Vector2D(4, 1376);
+
+			Assert::IsTrue(left - right == expectedResult);
+			Assert::IsTrue(left.Subtract(right) == expectedResult);
+			//Assert::IsTrue(Vector.Subtract(left, right) == expectedResult);
+
+			left = Vector2D(5, -2.3f);
+			right = Vector2D(5, 0.3f);
+			expectedResult = Vector2D(0, -2.6f);
+
+			Assert::IsTrue(left - right == expectedResult);
+			Assert::IsTrue(left.Subtract(right) == expectedResult);
+		}
+		
+		// TODO: Finish test.
+		TEST_METHOD(NegatingTest)
+		{
+			Vector2D vector(1, 1);
+			Vector2D expectedResult(-1, -1);
+
+			Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(vector.Negated() == expectedResult);
+			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+
+			vector = Vector2D(2, 5);
+			expectedResult = Vector2D(-2, -5);
+
+			Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(vector.Negated() == expectedResult);
+			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+
+			vector = Vector2D(-2, 6.5f);
+			expectedResult = Vector2D(2, -6.5f);
+
+			Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(vector.Negated() == expectedResult);
+			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+		}
 
 		// TODO: Finish test.
 		TEST_METHOD(ScalarMultiplicationTest)
