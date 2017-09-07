@@ -35,16 +35,6 @@ namespace SupergodEngine { namespace Math
 		return false;
 	}
 
-	bool Vector2D::operator==(const Vector2D& other) const
-	{
-		return Equals(other);
-	}
-
-	bool Vector2D::operator!=(const Vector2D& other) const
-	{
-		return !(*this == other);
-	}
-
 	float Vector2D::Magnitude() const
 	{
 		return Vector::Magnitude(*this);

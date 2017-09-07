@@ -39,16 +39,6 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
 		bool ContainsComponent(std::function<bool(const float&)> test) const override;
-		
-		/// <summary>
-		/// Is every component of this the same as its corresponding component in other?
-		/// </summary>
-		bool operator==(const Vector2D& other) const;
-
-		/// <summary>
-		/// Are any of the components of this NOT equal to their corresponding component in other?
-		/// </summary>
-		bool operator!=(const Vector2D& other) const;
 		#pragma endregion
 
 		#pragma region Magnitude, squared magnitude and normalization.
