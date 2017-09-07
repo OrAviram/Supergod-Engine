@@ -131,7 +131,12 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the bigger number of the two.
 		/// </summary>
-		SUPERGOD_API float Max(const float& a, const float& b);
+		SUPERGOD_API const float& Max(const float& a, const float& b);
+
+		/// <summary>
+		/// Gets the bigger number of the two.
+		/// </summary>
+		SUPERGOD_API float& Max(float& a, float& b);
 
 		/// <summary>
 		/// Gets the biggest number in the values array.
@@ -141,7 +146,12 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the smallest number between the two.
 		/// </summary>
-		SUPERGOD_API float Min(const float& a, const float& b);
+		SUPERGOD_API const float& Min(const float& a, const float& b);
+
+		/// <summary>
+		/// Gets the smallest number between the two.
+		/// </summary>
+		SUPERGOD_API float& Min(float& a, float& b);
 
 		/// <summary>
 		/// Gets the smallest number in the values array.

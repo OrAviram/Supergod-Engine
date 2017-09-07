@@ -32,8 +32,11 @@ namespace SupergodEngine { namespace Math
 		virtual T Divide(const T& other) const = 0;
 		virtual T Divide(const float& scalar) const = 0;
 
+		virtual float& BiggestComponent() = 0;
+		virtual float& SmallestComponent() = 0;
 		virtual const float& BiggestComponent() const = 0;
 		virtual const float& SmallestComponent() const = 0;
+
 		virtual float Dot(const T& other) const = 0;
 
 		virtual bool ContainsComponent(std::function<bool(const float&)> test) const = 0;

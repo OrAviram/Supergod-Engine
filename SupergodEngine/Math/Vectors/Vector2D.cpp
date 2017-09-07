@@ -70,6 +70,26 @@ namespace SupergodEngine { namespace Math
 		return Vector2D(x / other.x, y / other.y);
 	}
 
+	float& Vector2D::BiggestComponent()
+	{
+		return FMath::Max(x, y);
+	}
+
+	float& Vector2D::SmallestComponent()
+	{
+		return FMath::Min(x, y);
+	}
+
+	const float& Vector2D::BiggestComponent() const
+	{
+		return FMath::Max(x, y);
+	}
+
+	const float& Vector2D::SmallestComponent() const
+	{
+		return FMath::Min(x, y);
+	}
+
 	#pragma region Those methods are here just so it will compile. I will organize and implement them later.
 	Vector2D Vector2D::Abs() const
 	{
@@ -78,16 +98,6 @@ namespace SupergodEngine { namespace Math
 	Vector2D Vector2D::Clamp(const Vector2D & min, const Vector2D & max) const
 	{
 		return Vector2D();
-	}
-	const float & Vector2D::BiggestComponent() const
-	{
-		return x;
-		// TODO: insert return statement here
-	}
-	const float & Vector2D::SmallestComponent() const
-	{
-		return x;
-		// TODO: insert return statement here
 	}
 	Vector2D Vector2D::ClampComponents(const float & min, const float & max) const
 	{

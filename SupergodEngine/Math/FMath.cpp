@@ -132,7 +132,12 @@ namespace SupergodEngine { namespace Math
 	#pragma endregion
 
 	#pragma region Min/Max.
-	float FMath::Max(const float& a, const float& b)
+	const float& FMath::Max(const float& a, const float& b)
+	{
+		return a > b ? a : b;
+	}
+
+	float& FMath::Max(float& a, float& b)
 	{
 		return a > b ? a : b;
 	}
@@ -148,7 +153,12 @@ namespace SupergodEngine { namespace Math
 		return biggest;
 	}
 
-	float FMath::Min(const float& a, const float& b)
+	const float& FMath::Min(const float& a, const float& b)
+	{
+		return a < b ? a : b;
+	}
+
+	float& FMath::Min(float& a, float& b)
 	{
 		return a < b ? a : b;
 	}

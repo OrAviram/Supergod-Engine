@@ -87,14 +87,32 @@ namespace SupergodEngine { namespace Math
 		Vector2D Divide(const Vector2D& other) const override;
 		#pragma endregion
 
+		#pragma region BiggestComponent/BiggestComponent.
+		/// <summary>
+		/// Gets a reference to the biggest component in the vector.
+		/// </summary>
+		float& BiggestComponent() override;
+
+		/// <summary>
+		/// Gets a reference to the smallest component in the vector.
+		/// </summary>
+		float& SmallestComponent() override;
+
+		/// <summary>
+		/// Gets a reference to the biggest component in the vector.
+		/// </summary>
+		const float& BiggestComponent() const override;
+
+		/// <summary>
+		/// Gets a reference to the smallest component in the vector.
+		/// </summary>
+		const float& SmallestComponent() const override;
+		#pragma endregion
+
 		#pragma region Those methods are here just so it will compile. I will organize and implement them later.
 		Vector2D Abs() const override;
 
 		Vector2D Clamp(const Vector2D & min, const Vector2D & max) const override;
-
-		const float & BiggestComponent() const override;
-
-		const float & SmallestComponent() const override;
 
 		Vector2D ClampComponents(const float & min, const float & max) const override;
 		#pragma endregion
