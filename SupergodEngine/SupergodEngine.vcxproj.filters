@@ -13,6 +13,7 @@
     <ClInclude Include="Math\Vectors\Vector2D.h" />
     <ClInclude Include="Math\Vectors\VectorUtils.h" />
     <ClInclude Include="Math\SMath.h" />
+    <ClInclude Include="Math\Interfaces\IAddable.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />

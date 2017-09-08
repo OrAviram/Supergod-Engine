@@ -96,7 +96,6 @@ namespace SupergodEngineTesting
 		//        ProjectOntoTest, ReflectionTest, AngleTest, DistanceTests,
 		//        LookPointAtTests, ClampingTests, LerpTests here later.
 
-		// TODO: Finish test.
 		TEST_METHOD(AdditionTest)
 		{
 			Vector2D left(1, 1);
@@ -105,7 +104,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left + right == expectedResult);
 			Assert::IsTrue(left.Add(right) == expectedResult);
-			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+			Assert::IsTrue(Addable::Add(left, right) == expectedResult);
 
 			left = Vector2D(3, 876);
 			right = Vector2D(-1, -500);
@@ -113,7 +112,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left + right == expectedResult);
 			Assert::IsTrue(left.Add(right) == expectedResult);
-			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+			Assert::IsTrue(Addable::Add(left, right) == expectedResult);
 
 			left = Vector2D(5, -2.3f);
 			right = Vector2D(5, 0.3f);
@@ -121,7 +120,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left + right == expectedResult);
 			Assert::IsTrue(left.Add(right) == expectedResult);
-			//Assert::IsTrue(Vector.Add(left, right) == expectedResult);
+			Assert::IsTrue(Addable::Add(left, right) == expectedResult);
 		}
 
 		// TODO: Finish test.

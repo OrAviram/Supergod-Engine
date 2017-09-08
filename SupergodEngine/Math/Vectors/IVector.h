@@ -4,6 +4,7 @@
 #include "../Interfaces/ISupergodEquatable.h"
 #include "../Interfaces/IAbsolutable.h"
 #include "../Interfaces/IClampable.h"
+#include "../Interfaces/IAddable.h"
 
 namespace std
 {
@@ -20,9 +21,8 @@ namespace SupergodEngine { namespace Math
 	/// T is the type of the vector.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>
+	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public IAddable<T>
 	{
-		virtual T Add(const T& other) const = 0;
 		virtual T Subtract(const T& other) const = 0;
 		virtual T Negated() const = 0;
 
@@ -104,14 +104,6 @@ namespace SupergodEngine { namespace Math
 		T operator/(const float& scalar) const
 		{
 			return Divide(scalar);
-		}
-
-		/// <summary>
-		/// Adds every component of this with its corresponding component in other.
-		/// </summary>
-		T operator+(const T& other) const
-		{
-			return Add(other);
 		}
 
 		/// <summary>
