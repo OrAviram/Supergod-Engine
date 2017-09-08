@@ -3,59 +3,32 @@
 
 namespace SupergodEngine { namespace Math
 {
+	#define TWO_SIDED_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) \
+		template<class T> \
+		interface SUPERGOD_API interfaceName \
+		{ \
+			virtual T functionName(const T& other) const = 0; \
+			inline T operator sign(const T& other) const \
+			{ \
+				return functionName(other); \
+			} \
+			inline T operator sign=(const T& other) \
+			{ \
+				T& t = (T&)*this; \
+				t = functionName(other); \
+				return t; \
+			} \
+		}
+
 	/// <summary>
 	/// Interface for classes that can be added.
 	/// </summary>
-	template<class T>
-	interface SUPERGOD_API IAddable
-	{
-		virtual T Add(const T& other) const = 0;
-
-		/// <summary>
-		/// Adds this and other (implementation is class-specific).
-		/// </summary>
-		inline T operator+(const T& other) const
-		{
-			return Add(other);
-		}
-
-		/// <summary>
-		/// Adds other to this.
-		/// </summary>
-		inline T operator+=(const T& other)
-		{
-			T& t = (T&)*this;
-			t = Add(other);
-			return t;
-		}
-	};
+	TWO_SIDED_ARITHMETIC_INTERFACE(IAddable, Add, +);
 
 	/// <summary>
 	/// Interface for classes that can be subtracted.
 	/// </summary>
-	template<class T>
-	interface SUPERGOD_API ISubtractable
-	{
-		virtual T Subtract(const T& other) const = 0;
-
-		/// <summary>
-		/// Subtracts other from this.
-		/// </summary>
-		inline T operator-(const T& other) const
-		{
-			return Subtract(other);
-		}
-
-		/// <summary>
-		/// Subtracts other from this.
-		/// </summary>
-		inline T operator-=(const T& other) const
-		{
-			T& t = (T&)*this;
-			t = Subtract(other);
-			return t;
-		}
-	};
+	TWO_SIDED_ARITHMETIC_INTERFACE(ISubtractable, Subtract, -);
 
 	/// <summary>
 	/// Interface for classes that can be subtracted.
@@ -106,4 +79,7 @@ namespace SupergodEngine { namespace Math
 			return target.Negated();
 		}
 	}
+
+	#undef TWO_SIDED_ARITHMETIC_INTERFACE
 } }
+
