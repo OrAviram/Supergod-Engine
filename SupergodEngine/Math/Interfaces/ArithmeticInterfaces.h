@@ -42,6 +42,16 @@ namespace SupergodEngine { namespace Math
 	/// Interface for classes that can be divided by a scalar.
 	/// </summary>
 	SCALAR_ARITHMETIC_INTERFACE(IScalarDividable, Divide, /);
+	
+	/// <summary>
+	/// Interface for classes that can be multiplied.
+	/// </summary>
+	TWO_SIDED_ARITHMETIC_INTERFACE(IMultipliable, Multiply, *);
+
+	/// <summary>
+	/// Interface for classes that can be multiplied by a scalar.
+	/// </summary>
+	SCALAR_ARITHMETIC_INTERFACE(IScalarMultipliable, Multiply, *);
 
 	/// <summary>
 	/// Interface for classes that can be subtracted.
@@ -99,6 +109,24 @@ namespace SupergodEngine { namespace Math
 		inline T Divide(const T& target, const float& scalar)
 		{
 			return target.Divide(scalar);
+		}
+
+		/// <summary>
+		/// Multiplies target by scalar.
+		/// </summary>
+		template<class T>
+		inline T Multiply(const T& target, const float& scalar)
+		{
+			return target.Multiply(scalar);
+		}
+
+		/// <summary>
+		/// Subtracts b from a.
+		/// </summary>
+		template<class T>
+		inline T Multiply(const T& a, const T& b)
+		{
+			return a.Multiply(b);
 		}
 
 		/// <summary>

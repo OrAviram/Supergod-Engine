@@ -21,16 +21,9 @@ namespace SupergodEngine { namespace Math
 	/// T is the type of the vector.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public ISubtractable<T>, public IAddable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>
+	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>,
+		public ISubtractable<T>, public IAddable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>, public IMultipliable<T>, public IScalarMultipliable<T>
 	{
-		virtual T Negated() const = 0;
-
-		virtual T Multiply(const T& other) const = 0;
-		virtual T Multiply(const float& scalar) const = 0;
-
-		virtual T Divide(const T& other) const = 0;
-		virtual T Divide(const float& scalar) const = 0;
-
 		virtual float& BiggestComponent() = 0;
 		virtual float& SmallestComponent() = 0;
 		virtual const float& BiggestComponent() const = 0;
@@ -63,22 +56,6 @@ namespace SupergodEngine { namespace Math
 		T Normalized() const
 		{
 			return Vector::Normalize(*this);
-		}
-
-		/// <summary>
-		/// Multiplies this and other component-wise.
-		/// </summary>
-		T operator*(const T& other) const
-		{
-			return Multiply(other);
-		}
-
-		/// <summary>
-		/// Multiplies every component of this by scalar.
-		/// </summary>
-		T operator*(const float& scalar) const
-		{
-			return Multiply(scalar);
 		}
 
 		/// <summary>

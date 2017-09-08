@@ -182,8 +182,8 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(vector * scalar == expectedResult);
 			Assert::IsTrue(scalar * vector == expectedResult);
-			//Assert::IsTrue(Vector.Multiply(vector, scalar) == expectedResult);
-			//Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Multiply(vector, scalar) == expectedResult);
+			Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
 			
 			vector = Vector2D(3, 876);
 			scalar = 2;
@@ -191,8 +191,8 @@ namespace SupergodEngineTesting
 			
 			Assert::IsTrue(vector * scalar == expectedResult);
 			Assert::IsTrue(scalar * vector == expectedResult);
-			//Assert::IsTrue(Vector.Multiply(vector, scalar) == expectedResult);
-			//Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Multiply(vector, scalar) == expectedResult);
+			Assert::IsTrue(vector.Multiply(scalar) == expectedResult);
 			
 			vector = Vector2D(5, .3f);
 			scalar = -1.5f;
@@ -200,8 +200,8 @@ namespace SupergodEngineTesting
 			
 			Assert::IsTrue((vector * scalar).CloseEnough(expectedResult));
 			Assert::IsTrue((scalar * vector).CloseEnough(expectedResult));
-			//Assert::IsTrue(Vector.Multiply(vector, scalar).CloseEnough(expectedResult));
-			//Assert::IsTrue(vector.Multiply(scalar).CloseEnough(expectedResult));
+			Assert::IsTrue(ArithmeticOps::Multiply(vector, scalar).CloseEnough(expectedResult));
+			Assert::IsTrue(vector.Multiply(scalar).CloseEnough(expectedResult));
 		}
 
 		TEST_METHOD(DivisionTest)
@@ -239,7 +239,6 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(ArithmeticOps::Divide(vector, vector2), expectedResult);
 		}
 
-		// TODO: Finish test.
 		TEST_METHOD(MultiplicationTest)
 		{
 			Vector2D left = Vector2D(1, 1);
@@ -248,7 +247,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left * right == expectedResult);
 			Assert::IsTrue(left.Multiply(right) == expectedResult);
-			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Multiply(left, right) == expectedResult);
 
 			left = Vector2D(3, 10);
 			right = Vector2D(-1, 1.5f);
@@ -256,7 +255,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left * right == expectedResult);
 			Assert::IsTrue(left.Multiply(right) == expectedResult);
-			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Multiply(left, right) == expectedResult);
 
 			left = Vector2D(3, 5);
 			right = Vector2D(5, -.5f);
@@ -264,7 +263,7 @@ namespace SupergodEngineTesting
 
 			Assert::IsTrue(left * right == expectedResult);
 			Assert::IsTrue(left.Multiply(right) == expectedResult);
-			//Assert::IsTrue(Vector.Multiply(left, right) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Multiply(left, right) == expectedResult);
 		}
 
 		TEST_METHOD(DotTest)
