@@ -13,4 +13,19 @@ namespace SupergodEngine { namespace Math
 	{
 		virtual T Clamp(const T& min, const T& max) const = 0;
 	};
+
+	/// <summary>
+	/// Namespace with functions that call methods from the IClampable interface.
+	/// </summary>
+	namespace Clamper
+	{
+		/// <summary>
+		/// Clamps target between min and max.
+		/// </summary>
+		template<class T>
+		T Clamp(const IClampable<T>& target, T& min, T& max)
+		{
+			return target.Clamp(min, max);
+		}
+	}
 } }
