@@ -58,6 +58,23 @@ namespace SupergodEngine { namespace Math
 	};
 
 	/// <summary>
+	/// Interface for classes that can be subtracted.
+	/// </summary>
+	template<class T>
+	interface SUPERGOD_API INegatable
+	{
+		virtual T Negated() const = 0;
+
+		/// <summary>
+		/// Negates this.
+		/// </summary>
+		inline T operator-() const
+		{
+			return Negated();
+		}
+	};
+
+	/// <summary>
 	/// Namespace with functions that are called from the arithmetic related interfaces.
 	/// </summary>
 	namespace ArithmeticOps
@@ -68,7 +85,7 @@ namespace SupergodEngine { namespace Math
 		template<class T>
 		inline T Add(const T& a, const T& b)
 		{
-			return a + b;
+			return a.Add(b);
 		}
 
 		/// <summary>
@@ -77,7 +94,16 @@ namespace SupergodEngine { namespace Math
 		template<class T>
 		inline T Subtract(const T& a, const T& b)
 		{
-			return a - b;
+			return a.Subtract(b);
+		}
+
+		/// <summary>
+		/// Negates target.
+		/// </summary>
+		template<class T>
+		inline T Negate(const T& target)
+		{
+			return target.Negated();
 		}
 	}
 } }

@@ -149,29 +149,28 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(left.Subtract(right) == expectedResult);
 		}
 		
-		// TODO: Finish test.
 		TEST_METHOD(NegatingTest)
 		{
 			Vector2D vector(1, 1);
 			Vector2D expectedResult(-1, -1);
 
-			//Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(-vector == expectedResult);
 			Assert::IsTrue(vector.Negated() == expectedResult);
-			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Negate(vector) == expectedResult);
 
 			vector = Vector2D(2, 5);
 			expectedResult = Vector2D(-2, -5);
 
-			//Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(-vector == expectedResult);
 			Assert::IsTrue(vector.Negated() == expectedResult);
-			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Negate(vector) == expectedResult);
 
 			vector = Vector2D(-2, 6.5f);
 			expectedResult = Vector2D(2, -6.5f);
 
-			//Assert::IsTrue(-vector == expectedResult);
+			Assert::IsTrue(-vector == expectedResult);
 			Assert::IsTrue(vector.Negated() == expectedResult);
-			//Assert::IsTrue(Vector.Negate(vector) == expectedResult);
+			Assert::IsTrue(ArithmeticOps::Negate(vector) == expectedResult);
 		}
 
 		// TODO: Finish test.
