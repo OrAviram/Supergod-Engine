@@ -3,22 +3,25 @@
 
 namespace SupergodEngine { namespace Math
 {
-	#define TWO_SIDED_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) \
+	#define ARITHMETIC_INTERFACE(interfaceName, functionName, sign, secondType, secondName) \
 		template<class T> \
 		interface SUPERGOD_API interfaceName \
 		{ \
-			virtual T functionName(const T& other) const = 0; \
-			inline T operator sign(const T& other) const \
+			virtual T functionName(const secondType& secondName) const = 0; \
+			inline T operator sign(const secondType& secondName) const \
 			{ \
-				return functionName(other); \
+				return functionName(secondName); \
 			} \
-			inline T operator sign=(const T& other) \
+			inline T operator sign=(const secondType& secondName) \
 			{ \
 				T& t = (T&)*this; \
-				t = functionName(other); \
+				t = functionName(secondName); \
 				return t; \
 			} \
 		}
+
+	#define TWO_SIDED_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) ARITHMETIC_INTERFACE(interfaceName, functionName, sign, T, other)
+	#define SCALAR_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) ARITHMETIC_INTERFACE(interfaceName, functionName, sign, float, scalar)
 
 	/// <summary>
 	/// Interface for classes that can be added.
@@ -80,6 +83,8 @@ namespace SupergodEngine { namespace Math
 		}
 	}
 
+	#undef ARITHMETIC_INTERFACE
 	#undef TWO_SIDED_ARITHMETIC_INTERFACE
+	#undef SCALAR_ARITHMETIC_INTERFACE
 } }
 
