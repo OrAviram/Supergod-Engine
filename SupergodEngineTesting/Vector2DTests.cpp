@@ -204,7 +204,6 @@ namespace SupergodEngineTesting
 			//Assert::IsTrue(vector.Multiply(scalar).CloseEnough(expectedResult));
 		}
 
-		// TODO: Finish test.
 		TEST_METHOD(DivisionTest)
 		{
 			Vector2D vector(5, 2);
@@ -213,7 +212,7 @@ namespace SupergodEngineTesting
 		
 			AssertUtils::AreEqual(vector / scalar, expectedResult);
 			AssertUtils::AreEqual(vector.Divide(scalar), expectedResult);
-			//Assert::AreEqual(Vector.Divide(vector, scalar), expectedResult);
+			AssertUtils::AreEqual(ArithmeticOps::Divide(vector, scalar), expectedResult);
 		
 			vector = Vector2D(.5f, -5);
 			scalar = .5f;
@@ -221,7 +220,7 @@ namespace SupergodEngineTesting
 		
 			AssertUtils::AreEqual(vector / scalar, expectedResult);
 			AssertUtils::AreEqual(vector.Divide(scalar), expectedResult);
-			//Assert::AreEqual(Vector.Divide(vector, scalar), expectedResult);
+			AssertUtils::AreEqual(ArithmeticOps::Divide(vector, scalar), expectedResult);
 		
 			vector = Vector2D(5, 2);
 			Vector2D vector2 = Vector2D(2, -2);
@@ -229,7 +228,7 @@ namespace SupergodEngineTesting
 		
 			AssertUtils::AreEqual(vector / vector2, expectedResult);
 			AssertUtils::AreEqual(vector.Divide(vector2), expectedResult);
-			//Assert::AreEqual(Vector.Divide(vector, vector2), expectedResult);
+			AssertUtils::AreEqual(ArithmeticOps::Divide(vector, vector2), expectedResult);
 		
 			vector = Vector2D(1, -5);
 			vector2 = Vector2D(5, 2);
@@ -237,7 +236,7 @@ namespace SupergodEngineTesting
 		
 			AssertUtils::AreEqual(vector / vector2, expectedResult);
 			AssertUtils::AreEqual(vector.Divide(vector2), expectedResult);
-			//Assert::AreEqual(Vector.Divide(vector, vector2), expectedResult);
+			AssertUtils::AreEqual(ArithmeticOps::Divide(vector, vector2), expectedResult);
 		}
 
 		// TODO: Finish test.

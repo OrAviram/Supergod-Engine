@@ -34,6 +34,16 @@ namespace SupergodEngine { namespace Math
 	TWO_SIDED_ARITHMETIC_INTERFACE(ISubtractable, Subtract, -);
 
 	/// <summary>
+	/// Interface for classes that can be divided.
+	/// </summary>
+	TWO_SIDED_ARITHMETIC_INTERFACE(IDividable, Divide, / );
+
+	/// <summary>
+	/// Interface for classes that can be divided by a scalar.
+	/// </summary>
+	SCALAR_ARITHMETIC_INTERFACE(IScalarDividable, Divide, /);
+
+	/// <summary>
 	/// Interface for classes that can be subtracted.
 	/// </summary>
 	template<class T>
@@ -71,6 +81,24 @@ namespace SupergodEngine { namespace Math
 		inline T Subtract(const T& a, const T& b)
 		{
 			return a.Subtract(b);
+		}
+
+		/// <summary>
+		/// Subtracts b from a.
+		/// </summary>
+		template<class T>
+		inline T Divide(const T& a, const T& b)
+		{
+			return a.Divide(b);
+		}
+
+		/// <summary>
+		/// Divides target by scalar.
+		/// </summary>
+		template<class T>
+		inline T Divide(const T& target, const float& scalar)
+		{
+			return target.Divide(scalar);
 		}
 
 		/// <summary>

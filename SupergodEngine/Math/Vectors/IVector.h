@@ -21,7 +21,7 @@ namespace SupergodEngine { namespace Math
 	/// T is the type of the vector.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public ISubtractable<T>, public IAddable<T>, public INegatable<T>
+	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public ISubtractable<T>, public IAddable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>
 	{
 		virtual T Negated() const = 0;
 
@@ -87,22 +87,6 @@ namespace SupergodEngine { namespace Math
 		friend T operator*(const float& scalar, const T& vector)
 		{
 			return vector * scalar;
-		}
-
-		/// <summary>
-		/// Divides every component of this by its corresponding component in other.
-		/// </summary>
-		T operator/(const T& other) const
-		{
-			return Divide(other);
-		}
-
-		/// <summary>
-		/// Divides every component of this by scalar.
-		/// </summary>
-		T operator/(const float& scalar) const
-		{
-			return Divide(scalar);
 		}
 	};
 } }
