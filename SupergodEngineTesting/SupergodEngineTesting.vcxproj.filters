@@ -11,7 +11,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MathTests.cpp" />
     <ClCompile Include="Vector2DTests.cpp" />
+    <ClCompile Include="SMathTests.cpp" />
   </ItemGroup>
 </Project>

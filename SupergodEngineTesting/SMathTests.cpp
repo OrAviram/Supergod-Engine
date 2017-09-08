@@ -5,7 +5,7 @@ namespace SupergodEngineTesting
 	using namespace Math;
 
 	// TODO: Unit test Clamp when I have it (probably in SMath).
-	TEST_CLASS(MathTests)
+	TEST_CLASS(SMathTests)
 	{
 	public:
 		TEST_METHOD(CloseEnoughTest)
@@ -16,6 +16,18 @@ namespace SupergodEngineTesting
 			
 			Assert::IsFalse(SMath::CloseEnough(1, 2, .5f));
 			Assert::IsFalse(SMath::CloseEnough(1, 1.0000001f, 0.000000001f));
+		}
+
+		TEST_METHOD(ClampTest)
+		{
+			float test = SMath::Clamp(5, 6, 10);
+			Assert::AreEqual(test, 6.f);
+
+			test = SMath::Clamp(5, 4, 10);
+			Assert::AreEqual(test, 5.f);
+
+			test = SMath::Clamp(20, 4, 10);
+			Assert::AreEqual(test, 10.f);
 		}
 
 		TEST_METHOD(SignTest)

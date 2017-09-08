@@ -14,7 +14,12 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Checks if the distance between a and b is threshold.
 		/// </summary>
-		SUPERGOD_API bool CloseEnough(float a, float b, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD);
+		SUPERGOD_API bool CloseEnough(const float& a, const float& b, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD);
+
+		/// <summary>
+		/// Clamps value so it's never smaller than min and never bigger than max.
+		/// </summary>
+		SUPERGOD_API float Clamp(const float& value, const float& min, const float& max);
 
 		/// <summary>
 		/// Gets the absolute value of value.

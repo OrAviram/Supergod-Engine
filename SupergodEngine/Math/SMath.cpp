@@ -4,9 +4,20 @@
 
 namespace SupergodEngine { namespace Math
 {
-	bool SMath::CloseEnough(float a, float b, float threshold)
+	bool SMath::CloseEnough(const float& a, const float& b, float threshold)
 	{
 		return SMath::Abs(a - b) <= threshold;
+	}
+	
+	float SMath::Clamp(const float& value, const float& min, const float& max)
+	{
+		if (value < min)
+			return min;
+
+		if (value > max)
+			return max;
+
+		return value;
 	}
 
 	float SMath::Abs(const float& value)

@@ -164,7 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MathTests.cpp" />
+    <ClCompile Include="SMathTests.cpp" />
     <ClCompile Include="Vector2DTests.cpp" />
   </ItemGroup>
   <ItemGroup>
