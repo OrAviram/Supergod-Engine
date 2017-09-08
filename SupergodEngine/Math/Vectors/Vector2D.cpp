@@ -72,22 +72,22 @@ namespace SupergodEngine { namespace Math
 
 	float& Vector2D::BiggestComponent()
 	{
-		return FMath::Max(x, y);
+		return SMath::Max(x, y);
 	}
 
 	float& Vector2D::SmallestComponent()
 	{
-		return FMath::Min(x, y);
+		return SMath::Min(x, y);
 	}
 
 	const float& Vector2D::BiggestComponent() const
 	{
-		return FMath::Max(x, y);
+		return SMath::Max(x, y);
 	}
 
 	const float& Vector2D::SmallestComponent() const
 	{
-		return FMath::Min(x, y);
+		return SMath::Min(x, y);
 	}
 
 	#pragma region Those methods are here just so it will compile. I will organize and implement them later.

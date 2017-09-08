@@ -1,9 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
-    <ClInclude Include="Math\FMath.h" />
     <ClInclude Include="Common\CommonDefines.h" />
     <ClInclude Include="Common\Math.h" />
     <ClInclude Include="SupergodEngine.h" />
@@ -14,10 +12,10 @@
     <ClInclude Include="Math\Interfaces\IClampable.h" />
     <ClInclude Include="Math\Vectors\Vector2D.h" />
     <ClInclude Include="Math\Vectors\VectorUtils.h" />
+    <ClInclude Include="Math\SMath.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Math\SMath.cpp" />
-    <ClCompile Include="Math\FMath.cpp" />
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />
+    <ClCompile Include="Math\SMath.cpp" />
   </ItemGroup>
 </Project>

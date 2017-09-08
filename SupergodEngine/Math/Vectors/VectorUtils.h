@@ -2,7 +2,7 @@
 
 #include "../../Common/CommonDefines.h"
 #include "IVector.h"
-#include "../FMath.h"
+#include "../SMath.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -35,7 +35,7 @@ namespace SupergodEngine { namespace Math
 		template<class T>
 		SUPERGOD_API float Magnitude(const IVector<T>& vector)
 		{
-			return FMath::Sqrt(vector.SqrMagnitude());
+			return SMath::Sqrt(vector.SqrMagnitude());
 		}
 
 		/// <summary>
