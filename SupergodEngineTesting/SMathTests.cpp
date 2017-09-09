@@ -4,7 +4,6 @@ namespace SupergodEngineTesting
 {
 	using namespace Math;
 
-	// TODO: Unit test Clamp when I have it (probably in SMath).
 	TEST_CLASS(SMathTests)
 	{
 	public:

@@ -15,8 +15,6 @@ namespace std
 
 namespace SupergodEngine { namespace Math
 {
-	// TODO: Add ILerpable once you figure out how to fixe the problem you have because of the lack of extension methods in C++.
-	
 	/// <summary>
 	/// Interface vector structs can implement.<para/>
 	/// T is the type of the vector.
