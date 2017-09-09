@@ -130,7 +130,6 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(Absolutable::Abs(Vector2D(1, 2)), Vector2D(1, 2));
 		}
 
-		// TODO: Maybe insert LerpTests here later.
 		TEST_METHOD(LerpTest)
 		{
 			Vector2D a(-10, -5);
