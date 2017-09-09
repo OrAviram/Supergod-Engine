@@ -1,6 +1,5 @@
 #include "Vector2D.h"
 #include "../SMath.h"
-#include "VectorUtils.h"
 #include <functional>
 
 namespace SupergodEngine { namespace Math

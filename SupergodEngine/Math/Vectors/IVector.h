@@ -39,7 +39,11 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		float Magnitude() const
 		{
-			return Vector::Magnitude(*this);
+			float sqrMagnitude = SqrMagnitude();
+			if (sqrMagnitude == 1 || sqrMagnitude == 0)
+				return sqrMagnitude;
+
+			return SMath::Sqrt(sqrMagnitude);
 		}
 
 		/// <summary>
@@ -47,7 +51,7 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		float SqrMagnitude() const
 		{
-			return Vector::SqrMagnitude(*this);
+			return Dot((const T&)*this);
 		}
 
 		/// <summary>
@@ -55,7 +59,7 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		T Normalized() const
 		{
-			return Vector::Normalize(*this);
+			return Divide(Magnitude());
 		}
 
 		/// <summary>
@@ -66,4 +70,46 @@ namespace SupergodEngine { namespace Math
 			return vector * scalar;
 		}
 	};
+
+	/// <summary>
+	/// Namespace that calls functions from IVector.
+	/// </summary>
+	namespace Vector
+	{
+		/// <summary>
+		/// Gets the dot product of a and b. NOTE: The implementation is struct-specific, and this is just a static way to call the methods.
+		/// </summary>
+		template<class T>
+		inline float Dot(const IVector<T>& a, const IVector<T>& b)
+		{
+			return a.Dot((const T&)b);
+		}
+
+		/// <summary>
+		/// Gets the squared magnitude of vector. This is faster than squaring the magnitude.
+		/// </summary>
+		template<class T>
+		inline float SqrMagnitude(const IVector<T>& vector)
+		{
+			return vector.SqrMagnitude();
+		}
+
+		/// <summary>
+		/// Gets the magnitude (length) of vector.
+		/// </summary>
+		template<class T>
+		inline float Magnitude(const IVector<T>& vector)
+		{
+			return vector.Magnitude();
+		}
+
+		/// <summary>
+		/// Gets a unit vector pointing at the same direction as vector.
+		/// </summary>
+		template<class T>
+		inline T Normalize(const IVector<T>& vector)
+		{
+			return vector.Normalized();
+		}
+	}
 } }

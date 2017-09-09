@@ -11,7 +11,6 @@
     <ClInclude Include="Math\Interfaces\IAbsolutable.h" />
     <ClInclude Include="Math\Interfaces\IClampable.h" />
     <ClInclude Include="Math\Vectors\Vector2D.h" />
-    <ClInclude Include="Math\Vectors\VectorUtils.h" />
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\Interfaces\ArithmeticInterfaces.h" />
   </ItemGroup>

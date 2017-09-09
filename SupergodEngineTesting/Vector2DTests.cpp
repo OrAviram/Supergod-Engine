@@ -173,7 +173,6 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(ArithmeticOps::Negate(vector) == expectedResult);
 		}
 
-		// TODO: Finish test.
 		TEST_METHOD(ScalarMultiplicationTest)
 		{
 			Vector2D vector(1, 1);

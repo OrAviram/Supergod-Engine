@@ -28,7 +28,6 @@
     <ClInclude Include="Math\Vectors\IVector.h" />
     <ClInclude Include="Math\Vectors\Vector.h" />
     <ClInclude Include="Math\Vectors\Vector2D.h" />
-    <ClInclude Include="Math\Vectors\VectorUtils.h" />
     <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
