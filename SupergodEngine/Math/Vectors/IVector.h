@@ -37,7 +37,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the magnitude (length) of this vector.
 		/// </summary>
-		float Magnitude() const
+		inline float Magnitude() const
 		{
 			float sqrMagnitude = SqrMagnitude();
 			if (sqrMagnitude == 1 || sqrMagnitude == 0)
@@ -49,7 +49,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the squared magnitude (length) of this vector. This is faster than squaring the magnitude.
 		/// </summary>
-		float SqrMagnitude() const
+		inline float SqrMagnitude() const
 		{
 			return Dot((const T&)*this);
 		}
@@ -57,7 +57,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets a unit vector pointing to the same direction as this.
 		/// </summary>
-		T Normalized() const
+		inline T Normalized() const
 		{
 			return Divide(Magnitude());
 		}
