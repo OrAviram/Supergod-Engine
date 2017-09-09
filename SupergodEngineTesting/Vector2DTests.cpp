@@ -131,6 +131,25 @@ namespace SupergodEngineTesting
 		}
 
 		// TODO: Maybe insert LerpTests here later.
+		TEST_METHOD(LerpTest)
+		{
+			Vector2D a(-10, -5);
+			Vector2D b(2, .5f);
+			Vector2D difference = b - a;
+
+			Test01([&](float alpha)
+			{
+				Vector2D result1 = Lerper::Lerp(a, b, alpha);
+				Vector2D result1NonStatic = a.Lerp(b, alpha);
+				Vector2D result2 = a + alpha * difference;
+
+				AssertUtils::CloseEnough(result1.x, result2.x);
+				AssertUtils::CloseEnough(result1.y, result2.y);
+				
+				AssertUtils::CloseEnough(result1NonStatic.x, result2.x);
+				AssertUtils::CloseEnough(result1NonStatic.y, result2.y);
+			});
+		}
 
 		TEST_METHOD(AdditionTest)
 		{

@@ -24,6 +24,7 @@
     <ClInclude Include="Math\Interfaces\ArithmeticInterfaces.h" />
     <ClInclude Include="Math\Interfaces\IAbsolutable.h" />
     <ClInclude Include="Math\Interfaces\IClampable.h" />
+    <ClInclude Include="Math\Interfaces\ILerpable.h" />
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
     <ClInclude Include="Math\Vectors\IVector.h" />
     <ClInclude Include="Math\Vectors\Vector.h" />

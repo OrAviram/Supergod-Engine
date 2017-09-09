@@ -4,6 +4,7 @@
 #include "../Interfaces/ISupergodEquatable.h"
 #include "../Interfaces/IAbsolutable.h"
 #include "../Interfaces/IClampable.h"
+#include "../Interfaces/ILerpable.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
 
 namespace std
@@ -21,8 +22,8 @@ namespace SupergodEngine { namespace Math
 	/// T is the type of the vector.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>,
-		public ISubtractable<T>, public IAddable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>, public IMultipliable<T>, public IScalarMultipliable<T>
+	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public ILerpable<T>,
+		public ISubtractable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>, public IMultipliable<T>
 	{
 		virtual float& BiggestComponent() = 0;
 		virtual float& SmallestComponent() = 0;
