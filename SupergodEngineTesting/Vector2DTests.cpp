@@ -33,14 +33,13 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(Vector2D(5, 10) != Vector2D(10, 10));
 		}
 
-		// TODO: Finish test.
 		TEST_METHOD(BiggestSmallestComponentTest)
 		{
 			Vector2D vector(5, 2);
-			//Assert::AreEqual(Vector.SmallestAxis(vector), 2);
-			//Assert::AreNotEqual(Vector.SmallestAxis(vector), 5);
-			//Assert::AreEqual(Vector.BiggestAxis(vector), 5);
-			//Assert::AreNotEqual(Vector.BiggestAxis(vector), 2);
+			Assert::AreEqual(Vector::SmallestComponent(vector), 2.f);
+			Assert::AreNotEqual(Vector::SmallestComponent(vector), 5.f);
+			Assert::AreEqual(Vector::BiggestComponent(vector), 5.f);
+			Assert::AreNotEqual(Vector::BiggestComponent(vector), 2.f);
 			
 			Assert::AreEqual(vector.SmallestComponent(), 2.f);
 			Assert::AreNotEqual(vector.SmallestComponent(), 5.f);

@@ -77,7 +77,43 @@ namespace SupergodEngine { namespace Math
 	namespace Vector
 	{
 		/// <summary>
-		/// Gets the dot product of a and b. NOTE: The implementation is struct-specific, and this is just a static way to call the methods.
+		/// Gets a reference to the biggest component in vector.
+		/// </summary>
+		template<class T>
+		inline float& BiggestComponent(IVector<T>& vector)
+		{
+			return vector.BiggestComponent();
+		}
+
+		/// <summary>
+		/// Gets a reference to the biggest component in vector.
+		/// </summary>
+		template<class T>
+		inline const float& BiggestComponent(const IVector<T>& vector)
+		{
+			return vector.BiggestComponent();
+		}
+
+		/// <summary>
+		/// Gets a reference to the smallest component in vector.
+		/// </summary>
+		template<class T>
+		inline float& SmallestComponent(IVector<T>& vector)
+		{
+			return vector.SmallestComponent();
+		}
+
+		/// <summary>
+		/// Gets a reference to the smallest component in vector.
+		/// </summary>
+		template<class T>
+		inline const float& SmallestComponent(const IVector<T>& vector)
+		{
+			return vector.SmallestComponent();
+		}
+
+		/// <summary>
+		/// Gets the dot product of a and b.
 		/// </summary>
 		template<class T>
 		inline float Dot(const IVector<T>& a, const IVector<T>& b)
