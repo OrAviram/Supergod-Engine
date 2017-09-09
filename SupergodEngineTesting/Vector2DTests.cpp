@@ -103,8 +103,47 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(SMath::CloseEnough(vec.SqrMagnitude(), Vector::SqrMagnitude(vec)) && SMath::CloseEnough(vec.SqrMagnitude(), 25.04f));
 		}
 
+		// Helper function used in ProjectOntoTest.
+		void TestProjection(Vector2D _source, Vector2D _target)
+		{
+			Vector2D bNormalized = _target.Normalized();
+			Vector2D oldResult = _source.Dot(bNormalized) * bNormalized;
+			Vector2D newResult = Vector::ProjectOnto(_source, _target);
+
+			AssertUtils::CloseEnough(newResult.x, oldResult.x);
+			AssertUtils::CloseEnough(newResult.y, oldResult.y);
+		}
+
+		TEST_METHOD(ProjectOntoTest)
+		{
+			Vector2D source(2, 4);
+			Vector2D target(1, 0);
+			Vector2D result = source.ProjectOnto(target);
+
+			AssertUtils::AreEqual(result, Vector2D(2, 0));
+
+			Vector2D vectors[] =
+			{
+				Vector2D(1, 3),
+				Vector2D(4.8f, 5.6f),
+				Vector2D(0, 5),
+				Vector2D(-3.2f, 4.9f),
+				Vector2D(2.4f, -99.6f),
+			};
+
+			for (int i = 0; i < ARRAY_ELEMENTS_COUNT(vectors) - 1; i++)
+			{
+				TestProjection(vectors[i], vectors[i + 1]);
+				TestProjection(vectors[i + 1], vectors[i]);
+			}
+			Vector2D a = Vector2D(0.5f, SMath::Sqrt(3) / 2);
+			Vector2D b = Vector2D(SMath::Sqrt(3) / 2, 0.5f);
+			float dot = a.Dot(b);
+			AssertUtils::CloseEnough(dot, SMath::Cos(Constants::PI / 6));
+		}
+
 		// TODO: Maybe insert
-		//        ProjectOntoTest, ReflectionTest, AngleTest,
+		//        ReflectionTest, AngleTest,
 		//		  DistanceTests and LookPointAtTests here later.
 
 		TEST_METHOD(ClampingTests)

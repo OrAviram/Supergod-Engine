@@ -80,6 +80,14 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
+		/// Projects this onto target.
+		/// </summary>
+		inline T ProjectOnto(const T& target) const
+		{
+			return this->Dot(target) / target.SqrMagnitude() * target;
+		}
+
+		/// <summary>
 		/// Multiplies every component of vector by scalar.
 		/// </summary>
 		friend T operator*(const float& scalar, const T& vector)
@@ -181,6 +189,15 @@ namespace SupergodEngine { namespace Math
 		inline T SetMagnitude(const IVector<T>& vector, const float& magnitude)
 		{
 			return vector.SetMagnitude(magnitude);
+		}
+
+		/// <summary>
+		/// Projects source onto target.
+		/// </summary>
+		template<class T>
+		inline T ProjectOnto(const IVector<T>& source, const T& target)
+		{
+			return source.ProjectOnto(target);
 		}
 	}
 } }
