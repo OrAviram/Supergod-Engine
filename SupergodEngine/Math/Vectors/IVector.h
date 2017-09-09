@@ -59,7 +59,25 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		inline T Normalized() const
 		{
-			return Divide(Magnitude());
+			return *this / Magnitude();
+		}
+
+		/// <summary>
+		/// Gets a vector pointing in the same direction as this with a magnitude that is clamped between min and max.
+		/// </summary>
+		inline T ClampMagnitude(const float& min, const float& max) const
+		{
+			float magnitude = Magnitude();
+			T normalized = *this / magnitude;
+			return normalized * SMath::Clamp(magnitude, min, max);
+		}
+
+		/// <summary>
+		/// Gets a vector pointing in the same direction as this with a magnitude of magnitude.
+		/// </summary>
+		inline T SetMagnitude(const float& magnitude) const
+		{
+			return Normalized() * magnitude;
 		}
 
 		/// <summary>
@@ -146,6 +164,24 @@ namespace SupergodEngine { namespace Math
 		inline T Normalize(const IVector<T>& vector)
 		{
 			return vector.Normalized();
+		}
+
+		/// <summary>
+		/// Gets a vector pointing in the same direction as this with a magnitude that is clamped between min and max.
+		/// </summary>
+		template<class T>
+		inline T ClampMagnitude(const IVector<T>& vector, const float& min, const float& max)
+		{
+			return vector.ClampMagnitude(min, max);
+		}
+
+		/// <summary>
+		/// Gets a vector pointing in the same direction as this with a magnitude of magnitude.
+		/// </summary>
+		template<class T>
+		inline T SetMagnitude(const IVector<T>& vector, const float& magnitude)
+		{
+			return vector.SetMagnitude(magnitude);
 		}
 	}
 } }

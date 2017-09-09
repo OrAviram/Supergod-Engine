@@ -92,8 +92,45 @@ namespace SupergodEngineTesting
 		}
 
 		// TODO: Maybe insert
-		//        ProjectOntoTest, ReflectionTest, AngleTest, DistanceTests,
-		//        LookPointAtTests, ClampingTests, LerpTests here later.
+		//        ProjectOntoTest, ReflectionTest, AngleTest,
+		//		  DistanceTests and LookPointAtTests here later.
+
+		TEST_METHOD(ClampingTests)
+		{
+			Vector2D vector = Vector2D(0, 10).Clamp(Vector2D(-2, 15), Vector2D(2, 20));
+			AssertUtils::AreEqual(vector, Vector2D(0, 15));
+
+			vector = Vector2D(2, 2).ClampComponents(0, 1);
+			AssertUtils::AreEqual(vector, Vector2D(1, 1));
+
+			vector = Vector2D(2, 2).ClampComponents(3, 4);
+			AssertUtils::AreEqual(vector, Vector2D(3, 3));
+
+			Vector2D lengthVector = Vector2D(1, 1);
+			Vector2D oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(.5f, .7f);
+
+			Assert::AreEqual(lengthVector.Magnitude(), .7f);
+			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
+
+			lengthVector = Vector2D(10, 10);
+			oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(18, 20);
+
+			Assert::AreEqual(lengthVector.Magnitude(), 18.f);
+			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
+
+			lengthVector = Vector2D(5, 5);
+			oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(-10, 10);
+			Assert::AreEqual(lengthVector.Magnitude(), oldLengthVector.Magnitude());
+			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
+
+			AssertUtils::AreEqual(Vector2D(-1, -2).Abs(), Vector2D(1, 2));
+			AssertUtils::AreEqual(Absolutable::Abs(Vector2D(1, 2)), Vector2D(1, 2));
+		}
+
+		// TODO: Maybe insert LerpTests here later.
 
 		TEST_METHOD(AdditionTest)
 		{

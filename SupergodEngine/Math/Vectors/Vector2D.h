@@ -109,11 +109,21 @@ namespace SupergodEngine { namespace Math
 		const float& SmallestComponent() const override;
 		#pragma endregion
 
-		#pragma region Those methods are here just so it will compile. I will organize and implement them later.
+		#pragma region Clamping methods.
+		/// <summary>
+		/// Gets a vector where all of its components are the absolute value of their corresponding component in this.
+		/// </summary>
+		/// <returns></returns>
 		Vector2D Abs() const override;
 
-		Vector2D Clamp(const Vector2D & min, const Vector2D & max) const override;
+		/// <summary>
+		/// Clamps every component of this so it's never smaller than its corresponding component in min and never bigger than its corresponding component in max.
+		/// </summary>
+		Vector2D Clamp(const Vector2D& min, const Vector2D& max) const override;
 
+		/// <summary>
+		/// Clamps every component of this so it's never smaller than min and never bigger than max.
+		/// </summary>
 		Vector2D ClampComponents(const float & min, const float & max) const override;
 		#pragma endregion
 	};

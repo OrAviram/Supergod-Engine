@@ -89,18 +89,18 @@ namespace SupergodEngine { namespace Math
 		return SMath::Min(x, y);
 	}
 
-	#pragma region Those methods are here just so it will compile. I will organize and implement them later.
 	Vector2D Vector2D::Abs() const
 	{
-		return Vector2D();
+		return Vector2D(SMath::Abs(x), SMath::Abs(y));
 	}
-	Vector2D Vector2D::Clamp(const Vector2D & min, const Vector2D & max) const
+
+	Vector2D Vector2D::Clamp(const Vector2D& min, const Vector2D& max) const
 	{
-		return Vector2D();
+		return Vector2D(SMath::Clamp(x, min.x, max.x), SMath::Clamp(y, min.y, max.y));
 	}
-	Vector2D Vector2D::ClampComponents(const float & min, const float & max) const
+
+	Vector2D Vector2D::ClampComponents(const float& min, const float& max) const
 	{
-		return Vector2D();
+		return Vector2D(SMath::Clamp(x, min, max), SMath::Clamp(y, min, max));
 	}
-	#pragma endregion
 } }

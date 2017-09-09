@@ -16,4 +16,19 @@ namespace SupergodEngine { namespace Math
 	{
 		virtual T Abs() const = 0;
 	};
+
+	/// <summary>
+	/// Namespace with functions that call methods from the IAbsolutable interface.
+	/// </summary>
+	namespace Absolutable
+	{
+		/// <summary>
+		/// Gets the absolute value of target..
+		/// </summary>
+		template<class T>
+		T Abs(const IAbsolutable<T>& target)
+		{
+			return target.Abs();
+		}
+	}
 } }

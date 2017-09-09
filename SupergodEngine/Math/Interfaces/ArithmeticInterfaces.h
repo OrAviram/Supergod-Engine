@@ -36,7 +36,7 @@ namespace SupergodEngine { namespace Math
 	/// <summary>
 	/// Interface for classes that can be divided.
 	/// </summary>
-	TWO_SIDED_ARITHMETIC_INTERFACE(IDividable, Divide, / );
+	TWO_SIDED_ARITHMETIC_INTERFACE(IDividable, Divide, /);
 
 	/// <summary>
 	/// Interface for classes that can be divided by a scalar.
