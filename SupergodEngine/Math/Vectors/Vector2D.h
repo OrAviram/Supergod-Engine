@@ -21,6 +21,24 @@ namespace SupergodEngine { namespace Math
 		/// <summary>Creates a new 2D vector and initializes its components to x and y.</summary>
 		explicit Vector2D(const float& x, const float& y);
 
+		/// <summary>
+		/// Gets a reference to a component at the index of index.
+		/// </summary>
+		/// <param name="index">The index of the component (0 or 1).</param>
+		inline float& operator[](int index)
+		{
+			return components[index];
+		}
+
+		/// <summary>
+		/// Gets a reference to a component at the index of index.
+		/// </summary>
+		/// <param name="index">The index of the component (0 or 1).</param>
+		inline const float& operator[](int index) const
+		{
+			return components[index];
+		}
+
 		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>
 		/// Is every component of this same as its corresponding component in other?

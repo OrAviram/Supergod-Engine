@@ -75,7 +75,19 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(right.CloseEnough(left, 2));
 		}
 
-		// TODO: Maybe insert IndexerTest here later.
+		TEST_METHOD(IndexerTest)
+		{
+			Vector2D vec;
+
+			vec[0] = 10;
+			vec[1] = 4;
+
+			Assert::AreEqual(vec[0], 10.f);
+			Assert::AreEqual(vec[0], vec.x);
+			
+			Assert::AreEqual(vec[1], 4.f);
+			Assert::AreEqual(vec[1], vec.y);
+		}
 
 		TEST_METHOD(MagnitudeTest)
 		{
