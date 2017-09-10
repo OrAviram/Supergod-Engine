@@ -142,6 +142,14 @@ namespace SupergodEngineTesting
 			AssertUtils::CloseEnough(dot, SMath::Cos(Constants::PI / 6));
 		}
 
+		TEST_METHOD(ReflectionTest)
+		{
+			Vector2D source(-1, 2);
+
+			AssertUtils::AreEqual(source.Reflect(Vector2D(1, 0)), Vector2D(1, 2));
+			AssertUtils::AreEqual(source.Reflect(Vector2D(0, 1)), Vector2D(-1, -2));
+		}
+
 		// TODO: Maybe insert
 		//        ReflectionTest, AngleTest,
 		//		  DistanceTests and LookPointAtTests here later.

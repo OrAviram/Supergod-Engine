@@ -88,6 +88,14 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
+		/// Reflects this through mirror.
+		/// </summary>
+		inline T Reflect(const T& mirror) const
+		{
+			return *this - 2 * ProjectOnto(mirror);
+		}
+
+		/// <summary>
 		/// Multiplies every component of vector by scalar.
 		/// </summary>
 		friend T operator*(const float& scalar, const T& vector)
@@ -198,6 +206,15 @@ namespace SupergodEngine { namespace Math
 		inline T ProjectOnto(const IVector<T>& source, const T& target)
 		{
 			return source.ProjectOnto(target);
+		}
+
+		/// <summary>
+		/// Reflects source through mirror.
+		/// </summary>
+		template<class T>
+		inline T Reflect(const IVector<T>& source, const T& mirror)
+		{
+			return source.ProjectOnto(mirror);
 		}
 	}
 } }
