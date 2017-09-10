@@ -150,9 +150,7 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(source.Reflect(Vector2D(0, 1)), Vector2D(-1, -2));
 		}
 
-		// TODO: Maybe insert
-		//        ReflectionTest, AngleTest,
-		//		  DistanceTests and LookPointAtTests here later.
+		// TODO: Maybe insert AngleTest, DistanceTests and LookPointAtTests here later.
 
 		TEST_METHOD(ClampingTests)
 		{
