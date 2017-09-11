@@ -83,7 +83,7 @@ namespace SupergodEngine { namespace Math
 		Vector3D Negated() const override;
 		#pragma endregion
 
-		#pragma region Multiplication (Dot and Multiply).
+		#pragma region Multiplication (Dot, Multiply and Cross).
 		/// <summary>
 		/// Gets the dot product of this and other.
 		/// </summary>
@@ -98,6 +98,19 @@ namespace SupergodEngine { namespace Math
 		/// Multiplies every component of this by scalar.
 		/// </summary>
 		Vector3D Multiply(const float& scalar) const override;
+
+		/// <summary>
+		/// Gets the cross product of this and other.
+		/// </summary>
+		Vector3D Cross(const Vector3D& other) const;
+
+		/// <summary>
+		/// Gets the cross product of a and b.
+		/// </summary>
+		inline static Vector3D Cross(const Vector3D& a, const Vector3D& b)
+		{
+			return a.Cross(b);
+		}
 		#pragma endregion
 		
 		#pragma region Division.
