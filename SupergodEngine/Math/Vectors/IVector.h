@@ -15,6 +15,8 @@ namespace std
 
 namespace SupergodEngine { namespace Math
 {
+	// TODO: Add the methods for finding the angle when the Angle struct is added.
+
 	/// <summary>
 	/// Interface vector structs can implement.<para/>
 	/// T is the type of the vector.

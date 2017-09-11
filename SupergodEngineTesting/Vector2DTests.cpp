@@ -150,7 +150,9 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(source.Reflect(Vector2D(0, 1)), Vector2D(-1, -2));
 		}
 
-		// TODO: Maybe insert AngleTest, DistanceTests and LookPointAtTests here later.
+		// TODO: Insert AngleTest when the Angle struct exists (and the methods in IVector for finding the angles) here.
+
+		// TODO: Maybe insert DistanceTests and LookPointAtTests here later.
 
 		TEST_METHOD(ClampingTests)
 		{
