@@ -98,6 +98,38 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
+		/// Gets a vector that goes from this to other.
+		/// </summary>
+		inline T LookAt(const T& other) const
+		{
+			return ArithmeticOps::Subtract(other, (const T&)*this);
+		}
+
+		/// <summary>
+		/// Gets a unit length vector pointing from this at other.
+		/// </summary>
+		inline T PointAt(const T& other) const
+		{
+			return this->LookAt(other).Normalized();
+		}
+
+		/// <summary>
+		/// Gets the distance squared between this and other. This is faster than squaring the distance.
+		/// </summary>
+		inline float SqrDistance(const T& other) const
+		{
+			return this->LookAt(other).SqrMagnitude();
+		}
+
+		/// <summary>
+		/// Gets the distance between this and other.
+		/// </summary>
+		inline float Distance(const T& other) const
+		{
+			return SMath::Sqrt(this->SqrDistance(other));
+		}
+
+		/// <summary>
 		/// Multiplies every component of vector by scalar.
 		/// </summary>
 		friend T operator*(const float& scalar, const T& vector)
@@ -217,6 +249,42 @@ namespace SupergodEngine { namespace Math
 		inline T Reflect(const IVector<T>& source, const T& mirror)
 		{
 			return source.ProjectOnto(mirror);
+		}
+
+		/// <summary>
+		/// Gets a vector that goes from a to b.
+		/// </summary>
+		template<class T>
+		inline T LookAt(const IVector<T>& a, const T& b)
+		{
+			return a.LookAt(b);
+		}
+
+		/// <summary>
+		/// Gets a unit length vector pointing from a at b.
+		/// </summary>
+		template<class T>
+		inline T PointAt(const IVector<T>& a, const T& b)
+		{
+			return a.PointAt(b);
+		}
+
+		/// <summary>
+		/// Gets the distance squared between a and b. This is faster than squaring the distance.
+		/// </summary>
+		template<class T>
+		inline float SqrDistance(const IVector<T>& a, const T& b)
+		{
+			return a.SqrDistance(b);
+		}
+
+		/// <summary>
+		/// Gets the distance between a and b.
+		/// </summary>
+		template<class T>
+		inline float Distance(const IVector<T>& a, const T& b)
+		{
+			return a.Distance(b);
 		}
 	}
 } }

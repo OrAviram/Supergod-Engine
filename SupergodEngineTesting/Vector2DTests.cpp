@@ -152,7 +152,91 @@ namespace SupergodEngineTesting
 
 		// TODO: Insert AngleTest when the Angle struct exists (and the methods in IVector for finding the angles) here.
 
-		// TODO: Maybe insert DistanceTests and LookPointAtTests here later.
+		TEST_METHOD(LookPointAtTests)
+		{
+			Vector2D a(10, 0);
+			Vector2D b(-10, 0);
+			Vector2D lookAt = a.LookAt(b);
+			Vector2D pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector2D(-20, 0));
+			AssertUtils::AreEqual(pointAt, Vector2D(-1, 0));
+
+			a = Vector2D(0, 0);
+			b = Vector2D(-10, 0);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector2D(-10, 0));
+			AssertUtils::AreEqual(pointAt, Vector2D(-1, 0));
+
+			a = Vector2D(0, 0);
+			b = Vector2D(-10, 10);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector2D(-10, 10));
+			AssertUtils::AreEqual(pointAt, Vector2D(-0.70710678f, 0.70710678f));
+
+			a = Vector2D(0, 5);
+			b = Vector2D(0, -5);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector2D(0, -10));
+			AssertUtils::AreEqual(pointAt, Vector2D(0, -1));
+		}
+
+		TEST_METHOD(DistanceTest)
+		{
+			Vector2D a(10, 0);
+			Vector2D b(-10, 0);
+			float dist = a.Distance(b);
+			float sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 20.f);
+			Assert::AreEqual(sqrDist, 400.f);
+
+			a = Vector2D(0, 0);
+			b = Vector2D(-10, 0);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 10.f);
+			Assert::AreEqual(sqrDist, 100.f);
+
+			a = Vector2D(0, 0);
+			b = Vector2D(-10, 10);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, Constants::SQRT2 * 10);
+			Assert::AreEqual(sqrDist, SMath::Squared(Constants::SQRT2 * 10));
+
+			a = Vector2D(0, 5);
+			b = Vector2D(0, -5);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 10.f);
+			Assert::AreEqual(sqrDist, 100.f);
+		}
 
 		TEST_METHOD(ClampingTests)
 		{
