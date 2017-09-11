@@ -3,6 +3,8 @@
 
 namespace SupergodEngine { namespace Math
 {
+	struct Vector2D;
+
 	/// <summary>
 	/// Represents a 3-component mathematical vector.
 	/// </summary>
@@ -19,6 +21,12 @@ namespace SupergodEngine { namespace Math
 
 		/// <summary>Creates a new 3D vector and initializes its components to x, y and z.</summary>
 		explicit Vector3D(const float& x, const float& y, const float& z);
+
+		/// <summary>Creates a new 3D vector and initializes its x and y components to xy and its z component to z.</summary>
+		explicit Vector3D(const Vector2D& xy, const float& z);
+
+		/// <summary>Creates a new 3D vector and initializes its x component x and its y and z components to yz.</summary>
+		explicit Vector3D(const float& x, const Vector2D& yz);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.

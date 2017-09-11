@@ -1,6 +1,7 @@
 #include <functional>
 #include "Vector3D.h"
 #include "../SMath.h"
+#include "Vector2D.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -11,6 +12,16 @@ namespace SupergodEngine { namespace Math
 
 	Vector3D::Vector3D(const float & x, const float & y, const float & z)
 		: x(x), y(y), z(z)
+	{
+	}
+
+	Vector3D::Vector3D(const Vector2D& xy, const float& z)
+		: x(xy.x), y(xy.y), z(z)
+	{
+	}
+
+	Vector3D::Vector3D(const float& x, const Vector2D& yz)
+		: x(x), y(yz.x), z(yz.y)
 	{
 	}
 
