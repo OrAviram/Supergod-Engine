@@ -14,9 +14,11 @@
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\Interfaces\ArithmeticInterfaces.h" />
     <ClInclude Include="Math\Interfaces\ILerpable.h" />
+    <ClInclude Include="Math\Vectors\Vector3D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />
     <ClCompile Include="Math\SMath.cpp" />
+    <ClCompile Include="Math\Vectors\Vector3D.cpp" />
   </ItemGroup>
 </Project>
