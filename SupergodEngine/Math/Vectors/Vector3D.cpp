@@ -72,7 +72,7 @@ namespace SupergodEngine { namespace Math
 
 	Vector3D Vector3D::Cross(const Vector3D& other) const
 	{
-		return Vector3D (
+		return Vector3D(
 			y * other.z - z * other.y,
 			z * other.x - x * other.z,
 			x * other.y - y * other.x);

@@ -16,7 +16,14 @@ namespace AssertUtils
 	}
 
 	template<class T>
-	static void AreEqual(T a, T b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+	static void CloseEnough(const Math::ISupergodEquatable<T>& a, const T& b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+	{
+		// TODO: Make more detailed fail message.
+		Assert::IsTrue(a.CloseEnough(b, threshold), L"Close enough failed!");
+	}
+
+	template<class T>
+	static void AreEqual(T a, T b)
 	{
 		// TODO: Make more detailed fail message.
 		Assert::IsTrue(a == b, L"Are equal failed!");

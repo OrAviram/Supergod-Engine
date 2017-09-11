@@ -1,10 +1,9 @@
 #pragma once
 #include "IVector.h"
+#include "Vector2D.h"
 
 namespace SupergodEngine { namespace Math
 {
-	struct Vector2D;
-
 	/// <summary>
 	/// Represents a 3-component mathematical vector.
 	/// </summary>
@@ -45,6 +44,27 @@ namespace SupergodEngine { namespace Math
 		{
 			return components[index];
 		}
+
+		#pragma region Axis Combinations.
+		/// <summary>A Vector2D with the x and y components of this vector.</summary>
+		inline Vector2D XY() const { return Vector2D(x, y); }
+
+        /// <summary>A Vector2D with the y and x components of this vector.</summary>
+		inline Vector2D YX() const { return Vector2D(y, x); }
+
+        /// <summary>A Vector2D with the x and z components of this vector.</summary>
+        inline Vector2D XZ() const { return Vector2D(x, z); }
+
+        /// <summary>A Vector2D with the z and x components of this vector.</summary>
+        inline Vector2D ZX() const { return Vector2D(z, x); }
+
+        /// <summary>A Vector2D with the y and z components of this vector.</summary>
+		inline Vector2D YZ() const { return Vector2D(y, z); }
+
+        /// <summary>A Vector2D with the z and y components of this vector.</summary>
+		inline Vector2D ZY() const { return Vector2D(z, y); }
+		#pragma endregion
+
 
 		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>

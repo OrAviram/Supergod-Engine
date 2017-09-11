@@ -187,11 +187,33 @@ namespace SupergodEngine { namespace Math
 		{
 			return a.Dot((const T&)b);
 		}
-
+		
+		/// <summary>
+		/// Does any component of vector pass test?
+		///	</summary>
+		/// <param name="test">The test to run for each component.</param>
 		template<class T>
 		inline bool ContainsComponent(const IVector<T>& vector, const std::function<bool(const float&)>& test)
 		{
 			return vector.ContainsComponent(test);
+		}
+
+		/// <summary>
+		/// Gets a vector where all of its components are the absolute value their corresponding component in vector.
+		///	</summary>
+		template<class T>
+		inline T Abs(const IVector<T>& vector)
+		{
+			return vector.Abs();
+		}
+
+		/// <summary>
+		/// Clamps all of the components of vector so they are never smaller than min and never bigger than max.
+		///	</summary>
+		template<class T>
+		inline T ClampComponents(const IVector<T>& vector, const float& min, const float& max)
+		{
+			return vector.ClampComponents(min, max);
 		}
 
 		/// <summary>
