@@ -13,6 +13,16 @@ namespace std
 	class function;
 }
 
+/// <summary>
+/// Defines a vector preset function. This is being undefined in Vector.h.
+/// </summary>
+#define DEFINE_VECTOR_PRESET(type, name, value) \
+			inline static const type& name() \
+			{ \
+				static const type val value; \
+				return val; \
+			}
+
 namespace SupergodEngine { namespace Math
 {
 	// TODO: Add the methods for finding the angle when the Angle struct is added.

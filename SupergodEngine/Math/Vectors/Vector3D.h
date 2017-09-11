@@ -9,6 +9,48 @@ namespace SupergodEngine { namespace Math
 	/// </summary>
 	struct SUPERGOD_API Vector3D final : public IVector<Vector3D>
 	{
+		#pragma region Presets for common vectors.
+		/// <summary>
+		/// Gets a 3D vector with all of its components set to 0.
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Zero, (0, 0, 0))
+
+		/// <summary>
+		/// Gets a 3D vector with all of its components set to 1.
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, One, (1, 1, 1))
+
+		/// <summary>
+		/// Gets the 2D vector (1, 0, 0).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Right, (1, 0, 0))
+
+		/// <summary>
+		/// Gets the 2D vector (-1, 0, 0).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Left, (-1, 0, 0))
+
+		/// <summary>
+		/// Gets the 2D vector (0, 1, 0).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Up, (0, 1, 0))
+
+		/// <summary>
+		/// Gets the 2D vector (0, -1, 0).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Down, (0, -1, 0))
+
+		/// <summary>
+		/// Gets the 2D vector (0, 0, 1).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Forward, (0, 0, 1))
+
+		/// <summary>
+		/// Gets the 2D vector (0, 0, -1).
+		/// </summary>
+		DEFINE_VECTOR_PRESET(Vector3D, Back, (0, 0, -1))
+		#pragma endregion
+
 		union
 		{
 			struct { float x, y, z; };
@@ -64,7 +106,6 @@ namespace SupergodEngine { namespace Math
         /// <summary>A Vector2D with the z and y components of this vector.</summary>
 		inline Vector2D ZY() const { return Vector2D(z, y); }
 		#pragma endregion
-
 
 		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>
