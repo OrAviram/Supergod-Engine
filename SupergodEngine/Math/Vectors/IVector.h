@@ -32,7 +32,7 @@ namespace SupergodEngine { namespace Math
 
 		virtual float Dot(const T& other) const = 0;
 
-		virtual bool ContainsComponent(std::function<bool(const float&)> test) const = 0;
+		virtual bool ContainsComponent(const std::function<bool(const float&)>& test) const = 0;
 		virtual T ClampComponents(const float& min, const float& max) const = 0;
 
 		/// <summary>
@@ -186,6 +186,12 @@ namespace SupergodEngine { namespace Math
 		inline float Dot(const IVector<T>& a, const IVector<T>& b)
 		{
 			return a.Dot((const T&)b);
+		}
+
+		template<class T>
+		inline bool ContainsComponent(const IVector<T>& vector, const std::function<bool(const float&)>& test)
+		{
+			return vector.ContainsComponent(test);
 		}
 
 		/// <summary>

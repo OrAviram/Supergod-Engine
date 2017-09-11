@@ -35,7 +35,7 @@ namespace SupergodEngine { namespace Math
 		return SMath::CloseEnough(x, other.x, threshold) && SMath::CloseEnough(y, other.y, threshold) && SMath::CloseEnough(z, other.z, threshold);
 	}
 
-	bool Vector3D::ContainsComponent(std::function<bool(const float&)> test) const
+	bool Vector3D::ContainsComponent(const std::function<bool(const float&)>& test) const
 	{
 		return test(x) || test(y) || test(z);
 	}

@@ -63,7 +63,7 @@ namespace SupergodEngine { namespace Math
 		/// Does any component pass test?
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
-		bool ContainsComponent(std::function<bool(const float&)> test) const override;
+		bool ContainsComponent(const std::function<bool(const float&)>& test) const override;
 		#pragma endregion
 
 		#pragma region Addition, subtraction and negation.
