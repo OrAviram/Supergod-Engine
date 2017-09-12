@@ -144,10 +144,11 @@ namespace SupergodEngineTesting
 
 		TEST_METHOD(ReflectionTest)
 		{
-			Vector2D source(-1, 2);
-
-			AssertUtils::AreEqual(source.Reflect(Vector2D(1, 0)), Vector2D(1, 2));
-			AssertUtils::AreEqual(source.Reflect(Vector2D(0, 1)), Vector2D(-1, -2));
+			Vector2D source(1, 1);
+			
+			AssertUtils::AreEqual(source.Reflect(Vector2D::Up()), Vector2D(-1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector2D::Right()), Vector2D(1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector2D::Right() * 2), Vector2D(1, -1));
 		}
 
 		// TODO: Insert AngleTest when the Angle struct exists (and the methods in IVector for finding the angles) here.

@@ -100,11 +100,11 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
-		/// Reflects this through mirror.
+		/// Reflects this through mirror using the formula "2 * m * ((v dot m) / |m|²) - v" where v is this and m is mirror.
 		/// </summary>
 		inline T Reflect(const T& mirror) const
 		{
-			return *this - 2 * ProjectOnto(mirror);
+			return 2 * ProjectOnto(mirror) - (const T&)*this;
 		}
 
 		/// <summary>
@@ -281,7 +281,7 @@ namespace SupergodEngine { namespace Math
 		}
 
 		/// <summary>
-		/// Reflects source through mirror.
+		/// Reflects source through mirror using the formula "2 * m * ((v dot m) / |m|²) - v" where v is source and m is mirror.
 		/// </summary>
 		template<class T>
 		inline T Reflect(const IVector<T>& source, const T& mirror)

@@ -171,11 +171,12 @@ namespace SupergodEngineTesting
 
 		TEST_METHOD(ReflectionTest)
 		{
-			Vector3D source(-1, 2, 3);
+			Vector3D source(1, 1, -1);
 
-			AssertUtils::AreEqual(source.Reflect(Vector3D(1, 0, 0)), Vector3D(1, 2, 3));
-			AssertUtils::AreEqual(source.Reflect(Vector3D(0, 1, 0)), Vector3D(-1, -2, 3));
-			AssertUtils::AreEqual(source.Reflect(Vector3D(0, 0, 1)), Vector3D(-1, 2, -3));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::Up()), Vector3D(-1, 1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::Right()), Vector3D(1, -1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::Forward()), Vector3D(-1, -1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::Forward() * 2), Vector3D(-1, -1, -1));
 		}
 
 		// TODO: Insert AngleTest here when the Angle and methods in IVector struct exists.
