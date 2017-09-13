@@ -7,9 +7,29 @@ namespace SupergodEngine { namespace Math
 	/// </summary>
 	namespace Constants
 	{
+		/// <summary>
+		/// The default threshold to CloseEnough functions. It's very small and good to fix floating point errors.
+		/// </summary>
 		constexpr float CLOSE_ENOUGH_DEFAULT_THRESHOLD = 0.0001f;
 
+		/// <summary>
+		/// If the ratio of two lengths to each other is the same as the ratio of their sum to the bigger length, their ratio is the golden ratio.
+		/// </summary>
+		constexpr float GOLDEN_RATIO = 1.61803398875f;
+
+		/// <summary>
+		/// The ratio of a circle's circumference to its diameter.
+		/// </summary>
 		constexpr float PI = 3.14159265359f;
+
+		/// <summary>
+		/// The ratio of a circle's circumference to its radius.
+		/// </summary>
+		constexpr float TAU = 2 * PI;
+
+		/// <summary>
+		/// The base for the natural logarithm.
+		/// </summary>
 		constexpr float E = 2.71828182846f;
 
 		constexpr float SQRT2 = 1.41421356237f;
@@ -30,7 +50,7 @@ namespace SupergodEngine { namespace Math
 		constexpr float SQRT5_OVER5 = SQRT5 / 5;
 		constexpr float SQRT5_OVER10 = SQRT5 / 10;
 		
-		constexpr float DEG_TO_RAD = PI / 180;
-		constexpr float RAD_TO_DEG = 180 / PI;
+		constexpr float DEG_TO_RAD = TAU / 360;
+		constexpr float RAD_TO_DEG = 360 / TAU;
 	}
 } }
