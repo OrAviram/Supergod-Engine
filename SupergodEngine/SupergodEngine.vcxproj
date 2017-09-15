@@ -30,12 +30,14 @@
     <ClInclude Include="Math\Vectors\Vector.h" />
     <ClInclude Include="Math\Vectors\Vector2D.h" />
     <ClInclude Include="Math\Vectors\Vector3D.h" />
+    <ClInclude Include="Math\Vectors\Vector4D.h" />
     <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\SMath.cpp" />
+    <ClCompile Include="Math\Vectors\Vector4D.cpp" />
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />
     <ClCompile Include="Math\Vectors\Vector3D.cpp" />
   </ItemGroup>
