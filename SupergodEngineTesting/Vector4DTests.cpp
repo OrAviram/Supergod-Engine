@@ -392,5 +392,15 @@ namespace SupergodEngineTesting
 			float dot = a.Dot(b);
 			AssertUtils::CloseEnough(dot, SMath::Cos(Constants::PI / 6));
 		}
+
+		TEST_METHOD(ReflectionTest)
+		{
+			Vector4D source(-1, 2, 3, 4);
+
+			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitX()), Vector4D(-1, -2, -3, -4));
+			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitY()), Vector4D(1, 2, -3, -4));
+			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitZ()), Vector4D(1, -2, 3, -4));
+			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitW()), Vector4D(1, -2, -3, 4));
+		}
 	};
 }
