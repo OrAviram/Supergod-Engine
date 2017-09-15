@@ -128,18 +128,6 @@ namespace SupergodEngineTesting
 			AssertUtils::CloseEnough(vec.Normalized().Magnitude(), 1);
 			AssertUtils::CloseEnough(Vector::Normalize(vec).Magnitude(), 1);
 		}
-		
-		// Utility method used in ProjectOntoTest.
-		void TestProjection(Vector3D source, Vector3D target)
-		{
-			Vector3D bNormalized = target.Normalized();
-			Vector3D oldResult = source.Dot(bNormalized) * bNormalized;
-			Vector3D newResult = Vector::ProjectOnto(source, target);
-
-			AssertUtils::CloseEnough(newResult.x, oldResult.x);
-			AssertUtils::CloseEnough(newResult.y, oldResult.y);
-			AssertUtils::CloseEnough(newResult.z, oldResult.z);
-		}
 
 		TEST_METHOD(ProjectOntoTest)
 		{
@@ -160,8 +148,8 @@ namespace SupergodEngineTesting
 
 			for (int i = 0; i < ARRAY_ELEMENTS_COUNT(vectors) - 1; i++)
 			{
-				TestProjection(vectors[i], vectors[i + 1]);
-				TestProjection(vectors[i + 1], vectors[i]);
+				TestVectorProjection(vectors[i], vectors[i + 1]);
+				TestVectorProjection(vectors[i + 1], vectors[i]);
 			}
 			Vector3D a = Vector3D(0.5f, Constants::SQRT3_OVER2, 0);
 			Vector3D b = Vector3D(Constants::SQRT3_OVER2, 0.5f, 0);

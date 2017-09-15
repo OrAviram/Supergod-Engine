@@ -36,6 +36,9 @@ namespace SupergodEngine { namespace Math
 			struct { float x, y, z, w; };
 			float components[4];
 		};
+		
+		/// <summary>Initializes a new Vector4D with all of its components set to 0.</summary>
+		Vector4D();
 
 		/// <summary>Initializes a new Vector4D for with an x, a y, a z, and a w.</summary>
 		explicit Vector4D(const float& x, const float& y, const float& z, const float& w);

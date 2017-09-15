@@ -30,6 +30,16 @@ namespace AssertUtils
 	}
 }
 
+template<class T>
+static void TestVectorProjection(T source, T target)
+{
+	T bNormalized = target.Normalized();
+	T oldResult = source.Dot(bNormalized) * bNormalized;
+	T newResult = Math::Vector::ProjectOnto(source, target);
+
+	AssertUtils::CloseEnough(newResult, oldResult, .001f);
+}
+
 /// <summary>
 /// Runs a test multiple times with customization to how it's ran.
 /// </summary>

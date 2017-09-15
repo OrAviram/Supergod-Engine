@@ -3,6 +3,11 @@
 
 namespace SupergodEngine { namespace Math
 {
+	Vector4D::Vector4D()
+		: x(0), y(0), z(0), w(0)
+	{
+	}
+
 	Vector4D::Vector4D(const float& x, const float& y, const float& z, const float& w)
 		: x(x), y(y), z(z), w(w)
 	{
