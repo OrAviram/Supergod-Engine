@@ -116,5 +116,23 @@ namespace SupergodEngineTesting
 			Assert::AreEqual(test, 2 * Constants::PI);
 		}
 		#pragma endregion
+
+		TEST_METHOD(FloatWrappingTests)
+		{
+			AssertUtils::CloseEnough(Angle::WrapDegrees(1080), 360);
+			AssertUtils::CloseEnough(Angle::WrapDegrees(900), 180);
+			AssertUtils::CloseEnough(Angle::WrapDegrees(360), 360);
+			AssertUtils::CloseEnough(Angle::WrapDegrees(180), 180);
+			
+			AssertUtils::CloseEnough(Angle::WrapRadians(Constants::PI * 6), Constants::PI * 2);
+			AssertUtils::CloseEnough(Angle::WrapRadians(Constants::PI * 5), Constants::PI);
+			AssertUtils::CloseEnough(Angle::WrapRadians(Constants::PI * 2), Constants::PI * 2);
+			AssertUtils::CloseEnough(Angle::WrapRadians(Constants::PI), Constants::PI);
+			
+			AssertUtils::CloseEnough(Angle::WrapRevolutions(3), 1);
+			AssertUtils::CloseEnough(Angle::WrapRevolutions(2.5f), .5f);
+			AssertUtils::CloseEnough(Angle::WrapRevolutions(1), 1);
+			AssertUtils::CloseEnough(Angle::WrapRevolutions(.5f), .5f);
+		}
 	};
 }

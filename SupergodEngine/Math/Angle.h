@@ -2,6 +2,7 @@
 
 #include "../Common/CommonDefines.h"
 #include "MathConstants.h"
+#include "SMath.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -28,6 +29,32 @@ namespace SupergodEngine { namespace Math
 
 		/// <summary>Multiply revolutions by this to get the equivelant angle in radians.</summary>
 		static constexpr float REV_TO_RAD = Constants::TAU;
+		#pragma endregion
+
+		#pragma region Wrapping for floats.
+		/// <summary>
+        /// Wraps value between 0 to 2pi using SMath::Wrap.
+        /// </summary>
+        static float WrapRadians(const float& value)
+        {
+            return SMath::Wrap(value, Constants::TAU);
+        }
+
+        /// <summary>
+        /// Wraps value between 0 to 2pi using SMath::Wrap.
+        /// </summary>
+        static float WrapDegrees(const float& value)
+        {
+            return SMath::Wrap(value, 360);
+        }
+
+        /// <summary>
+        /// Wraps value between 0 to 2pi using SMath::Wrap.
+        /// </summary>
+        static float WrapRevolutions(const float& value)
+        {
+            return SMath::Wrap(value, 1);
+        }
 		#pragma endregion
 
 		/// <summary>
