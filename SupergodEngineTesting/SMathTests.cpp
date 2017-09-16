@@ -259,13 +259,13 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(SMath::CloseEnough(test, -Constants::PI / 2));
 
 			test = SMath::Asin(-.5f);
-			Assert::IsTrue(SMath::CloseEnough(test, -30 * Constants::DEG_TO_RAD));
+			Assert::IsTrue(SMath::CloseEnough(test, -30 * Angle::DEG_TO_RAD));
 
 			test = SMath::Asin(0);
 			Assert::IsTrue(SMath::CloseEnough(test, 0));
 
 			test = SMath::Asin(.5f);
-			Assert::IsTrue(SMath::CloseEnough(test, 30 * Constants::DEG_TO_RAD));
+			Assert::IsTrue(SMath::CloseEnough(test, 30 * Angle::DEG_TO_RAD));
 
 			test = SMath::Asin(1);
 			Assert::IsTrue(SMath::CloseEnough(test, Constants::PI * .5f));
