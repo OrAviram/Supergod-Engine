@@ -57,6 +57,68 @@ namespace SupergodEngine { namespace Math
         }
 		#pragma endregion
 
+		#pragma region Getters/setters.
+		/// <summary>
+		/// Sets the angle as radians from 0 to 2pi.
+		/// </summary>
+		inline float GetRadians() { return _radians; }
+
+		/// <summary>
+		/// Sets the angle as radians from 0 to 2pi.
+		/// </summary>
+		inline float SetRadians(const float& value) { return _radians = WrapRadians(value); }
+
+		/// <summary>
+		/// Gets the angle as radians from -pi to pi.
+		/// </summary>
+		inline float GetNegativeRadians() { return GetRadians() - Constants::PI; }
+
+		/// <summary>
+		/// Sets the angle as radians from -pi to pi.
+		/// </summary>
+		inline float SetNegativeRadians(const float& value) { return SetRadians(value + Constants::PI); }
+
+		/// <summary>
+		/// Gets the angle as degrees from 0 to 360.
+		/// </summary>
+		inline float GetDegrees() { return GetRadians() * RAD_TO_DEG; }
+
+		/// <summary>
+		/// Sets the angle as degrees from 0 to 360.
+		/// </summary>
+		inline float SetDegrees(const float& value) { return SetRadians(value * DEG_TO_RAD); }
+
+		/// <summary>
+		/// Gets the angle as degrees from -180 to 180.
+		/// </summary>
+		inline float GetNegativeDegrees() { return GetDegrees() - 180; }
+
+		/// <summary>
+		/// Sets the angle as degrees from -180 to 180.
+		/// </summary>
+		inline float SetNegativeDegrees(const float& value) { return SetDegrees(value + 180); }
+
+		/// <summary>
+		/// Gets the angle as revolutions from 0 to 1.
+		/// </summary>
+		inline float GetRevolutions() { return GetRadians() * RAD_TO_REV; }
+
+		/// <summary>
+		/// Sets the angle as revolutions from 0 to 1.
+		/// </summary>
+		inline float SetRevolutions(const float& value) { return SetRadians(value * REV_TO_RAD); }
+
+		/// <summary>
+		/// Gets the angle as revolutions from -0.5 to 0.5.
+		/// </summary>
+		inline float GetNegativeRevolutions() { return GetRevolutions() - .5f; }
+
+		/// <summary>
+		/// Sets the angle as revolutions from -0.5 to 0.5.
+		/// </summary>
+		inline float SetNegativeRevolutions(const float& value) { return SetRevolutions(value + .5f); }
+		#pragma endregion
+
 		/// <summary>
 		/// Types of angle measurments.
 		/// </summary>
@@ -77,6 +139,18 @@ namespace SupergodEngine { namespace Math
 			/// </summary>
 			Revolutions = 3,
 		};
+
+		/// <summary>
+		/// Creates a new angle and sets it to 0.
+		/// </summary>
+		Angle();
+
+		/// <summary>
+		/// Creates a new angle with a value and wraps it to a valid range for angles.
+		/// </summary>
+		/// <param name="angle">The value of the angle.</param>
+		/// <param name="measurement">The type of measurement to measure the angles with.</param>
+		Angle(const float& angle, const Measurement& measurement = Measurement::Radians);
 
 	private:
 		float _radians;

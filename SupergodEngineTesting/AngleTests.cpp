@@ -134,5 +134,124 @@ namespace SupergodEngineTesting
 			AssertUtils::CloseEnough(Angle::WrapRevolutions(1), 1);
 			AssertUtils::CloseEnough(Angle::WrapRevolutions(.5f), .5f);
 		}
+
+		TEST_METHOD(ConstructorTest)
+		{
+			Angle angle(1080, Angle::Measurement::Degrees);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI * 2);
+
+			angle = Angle(180, Angle::Measurement::Degrees);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI);
+
+			angle = Angle(2, Angle::Measurement::Revolutions);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI * 2);
+
+			angle = Angle(.5f, Angle::Measurement::Revolutions);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI);
+
+			angle = Angle(Constants::PI * 2, Angle::Measurement::Radians);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI * 2);
+
+			angle = Angle(Constants::PI * 3, Angle::Measurement::Radians);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI);
+		}
+
+		TEST_METHOD(SettersTest)
+		{
+			Angle angle;
+			angle.SetRadians(Constants::PI * 8);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI * 2);
+			AssertUtils::CloseEnough(angle.GetDegrees(), 360);
+			AssertUtils::CloseEnough(angle.GetRevolutions(), 1);
+
+			angle.SetDegrees(540);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI);
+			AssertUtils::CloseEnough(angle.GetDegrees(), 180);
+			AssertUtils::CloseEnough(angle.GetRevolutions(), .5f);
+
+			angle.SetRevolutions(2.25f);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI / 2);
+			AssertUtils::CloseEnough(angle.GetDegrees(), 90);
+			AssertUtils::CloseEnough(angle.GetRevolutions(), .25f);
+		}
+
+		TEST_METHOD(NegativeSettersTest)
+		{
+			Angle angle;
+			// Setting negative radians.
+			angle.SetNegativeRadians(Constants::PI * 3);
+			Assert::AreEqual(angle.GetNegativeRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), .5f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI * 2.f);
+			Assert::AreEqual(angle.GetDegrees(), 360.f);
+			Assert::AreEqual(angle.GetRevolutions(), 1.f);
+
+			angle.SetNegativeRadians(0);
+			Assert::AreEqual(angle.GetNegativeRadians(), 0.f);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 0.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), 0.f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetDegrees(), 180.f);
+			Assert::AreEqual(angle.GetRevolutions(), .5f);
+
+			angle.SetNegativeRadians(-Constants::PI);
+			Assert::AreEqual(angle.GetNegativeRadians(), -Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), -180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), -.5f);
+			Assert::AreEqual(angle.GetRadians(), 0.f);
+			Assert::AreEqual(angle.GetDegrees(), 0.f);
+			Assert::AreEqual(angle.GetRevolutions(), 0.f);
+
+			// Setting degrees.
+			angle.SetNegativeDegrees(540);
+			Assert::AreEqual(angle.GetNegativeRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), .5f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI * 2);
+			Assert::AreEqual(angle.GetDegrees(), 360.f);
+			Assert::AreEqual(angle.GetRevolutions(), 1.f);
+
+			angle.SetNegativeDegrees(0);
+			Assert::AreEqual(angle.GetNegativeRadians(), 0.f);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 0.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), 0.f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetDegrees(), 180.f);
+			Assert::AreEqual(angle.GetRevolutions(), .5f);
+
+			angle.SetNegativeDegrees(-180);
+			Assert::AreEqual(angle.GetNegativeRadians(), -Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), -180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), -.5f);
+			Assert::AreEqual(angle.GetRadians(), 0.f);
+			Assert::AreEqual(angle.GetDegrees(), 0.f);
+			Assert::AreEqual(angle.GetRevolutions(), 0.f);
+
+			// Setting revolutions.
+			angle.SetNegativeRevolutions(1.5f);
+			Assert::AreEqual(angle.GetNegativeRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), .5f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI * 2);
+			Assert::AreEqual(angle.GetDegrees(), 360.f);
+			Assert::AreEqual(angle.GetRevolutions(), 1.f);
+
+			angle.SetNegativeRevolutions(0);
+			Assert::AreEqual(angle.GetNegativeRadians(), 0.f);
+			Assert::AreEqual(angle.GetNegativeDegrees(), 0.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), 0.f);
+			Assert::AreEqual(angle.GetRadians(), Constants::PI);
+			Assert::AreEqual(angle.GetDegrees(), 180.f);
+			Assert::AreEqual(angle.GetRevolutions(), .5f);
+
+			angle.SetNegativeRevolutions(-.5f);
+			Assert::AreEqual(angle.GetNegativeRadians(), -Constants::PI);
+			Assert::AreEqual(angle.GetNegativeDegrees(), -180.f);
+			Assert::AreEqual(angle.GetNegativeRevolutions(), -.5f);
+			Assert::AreEqual(angle.GetRadians(), 0.f);
+			Assert::AreEqual(angle.GetDegrees(), 0.f);
+			Assert::AreEqual(angle.GetRevolutions(), 0.f);
+		}
 	};
 }
