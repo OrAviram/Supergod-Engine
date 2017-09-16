@@ -402,5 +402,185 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitZ()), Vector4D(1, -2, 3, -4));
 			AssertUtils::AreEqual(source.Reflect(Vector4D::UnitW()), Vector4D(1, -2, -3, 4));
 		}
+
+		TEST_METHOD(LerpTest)
+		{
+			Vector4D a(-10, -5, 2, 3);
+			Vector4D b(2, .5f, 344, 324.432f);
+			Vector4D difference = b - a;
+
+			Test01([&](float alpha)
+			{
+				Vector4D result1 = Lerper::Lerp(a, b, alpha);
+				Vector4D result1NonStatic = a.Lerp(b, alpha);
+				Vector4D result2 = a + alpha * difference;
+
+				AssertUtils::CloseEnough(result1, result2);
+				AssertUtils::CloseEnough(result1NonStatic, result2);
+			});
+		}
+
+		TEST_METHOD(ClampingTests)
+		{
+			Vector4D vector = Vector4D(0, 10, 3, 10).Clamp(Vector4D(-2, 15, 6, 7), Vector4D(2, 20, 10, 10));
+			AssertUtils::AreEqual(vector, Vector4D(0, 15, 6, 10));
+
+			vector = Vector4D(2, 2, 2, -1).ClampComponents(0, 1);
+			AssertUtils::AreEqual(vector, Vector4D(1, 1, 1, 0));
+
+			vector = Vector4D(2, 2, 10, 3).ClampComponents(3, 4);
+			AssertUtils::AreEqual(vector, Vector4D(3, 3, 4, 3));
+
+			Vector4D lengthVector = Vector4D(1, 1, 1, 1);
+			Vector4D oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(.5f, .7f);
+
+			Assert::AreEqual(lengthVector.Magnitude(), .7f);
+			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
+
+			lengthVector = Vector4D(10, 10, 6, 6);
+			oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(18, 20);
+
+			AssertUtils::CloseEnough(lengthVector.Magnitude(), 18);
+			Assert::IsTrue(lengthVector.Normalized().CloseEnough(oldLengthVector.Normalized()));
+
+			lengthVector = Vector4D(5, 5, 5, 5);
+			oldLengthVector = lengthVector;
+			lengthVector = lengthVector.ClampMagnitude(-10, 10);
+			Assert::AreEqual(lengthVector.Magnitude(), oldLengthVector.Magnitude());
+			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
+
+			AssertUtils::AreEqual(Vector4D(-1, -2, -3, 0).Abs(), Vector4D(1, 2, 3, 0));
+			AssertUtils::AreEqual(Absolutable::Abs(Vector4D(1, 2, 3, 0)), Vector4D(1, 2, 3, 0));
+		}
+
+		// TODO: Test the angles stuff.
+
+		TEST_METHOD(LookPointAtTests)
+		{
+			Vector4D a(10, 0, 0, 0);
+			Vector4D b(-10, 0, 0, 0);
+			Vector4D lookAt = a.LookAt(b);
+			Vector4D pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(-20, 0, 0, 0));
+			AssertUtils::AreEqual(pointAt, Vector4D(-1, 0, 0, 0));
+
+			a = Vector4D(0, 0, 0, 0);
+			b = Vector4D(-10, 0, 0, 0);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(-10, 0, 0, 0));
+			AssertUtils::AreEqual(pointAt, Vector4D(-1, 0, 0, 0));
+
+			a = Vector4D(0, 0, 0, 0);
+			b = Vector4D(-10, 10, -5, 0);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(-10, 10, -5, 0));
+			AssertUtils::AreEqual(pointAt, Vector4D(-0.6666666666f, 0.6666666666f, -0.33333333333333f, 0));
+
+			a = Vector4D(0, 5, 0, 0);
+			b = Vector4D(0, -5, 0, 0);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(0, -10, 0, 0));
+			AssertUtils::AreEqual(pointAt, Vector4D(0, -1, 0, 0));
+
+			a = Vector4D(0, 5, -5, 5);
+			b = Vector4D(0, -5, 5, -5);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(0, -10, 10, -10));
+			AssertUtils::CloseEnough(pointAt, Vector4D(0, -0.5773503f, 0.5773503f, -0.5773503f));
+
+			a = Vector4D(0, 3, 0, 3);
+			b = Vector4D(3, 0, 3, 0);
+			lookAt = a.LookAt(b);
+			pointAt = a.PointAt(b);
+
+			AssertUtils::AreEqual(lookAt, Vector::LookAt(a, b));
+			AssertUtils::AreEqual(pointAt, Vector::PointAt(a, b));
+			AssertUtils::AreEqual(lookAt, Vector4D(3, -3, 3, -3));
+			AssertUtils::AreEqual(pointAt, Vector4D(.5f, -.5f, .5f, -.5f));
+		}
+
+		TEST_METHOD(DistanceTests)
+		{
+			Vector4D a(10, 0, 0, 0);
+			Vector4D b(-10, 0, 0, 0);
+			float dist = a.Distance(b);
+			float sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 20.f);
+			Assert::AreEqual(sqrDist, 400.f);
+
+			a = Vector4D(0, 0, 0, 0);
+			b = Vector4D(-10, 0, 0, 0);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 10.f);
+			Assert::AreEqual(sqrDist, 100.f);
+
+			a = Vector4D(0, 0, 0, 0);
+			b = Vector4D(-10, 10, -5, 0);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 15.f);
+			Assert::AreEqual(sqrDist, 225.f);
+
+			a = Vector4D(0, 5, 0, 0);
+			b = Vector4D(0, -5, 0, 0);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 10.f);
+			Assert::AreEqual(sqrDist, 100.f);
+
+			a = Vector4D(0, 5, -5, 5);
+			b = Vector4D(0, -5, 5, -5);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			AssertUtils::CloseEnough(dist, Constants::SQRT3 * 10);
+			AssertUtils::CloseEnough(sqrDist, SMath::Squared(Constants::SQRT3 * 10));
+
+			a = Vector4D(0, 3, 0, 3);
+			b = Vector4D(3, 0, 3, 0);
+			dist = a.Distance(b);
+			sqrDist = a.SqrDistance(b);
+
+			Assert::AreEqual(dist, Vector::Distance(a, b));
+			Assert::AreEqual(sqrDist, Vector::SqrDistance(a, b));
+			Assert::AreEqual(dist, 6.f);
+			Assert::AreEqual(sqrDist, 36.f);
+		}
 	};
 }
