@@ -5,14 +5,15 @@
 #include "SMath.h"
 #include "Interfaces/ISupergodEquatable.h"
 #include "Interfaces/ISizeComparable.h"
+#include "Interfaces/ArithmeticInterfaces.h"
 
 namespace SupergodEngine { namespace Math
 {
-	// TODO: Add the interfaces IClampable, ILerpable, IAddable, ISubtractable, IScalarMultiplicable and IScalarDividable.
+	// TODO: Add the interfaces IClampable, ILerpable, IAddable and ISubtractable.
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
 	/// </summary>
-	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>
+	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>, IScalarMultipliable<Angle>, IScalarDividable<Angle>
 	{
 		#pragma region Angle conversions constants.
 		/// <summary>Multiply a radian by this to get the equivelant angle in degrees.</summary>
@@ -155,6 +156,14 @@ namespace SupergodEngine { namespace Math
 		/// <param name="measurement">The type of measurement to measure the angles with.</param>
 		Angle(const float& angle, const Measurement& measurement = Measurement::Radians);
 
+		/// <summary>
+		/// Gets the angle as radians.
+		/// </summary>
+		inline operator float() const
+		{
+			return GetRadians();
+		}
+
 		#pragma region Comparison methods.
 		/// <summary>
 		/// Are the radians of this the same as the radians of other?
@@ -176,14 +185,26 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		bool SmallerThan(const Angle& other) const override;
 		#pragma endregion
+		
+		#pragma region Scaling (scalar multiplication and division).
+		/// <summary>
+		/// Multiplies the radians of this by scalar.
+		/// </summary>
+		Angle Multiply(const float& scalar) const override;
 
 		/// <summary>
-		/// Gets the angle as radians.
+		/// Multiplies scalar by the radians of angle.
 		/// </summary>
-		inline operator float() const
+		friend Angle operator*(const float& scalar, const Angle& angle)
 		{
-			return GetRadians();
+			return angle.Multiply(scalar);
 		}
+
+		/// <summary>
+		/// Divides the radians of this by scalar.
+		/// </summary>
+		Angle Divide(const float& scalar) const override;
+		#pragma endregion
 
 	private:
 		float _radians;

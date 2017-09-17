@@ -44,4 +44,14 @@ namespace SupergodEngine { namespace Math
 	{
 		return GetRadians() < other.GetRadians();
 	}
+
+	Angle Angle::Multiply(const float& scalar) const
+	{
+		return GetRadians() * scalar;
+	}
+	
+	Angle Angle::Divide(const float& scalar) const
+	{
+		return GetRadians() / scalar;
+	}
 } }

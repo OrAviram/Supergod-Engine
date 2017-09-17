@@ -345,5 +345,28 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(b >= a);
 			Assert::IsTrue(b <= a);
 		}
+
+		TEST_METHOD(ScalingTests)
+		{
+			Angle angle(180, Angle::Measurement::Degrees);
+			float scalar = 2;
+			Angle result1 = angle * scalar;
+			Angle result2 = scalar * angle;
+
+			AssertUtils::AreEqual(result1, result2);
+			AssertUtils::AreEqual(result1, angle.Multiply(scalar));
+			AssertUtils::AreEqual(result1, ArithmeticOps::Multiply(angle, scalar));
+			AssertUtils::AreEqual(result1.GetDegrees(), 360.f);
+			AssertUtils::AreEqual(result1.GetRadians(), Constants::PI * 2);
+			AssertUtils::AreEqual(result1.GetRevolutions(), 1.f);
+
+			result1 = angle / scalar;
+
+			AssertUtils::AreEqual(result1, ArithmeticOps::Divide(angle, scalar));
+			AssertUtils::AreEqual(result1, angle.Divide(scalar));
+			AssertUtils::AreEqual(result1.GetDegrees(), 90.f);
+			AssertUtils::AreEqual(result1.GetRadians(), Constants::PI / 2);
+			AssertUtils::AreEqual(result1.GetRevolutions(), .25f);
+		}
 	};
 }
