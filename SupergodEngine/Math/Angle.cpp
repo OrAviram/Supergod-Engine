@@ -24,4 +24,24 @@ namespace SupergodEngine { namespace Math
 			break;
 		}
 	}
+
+	bool Angle::Equals(const Angle& other) const
+	{
+		return GetRadians() == other.GetRadians();
+	}
+
+	bool Angle::CloseEnough(const Angle& other, const float& threshold) const
+	{
+		return SMath::CloseEnough(GetRadians(), other.GetRadians(), threshold);
+	}
+
+	bool Angle::BiggerThan(const Angle& other) const
+	{
+		return GetRadians() > other.GetRadians();
+	}
+
+	bool Angle::SmallerThan(const Angle& other) const
+	{
+		return GetRadians() < other.GetRadians();
+	}
 } }

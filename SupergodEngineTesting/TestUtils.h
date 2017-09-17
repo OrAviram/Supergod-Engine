@@ -28,6 +28,13 @@ namespace AssertUtils
 		// TODO: Make more detailed fail message.
 		Assert::IsTrue(a == b, L"Are equal failed!");
 	}
+
+	template<class T>
+	static void AreNotEqual(T a, T b)
+	{
+		// TODO: Make more detailed fail message.
+		Assert::IsTrue(a != b, L"Are equal failed!");
+	}
 }
 
 template<class T>

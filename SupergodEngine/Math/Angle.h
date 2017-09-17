@@ -3,13 +3,16 @@
 #include "../Common/CommonDefines.h"
 #include "MathConstants.h"
 #include "SMath.h"
+#include "Interfaces/ISupergodEquatable.h"
+#include "Interfaces/ISizeComparable.h"
 
 namespace SupergodEngine { namespace Math
 {
+	// TODO: Add the interfaces IClampable, ILerpable, IAddable, ISubtractable, IScalarMultiplicable and IScalarDividable.
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
 	/// </summary>
-	struct SUPERGOD_API Angle // TODO: Add the interfaces IClampable, ISupergodEquatable, ILerpable, IAddable, ISubtractable, IScalarMultiplicable and IScalarDividable.
+	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>
 	{
 		#pragma region Angle conversions constants.
 		/// <summary>Multiply a radian by this to get the equivelant angle in degrees.</summary>
@@ -61,7 +64,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Sets the angle as radians from 0 to 2pi.
 		/// </summary>
-		inline float GetRadians() { return _radians; }
+		inline float GetRadians() const { return _radians; }
 
 		/// <summary>
 		/// Sets the angle as radians from 0 to 2pi.
@@ -71,7 +74,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the angle as radians from -pi to pi.
 		/// </summary>
-		inline float GetNegativeRadians() { return GetRadians() - Constants::PI; }
+		inline float GetNegativeRadians() const { return GetRadians() - Constants::PI; }
 
 		/// <summary>
 		/// Sets the angle as radians from -pi to pi.
@@ -81,7 +84,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the angle as degrees from 0 to 360.
 		/// </summary>
-		inline float GetDegrees() { return GetRadians() * RAD_TO_DEG; }
+		inline float GetDegrees() const { return GetRadians() * RAD_TO_DEG; }
 
 		/// <summary>
 		/// Sets the angle as degrees from 0 to 360.
@@ -91,7 +94,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the angle as degrees from -180 to 180.
 		/// </summary>
-		inline float GetNegativeDegrees() { return GetDegrees() - 180; }
+		inline float GetNegativeDegrees() const { return GetDegrees() - 180; }
 
 		/// <summary>
 		/// Sets the angle as degrees from -180 to 180.
@@ -101,7 +104,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the angle as revolutions from 0 to 1.
 		/// </summary>
-		inline float GetRevolutions() { return GetRadians() * RAD_TO_REV; }
+		inline float GetRevolutions() const { return GetRadians() * RAD_TO_REV; }
 
 		/// <summary>
 		/// Sets the angle as revolutions from 0 to 1.
@@ -111,7 +114,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets the angle as revolutions from -0.5 to 0.5.
 		/// </summary>
-		inline float GetNegativeRevolutions() { return GetRevolutions() - .5f; }
+		inline float GetNegativeRevolutions() const { return GetRevolutions() - .5f; }
 
 		/// <summary>
 		/// Sets the angle as revolutions from -0.5 to 0.5.
@@ -151,6 +154,36 @@ namespace SupergodEngine { namespace Math
 		/// <param name="angle">The value of the angle.</param>
 		/// <param name="measurement">The type of measurement to measure the angles with.</param>
 		Angle(const float& angle, const Measurement& measurement = Measurement::Radians);
+
+		#pragma region Comparison methods.
+		/// <summary>
+		/// Are the radians of this the same as the radians of other?
+		/// </summary>
+		bool Equals(const Angle& other) const override;
+
+		/// <summary>
+		/// Is the distance between the radians of this and the radians of other smaller or equal to threshold?
+		/// </summary>
+		bool CloseEnough(const Angle& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		
+		/// <summary>
+		/// Are the radians of this bigger than the radians of other?
+		/// </summary>
+		bool BiggerThan(const Angle& other) const override;
+
+		/// <summary>
+		/// Are the radians of this smaller than the radians of other?
+		/// </summary>
+		bool SmallerThan(const Angle& other) const override;
+		#pragma endregion
+
+		/// <summary>
+		/// Gets the angle as radians.
+		/// </summary>
+		inline operator float() const
+		{
+			return GetRadians();
+		}
 
 	private:
 		float _radians;

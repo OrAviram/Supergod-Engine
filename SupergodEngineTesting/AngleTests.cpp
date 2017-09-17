@@ -253,5 +253,97 @@ namespace SupergodEngineTesting
 			Assert::AreEqual(angle.GetDegrees(), 0.f);
 			Assert::AreEqual(angle.GetRevolutions(), 0.f);
 		}
+
+		TEST_METHOD(ConversionTests)
+		{
+			Angle angle = Constants::PI * 3;
+			AssertUtils::CloseEnough(angle, Constants::PI);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI);
+			AssertUtils::CloseEnough(angle.GetDegrees(), 180);
+			AssertUtils::CloseEnough(angle.GetRevolutions(), .5f);
+
+			angle = Constants::PI / 2;
+			AssertUtils::CloseEnough(angle, Constants::PI / 2);
+			AssertUtils::CloseEnough(angle.GetRadians(), Constants::PI / 2);
+			AssertUtils::CloseEnough(angle.GetDegrees(), 90);
+			AssertUtils::CloseEnough(angle.GetRevolutions(), .25f);
+		}
+
+		TEST_METHOD(EqualityTests)
+		{
+			Angle a(180, Angle::Measurement::Degrees);
+			Angle b(Constants::PI, Angle::Measurement::Radians);
+
+			Assert::IsTrue(a == b);
+			Assert::IsFalse(a != b);
+			AssertUtils::AreEqual(a, b);
+			Assert::IsTrue(a.Equals(b));
+			Assert::IsTrue(a.Equals((float)b));
+
+			b = Angle(Constants::PI * 2, Angle::Measurement::Radians);
+
+			Assert::IsFalse(a == b);
+			Assert::IsTrue(a != b);
+			AssertUtils::AreNotEqual(a, b);
+			Assert::IsFalse(a.Equals(b));
+			Assert::IsFalse(a.Equals((float)b));
+
+			a = Angle(180, Angle::Measurement::Degrees);
+			b = Angle(Constants::PI, Angle::Measurement::Radians);
+
+			Assert::IsTrue(a.CloseEnough(b));
+			Assert::IsTrue(SupergodEquatable::CloseEnough(a, b));
+			AssertUtils::CloseEnough(a, b);
+
+			a = Angle(0, Angle::Measurement::Degrees);
+			
+			Assert::IsFalse(a.CloseEnough(b));
+			Assert::IsFalse(SupergodEquatable::CloseEnough(a, b));
+			Assert::IsTrue(a.CloseEnough(b, Constants::PI));
+			Assert::IsTrue(SupergodEquatable::CloseEnough(a, b, Constants::PI));
+		}
+
+		TEST_METHOD(BiggerSmallerThanTests)
+		{
+			Angle a(180, Angle::Measurement::Degrees);
+			Angle b(90, Angle::Measurement::Degrees);
+
+			Assert::IsTrue(a > b);
+			Assert::IsFalse(b > a);
+			Assert::IsTrue(SizeComparer::BiggerThan(a, b));
+			Assert::IsFalse(SizeComparer::BiggerThan(b, a));
+
+			Assert::IsTrue(b < a);
+			Assert::IsFalse(a < b);
+			Assert::IsTrue(b.SmallerThan(a));
+			Assert::IsFalse(a.SmallerThan(b));
+
+			Assert::IsFalse(a == b);
+			Assert::IsTrue(a >= b);
+			Assert::IsFalse(a <= b);
+
+			Assert::IsFalse(b >= a);
+			Assert::IsTrue(b <= a);
+
+			a = Angle(180, Angle::Measurement::Degrees);
+			b = Angle(180, Angle::Measurement::Degrees);
+
+			Assert::IsFalse(a > b);
+			Assert::IsFalse(b > a);
+			Assert::IsFalse(a.BiggerThan(b));
+			Assert::IsFalse(b.BiggerThan(a));
+
+			Assert::IsFalse(b < a);
+			Assert::IsFalse(a < b);
+			Assert::IsFalse(SizeComparer::SmallerThan(b, a));
+			Assert::IsFalse(SizeComparer::SmallerThan(a, b));
+
+			Assert::IsTrue(a == b);
+			Assert::IsTrue(a >= b);
+			Assert::IsTrue(a <= b);
+
+			Assert::IsTrue(b >= a);
+			Assert::IsTrue(b <= a);
+		}
 	};
 }

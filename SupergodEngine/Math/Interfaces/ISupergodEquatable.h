@@ -18,7 +18,7 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Checks if this equals to other.
 		/// </summary>
-		bool operator==(const T& other) const
+		inline bool operator==(const T& other) const
 		{
 			return Equals(other);
 		}
@@ -26,9 +26,33 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Checks if this equals to other.
 		/// </summary>
-		bool operator!=(const T& other) const
+		inline bool operator!=(const T& other) const
 		{
 			return !(*this == other);
 		}
 	};
+
+	/// <summary>
+	/// Namespace that calls methods from ISupergodEquatable.
+	/// </summary>
+	namespace SupergodEquatable
+	{
+		/// <summary>
+		/// Is first equal to second?
+		/// </summary>
+		template<class T>
+		inline bool Equals(const ISupergodEquatable<T>& first, const T& second)
+		{
+			return first.Equals(second);
+		}
+
+		/// <summary>
+		/// Is first close enough to second with the threshold of threshold?
+		/// </summary>
+		template<class T>
+		inline bool CloseEnough(const ISupergodEquatable<T>& first, const T& second, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+		{
+			return first.CloseEnough(second, threshold);
+		}
+	}
 } }
