@@ -9,11 +9,11 @@
 
 namespace SupergodEngine { namespace Math
 {
-	// TODO: Add the interfaces IClampable, ILerpable, IAddable and ISubtractable.
+	// TODO: Add the interfaces IClampable and ILerpable.
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
 	/// </summary>
-	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>, IScalarMultipliable<Angle>, IScalarDividable<Angle>
+	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>, IScalarMultipliable<Angle>, IScalarDividable<Angle>, IAddable<Angle>, ISubtractable<Angle>
 	{
 		#pragma region Angle conversions constants.
 		/// <summary>Multiply a radian by this to get the equivelant angle in degrees.</summary>
@@ -204,6 +204,18 @@ namespace SupergodEngine { namespace Math
 		/// Divides the radians of this by scalar.
 		/// </summary>
 		Angle Divide(const float& scalar) const override;
+		#pragma endregion
+
+		#pragma region Addition and subtraction.
+		/// <summary>
+		/// Adds the radians of this and the radians of other.
+		/// </summary>
+		Angle Add(const Angle& other) const override;
+
+		/// <summary>
+		/// Subtracts the radians of other from the radians of this.
+		/// </summary>
+		Angle Subtract(const Angle& other) const override;
 		#pragma endregion
 
 	private:

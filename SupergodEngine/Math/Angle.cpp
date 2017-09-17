@@ -54,4 +54,14 @@ namespace SupergodEngine { namespace Math
 	{
 		return GetRadians() / scalar;
 	}
+
+	Angle Angle::Add(const Angle& other) const
+	{
+		return GetRadians() + other.GetRadians();
+	}
+
+	Angle Angle::Subtract(const Angle& other) const
+	{
+		return GetRadians() - other.GetRadians();
+	}
 } }

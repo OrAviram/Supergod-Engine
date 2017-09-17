@@ -368,5 +368,27 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(result1.GetRadians(), Constants::PI / 2);
 			AssertUtils::AreEqual(result1.GetRevolutions(), .25f);
 		}
+
+		TEST_METHOD(AdditionSubtractionTests)
+		{
+			Angle a(180, Angle::Measurement::Degrees);
+			Angle b(270, Angle::Measurement::Degrees);
+			Angle add = a + b;
+			Angle sub1 = a - b;
+			Angle sub2 = b - a;
+
+			AssertUtils::CloseEnough(add, Angle(90, Angle::Measurement::Degrees));
+			AssertUtils::CloseEnough(add, a.Add(b));
+			AssertUtils::CloseEnough(add, ArithmeticOps::Add(a, b));
+
+			AssertUtils::AreEqual(sub1, Angle(270, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(sub1, a.Subtract(b));
+			AssertUtils::AreEqual(sub1, ArithmeticOps::Subtract(a, b));
+
+			AssertUtils::CloseEnough(sub2, Angle(90, Angle::Measurement::Degrees));
+			AssertUtils::CloseEnough(sub2, Angle(90, Angle::Measurement::Degrees));
+			AssertUtils::CloseEnough(sub2, b.Subtract(a));
+			AssertUtils::CloseEnough(sub2, ArithmeticOps::Subtract(b, a));
+		}
 	};
 }
