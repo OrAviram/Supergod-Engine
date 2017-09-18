@@ -390,5 +390,43 @@ namespace SupergodEngineTesting
 			AssertUtils::CloseEnough(sub2, b.Subtract(a));
 			AssertUtils::CloseEnough(sub2, ArithmeticOps::Subtract(b, a));
 		}
+
+		TEST_METHOD(FlippingReflectingTests)
+		{
+			Angle angle = 0;
+			AssertUtils::AreEqual(angle.Flipped(), Angle(180, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(angle.Flipped(), Angle::Flip(angle));
+			AssertUtils::AreEqual(-angle, Angle(Constants::TAU));
+			AssertUtils::AreEqual(-angle, angle.Reflection());
+			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
+
+			angle = Constants::PI / 2;
+			AssertUtils::AreEqual(angle.Flipped(), Angle(270, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(angle.Flipped(), Angle::Flip(angle));
+			AssertUtils::AreEqual(-angle, Angle(Constants::PI * 1.5f));
+			AssertUtils::AreEqual(-angle, angle.Reflection());
+			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
+
+			angle = Constants::PI;
+			AssertUtils::AreEqual(angle.Flipped(), Angle(0.f));
+			AssertUtils::AreEqual(angle.Flipped(), Angle::Flip(angle));
+			AssertUtils::AreEqual(-angle, Angle(Constants::PI));
+			AssertUtils::AreEqual(-angle, angle.Reflection());
+			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
+
+			angle = Constants::PI * 1.5f;
+			AssertUtils::CloseEnough(angle.Flipped(), Angle(90, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(angle.Flipped(), Angle::Flip(angle));
+			AssertUtils::CloseEnough(-angle, Angle(Constants::PI / 2));
+			AssertUtils::AreEqual(-angle, angle.Reflection());
+			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
+
+			angle = Constants::PI * 2;
+			AssertUtils::AreEqual(angle.Flipped(), Angle(180, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(angle.Flipped(), Angle::Flip(angle));
+			AssertUtils::AreEqual(-angle, Angle(0.f));
+			AssertUtils::AreEqual(-angle, angle.Reflection());
+			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
+		}
 	};
 }

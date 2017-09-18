@@ -218,6 +218,39 @@ namespace SupergodEngine { namespace Math
 		Angle Subtract(const Angle& other) const override;
 		#pragma endregion
 
+		#pragma region Flipping and reflecting.
+		/// <summary>
+		/// Flips this angle, so it's pointing to the opposite angle (subtracts 90 degrees from the angle).
+		/// </summary>
+		Angle Flipped() const;
+
+		static inline Angle Flip(const Angle& angle)
+		{
+			return angle.Flipped();
+		}
+
+		/// <summary>
+		/// Takes this rotation and puts it on the other side of the circle (subtract it from 360 degrees).
+		/// </summary>
+		Angle Reflection() const;
+
+		/// <summary>
+		/// Takes the rotation of angle and puts it on the other side of the circle (subtract it from 360 degrees).
+		/// </summary>
+		static inline Angle Reflect(const Angle& angle)
+		{
+			return angle.Reflection();
+		}
+
+		/// <summary>
+		/// Takes this rotation and puts it on the other side of the circle (subtract it from 360 degrees).
+		/// </summary>
+		inline Angle operator-() const
+		{
+			return Reflection();
+		}
+		#pragma endregion
+
 	private:
 		float _radians;
 	};

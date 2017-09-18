@@ -64,4 +64,14 @@ namespace SupergodEngine { namespace Math
 	{
 		return GetRadians() - other.GetRadians();
 	}
+
+	Angle Angle::Flipped() const
+	{
+		return GetRadians() - Constants::PI;
+	}
+
+	Angle Angle::Reflection() const
+	{
+		return Constants::TAU - GetRadians();
+	}
 } }
