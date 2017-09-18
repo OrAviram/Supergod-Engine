@@ -4,16 +4,17 @@
 #include "MathConstants.h"
 #include "SMath.h"
 #include "Interfaces/ISupergodEquatable.h"
+#include "Interfaces/IClampable.h"
+#include "Interfaces/ILerpable.h"
 #include "Interfaces/ISizeComparable.h"
 #include "Interfaces/ArithmeticInterfaces.h"
 
 namespace SupergodEngine { namespace Math
 {
-	// TODO: Add the interfaces IClampable and ILerpable.
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
 	/// </summary>
-	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>, IScalarMultipliable<Angle>, IScalarDividable<Angle>, IAddable<Angle>, ISubtractable<Angle>
+	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public IClampable<Angle>, public ILerpable<Angle>, public ISizeComparable<Angle>, IScalarDividable<Angle>, ISubtractable<Angle>
 	{
 		#pragma region Common angle presets.
 		/// <summary>A zero angle.</summary>
@@ -269,6 +270,13 @@ namespace SupergodEngine { namespace Math
 		{
 			return Reflection();
 		}
+		#pragma endregion
+
+		#pragma region Clamping.
+		/// <summary>
+		/// Clamps this so it's never smaller than min and never bigger than max.
+		/// </summary>
+		Angle Clamp(const Angle& min, const Angle& max) const override;
 		#pragma endregion
 
 	private:

@@ -428,5 +428,46 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(-angle, angle.Reflection());
 			AssertUtils::AreEqual(-angle, Angle::Reflect(angle));
 		}
+
+		TEST_METHOD(ClampTest)
+		{
+			Angle angle(45, Angle::Measurement::Degrees);
+			Angle min(20, Angle::Measurement::Degrees);
+			Angle max(90, Angle::Measurement::Degrees);
+
+			AssertUtils::AreEqual(angle.Clamp(min, max), Angle(45, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(SMath::Clamp(angle, min, max), (float)Angle(45, Angle::Measurement::Degrees));
+
+			min = Angle(60, Angle::Measurement::Degrees);
+			AssertUtils::AreEqual(angle.Clamp(min, max), Angle(60, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(SMath::Clamp(angle, min, max), (float)Angle(60, Angle::Measurement::Degrees));
+
+			angle = Angle(180, Angle::Measurement::Degrees);
+			AssertUtils::AreEqual(angle.Clamp(min, max), Angle(90, Angle::Measurement::Degrees));
+			AssertUtils::AreEqual(SMath::Clamp(angle, min, max), (float)Angle(90, Angle::Measurement::Degrees));
+		}
+
+		TEST_METHOD(LerpTest)
+		{
+			Angle source(180, Angle::Measurement::Degrees);
+			Angle target(360, Angle::Measurement::Degrees);
+
+			AssertUtils::TooFar(source.Lerp(target, -1, false), Constants::PI);
+			AssertUtils::CloseEnough(source.Lerp(target, -1), Constants::PI);
+			AssertUtils::CloseEnough(source.Lerp(target, 0), Constants::PI);
+			AssertUtils::CloseEnough(source.Lerp(target, .5f), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(source.Lerp(target, 1), Constants::PI * 2);
+			AssertUtils::CloseEnough(source.Lerp(target, 2), Constants::PI * 2);
+			AssertUtils::TooFar(source.Lerp(target, 2, false), Constants::PI * 2);
+
+			Angle difference = source - target;
+			Test01([&](float alpha)
+			{
+				Angle result1 = Lerper::Lerp(source, target, alpha);
+				Angle result2 = source + alpha * difference;
+
+				Assert::IsTrue(result1.CloseEnough(result2));
+			});
+		}
 	};
 }

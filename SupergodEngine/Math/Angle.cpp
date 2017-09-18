@@ -74,4 +74,9 @@ namespace SupergodEngine { namespace Math
 	{
 		return Constants::TAU - GetRadians();
 	}
+
+	Angle Angle::Clamp(const Angle& min, const Angle& max) const
+	{
+		return SMath::Clamp(GetRadians(), min, max);
+	}
 } }

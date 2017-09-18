@@ -22,6 +22,19 @@ namespace AssertUtils
 		Assert::IsTrue(a.CloseEnough(b, threshold), L"Close enough failed!");
 	}
 
+	static void TooFar(float a, float b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+	{
+		// TODO: Make more detailed fail message.
+		Assert::IsTrue(!Math::SMath::CloseEnough(a, b, threshold), L"Close enough failed!");
+	}
+
+	template<class T>
+	static void TooFar(const Math::ISupergodEquatable<T>& a, const T& b, float threshold = Math::Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+	{
+		// TODO: Make more detailed fail message.
+		Assert::IsTrue(!a.CloseEnough(b, threshold), L"Too far failed!");
+	}
+
 	template<class T>
 	static void AreEqual(T a, T b)
 	{
