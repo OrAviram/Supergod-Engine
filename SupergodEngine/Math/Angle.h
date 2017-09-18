@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Common/CommonDefines.h"
+#include "Common/CommonDefines.h"
 #include "MathConstants.h"
 #include "SMath.h"
 #include "Interfaces/ISupergodEquatable.h"

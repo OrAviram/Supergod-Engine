@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClInclude Include="Math\MathConstants.h" />
     <ClInclude Include="Common\CommonDefines.h" />
-    <ClInclude Include="Common\Math.h" />
     <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\Vectors\IVector.h" />
     <ClInclude Include="Math\Vectors\Vector.h" />
@@ -18,6 +17,7 @@
     <ClInclude Include="Math\Vectors\Vector4D.h" />
     <ClInclude Include="Math\Angle.h" />
     <ClInclude Include="Math\Interfaces\ISizeComparable.h" />
+    <ClInclude Include="Math\Math.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />

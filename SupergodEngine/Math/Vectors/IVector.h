@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Common/CommonDefines.h"
+#include "Common/CommonDefines.h"
 #include "../Interfaces/ISupergodEquatable.h"
 #include "../Interfaces/IAbsolutable.h"
 #include "../Interfaces/IClampable.h"

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Common/CommonDefines.h"
+#include "Common/CommonDefines.h"
 
 namespace SupergodEngine { namespace Math
 {
