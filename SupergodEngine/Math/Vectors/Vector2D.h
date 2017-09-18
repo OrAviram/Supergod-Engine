@@ -13,32 +13,32 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Gets a 2D vector with all of its components set to 0.
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, Zero, (0, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, Zero, (0, 0))
 		
 		/// <summary>
 		/// Gets a 2D vector with all of its components set to 1.
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, One, (1, 1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, One, (1, 1))
 		
 		/// <summary>
 		/// Gets the 2D vector (0, 1).
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, Up, (0, 1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, Up, (0, 1))
 		
 		/// <summary>
 		/// Gets the 2D vector (0, -1).
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, Down, (0, -1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, Down, (0, -1))
 		
 		/// <summary>
 		/// Gets the 2D vector(1, 0).
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, Right, (1, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, Right, (1, 0))
 		
 		/// <summary>
 		/// Gets the 2D vector (-1, 0).
 		/// </summary>
-		DEFINE_VECTOR_PRESET(Vector2D, Left, (-1, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector2D, Left, (-1, 0))
 		#pragma endregion
 
 		union

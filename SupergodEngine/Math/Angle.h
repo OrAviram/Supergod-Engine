@@ -15,6 +15,26 @@ namespace SupergodEngine { namespace Math
 	/// </summary>
 	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public ISizeComparable<Angle>, IScalarMultipliable<Angle>, IScalarDividable<Angle>, IAddable<Angle>, ISubtractable<Angle>
 	{
+		#pragma region Common angle presets.
+		/// <summary>A zero angle.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, Zero, (0))
+
+		/// <summary>Half of a right angle. pi / 4 radians, 45 degrees, 0.125 revolution.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, HalfRight, (Constants::TAU / 8))
+
+		/// <summary>A right angle. 90 degrees, pi / 2 radians, 1/4 revolutions.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, Right, (Constants::TAU / 4))
+
+		/// <summary>A straight angle. 180 degrees, pi radians, 1/2 revolutions.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, Straight, (Constants::TAU / 2))
+
+		/// <summary>An angle that is a right angle before a full rotation. 1.5pi radians, 270 degrees, 0.75 revolution.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, StraightAndHalf, (3 * Constants::TAU / 4))
+
+		/// <summary>An angle that is a full revolution. 2pi radians, 360 degrees, 1 revolution.</summary>
+		DEFINE_STRUCT_VALUE_PRESET(Angle, FullRotation, (Constants::TAU))
+		#pragma endregion
+
 		#pragma region Angle conversions constants.
 		/// <summary>Multiply a radian by this to get the equivelant angle in degrees.</summary>
 		static constexpr float RAD_TO_DEG = 360 / Constants::TAU;

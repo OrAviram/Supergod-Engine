@@ -10,6 +10,15 @@
 /// </summary>
 #define interface struct
 
+/// <summary>
+/// Defines a preset value for a struct (because you can't use const with those). This is being undefined in SupergodEngine.h.
+/// </summary>
+#define DEFINE_STRUCT_VALUE_PRESET(type, name, value) \
+			inline static const type& name() \
+			{ \
+				static const type val value; \
+				return val; \
+			}
 
 /// <summary>
 /// Represents an 8-bit unsigned integer.

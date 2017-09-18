@@ -13,22 +13,22 @@ namespace SupergodEngine { namespace Math
 	{
 		#pragma region Presets for common vectors.
 		/// <summary>(0, 0, 0, 0)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, Zero, (0, 0, 0, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, Zero, (0, 0, 0, 0))
 
 		/// <summary>(1, 1, 1, 1)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, One, (1, 1, 1, 1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, One, (1, 1, 1, 1))
 
 		/// <summary>(1, 0, 0, 0)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, UnitX, (1, 0, 0, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, UnitX, (1, 0, 0, 0))
 
 		/// <summary>(0, 1, 0, 0)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, UnitY, (0, 1, 0, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, UnitY, (0, 1, 0, 0))
 
 		/// <summary>(0, 0, 1, 0)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, UnitZ, (0, 0, 1, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, UnitZ, (0, 0, 1, 0))
 
 		/// <summary>(0, 0, 0, 1)</summary>
-		DEFINE_VECTOR_PRESET(Vector4D, UnitW, (0, 0, 0, 1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector4D, UnitW, (0, 0, 0, 1))
 		#pragma endregion
 
 		union
