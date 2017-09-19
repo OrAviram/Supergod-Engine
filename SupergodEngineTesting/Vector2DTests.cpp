@@ -140,7 +140,36 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(source.Reflect(Vector2D::Right() * 2), Vector2D(1, -1));
 		}
 
-		// TODO: Insert AngleTest when the Angle struct exists (and the methods in IVector for finding the angles) here.
+		TEST_METHOD(AngleTest)
+		{
+			Vector2D a(10, 0);
+			Vector2D b(0, 10);
+
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 2);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), Constants::PI * 1.5f);
+
+			b = Vector2D(-10, 0);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), Constants::PI);
+
+			b = Vector2D(5, 5);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 4);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 4);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), 5.4977871437821382f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), 5.4977871437821382f);
+
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector2D(1, 0), Vector2D(1, 0), false, false), 0);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector2D(-1, 0), Vector2D(1, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector2D(0, 1), Vector2D(1, 0), false, false), Constants::PI / 2);
+
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector2D(1, 0), Vector2D(1, 0), false, false), Constants::PI * 2);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector2D(-1, 0), Vector2D(1, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector2D(0, 1), Vector2D(1, 0), false, false), Constants::PI * 1.5f);
+		}
 
 		TEST_METHOD(LookPointAtTests)
 		{

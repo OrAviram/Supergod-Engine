@@ -167,7 +167,44 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(source.Reflect(Vector3D::Forward() * 2), Vector3D(-1, -1, -1));
 		}
 
-		// TODO: Insert AngleTest here when the Angle and methods in IVector struct exists.
+		TEST_METHOD(AngleTest)
+		{
+			Vector3D a(0, 0, 10);
+			Vector3D b(0, 10, 0);
+
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 2);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), Constants::PI * 1.5f);
+
+			b = Vector3D(0, 0, -10);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), Constants::PI);
+
+			b = Vector3D(5, 0, 5);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 4);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 4);
+			AssertUtils::CloseEnough(a.BiggestAngle(b), 5.4977871437821382f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(a, b), 5.4977871437821382f);
+
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(1, 0, 0), Vector3D(1, 0, 0), false, false), 0);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(0, 0, 1), Vector3D(0, 0, 1), false, false), 0);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(-1, 0, 0), Vector3D(1, 0, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(0, 1, -1), Vector3D(1, 0, 1), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(0, 1, 0), Vector3D(1, 0, 0), false, false), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(0, 1, 0), Vector3D(0, 0, 1), false, false), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector3D(1, 0, 0), Vector3D(0, 0, -1), false, false), Constants::PI / 2);
+
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(1, 0, 0), Vector3D(1, 0, 0), false, false), Constants::PI * 2);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(0, 0, 1), Vector3D(0, 0, 1), false, false), Constants::PI * 2);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(-1, 0, 0), Vector3D(1, 0, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(0, 1, -1), Vector3D(1, 0, 1), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(0, 1, 0), Vector3D(1, 0, 0), false, false), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(0, 1, 0), Vector3D(0, 0, 1), false, false), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector3D(1, 0, 0), Vector3D(0, 0, -1), false, false), Constants::PI * 1.5f);
+		}
 
 		TEST_METHOD(LookPointAtTests)
 		{

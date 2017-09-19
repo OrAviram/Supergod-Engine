@@ -6,6 +6,7 @@
 #include "../Interfaces/IClampable.h"
 #include "../Interfaces/ILerpable.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
+#include "../Angle.h"
 
 namespace std
 {
@@ -127,6 +128,29 @@ namespace SupergodEngine { namespace Math
 		inline float Distance(const T& other) const
 		{
 			return SMath::Sqrt(this->SqrDistance(other));
+		}
+
+		/// <summary>
+		/// Gets the smalles angle [0, 180 degrees] between this and other.
+		/// </summary>
+		/// <param name="normalizethis">Should this be normalized?</param>
+		/// <param name="normalizeOther">Should other be normalized?</param>
+		inline Angle SmallestAngle(const T& other, bool normalizeThis = true, bool normalizeOther = true) const
+		{
+			return SMath::Acos(
+				(normalizeThis ? Normalized() : (const T&)*this).Dot(
+				normalizeOther ? other.Normalized() : other
+				));
+		}
+
+		/// <summary>
+		/// Gets the biggest angle [180 degrees, 360 degrees] between this and other.
+		/// </summary>
+		/// <param name="normalizethis">Should this be normalized?</param>
+		/// <param name="normalizeOther">Should other be normalized?</param>
+		inline Angle BiggestAngle(const T& other, bool normalizeThis = true, bool normalizeOther = true) const
+		{
+			return Angle::FullRotation() - SmallestAngle(other, normalizeThis, normalizeOther);
 		}
 
 		/// <summary>
@@ -313,6 +337,28 @@ namespace SupergodEngine { namespace Math
 		inline float Distance(const IVector<T>& a, const T& b)
 		{
 			return a.Distance(b);
+		}
+
+		/// <summary>
+		/// Gets the smalles angle [0, 180 degrees] between left and right.
+		/// </summary>
+		/// <param name="normalizeLeft">Should left be normalized?</param>
+		/// <param name="normalizeRight">Should right be normalized?</param>
+		template<class T>
+		inline Angle SmallestAngle(const IVector<T>& left, const T& right, bool normalizeLeft = true, bool normalizeRight = true)
+		{
+			return left.SmallestAngle(right, normalizeLeft, normalizeRight);
+		}
+
+		/// <summary>
+		/// Gets the biggest angle [180 degrees, 360 degrees] between left and right.
+		/// </summary>
+		/// <param name="normalizeLeft">Should left be normalized?</param>
+		/// <param name="normalizeRight">Should right be normalized?</param>
+		template<class T>
+		inline Angle BiggestAngle(const IVector<T>& left, const T& right, bool normalizeLeft = true, bool normalizeRight = true)
+		{
+			return left.BiggestAngle(right, normalizeLeft, normalizeRight);
 		}
 	}
 } }

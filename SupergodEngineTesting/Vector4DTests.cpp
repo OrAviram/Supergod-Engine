@@ -455,7 +455,48 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(Absolutable::Abs(Vector4D(1, 2, 3, 0)), Vector4D(1, 2, 3, 0));
 		}
 
-		// TODO: Test the angles stuff.
+		TEST_METHOD(AngleTest)
+		{
+			Vector4D a(0, 0, 0, 10);
+			Vector4D b(0, 10, 0, 0);
+
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 2);
+
+			b = Vector4D(0, 0, 0, -10);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI);
+
+			b = Vector4D(5, 0, 0, 5);
+			AssertUtils::CloseEnough(a.SmallestAngle(b), Constants::PI / 4);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(a, b), Constants::PI / 4);
+
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(1, 0, 0, 0), Vector4D(1, 0, 0, 0), false, false), 0);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 0, 1, 0), Vector4D(0, 0, 1, 0), false, false), 0);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 0, 1), false, false), 0);
+
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(-1, 0, 0, 0), Vector4D(1, 0, 0, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 1, -1, 0), Vector4D(1, 0, 1, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 0, 0, -1), Vector4D(0, 0, 0, 1), false, false), Constants::PI);
+
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 1, 0, 0), Vector4D(1, 0, 0, 0), false, false), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 1, 0, 0), Vector4D(0, 0, 1, 0), false, false), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(1, 0, 0, 0), Vector4D(0, 0, -1, 0), false, false), Constants::PI / 2);
+			AssertUtils::CloseEnough(Vector::SmallestAngle(Vector4D(0, 0, 0, 1), Vector4D(0, 0, -1, 0), false, false), Constants::PI / 2);
+
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(1, 0, 0, 0), Vector4D(1, 0, 0, 0), false, false), Constants::PI * 2);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 0, 1, 0), Vector4D(0, 0, 1, 0), false, false), Constants::PI * 2);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 0, 0, 1), Vector4D(0, 0, 0, 1), false, false), Constants::PI * 2);
+
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(-1, 0, 0, 0), Vector4D(1, 0, 0, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 1, -1, 0), Vector4D(1, 0, 1, 0), false, false), Constants::PI);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 0, 0, -1), Vector4D(0, 0, 0, 1), false, false), Constants::PI);
+
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 1, 0, 0), Vector4D(1, 0, 0, 0), false, false), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 1, 0, 0), Vector4D(0, 0, 1, 0), false, false), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(1, 0, 0, 0), Vector4D(0, 0, -1, 0), false, false), Constants::PI * 1.5f);
+			AssertUtils::CloseEnough(Vector::BiggestAngle(Vector4D(0, 0, 0, 1), Vector4D(0, 0, -1, 0), false, false), Constants::PI * 1.5f);
+		}
 
 		TEST_METHOD(LookPointAtTests)
 		{
