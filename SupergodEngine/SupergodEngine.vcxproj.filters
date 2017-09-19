@@ -18,6 +18,9 @@
     <ClInclude Include="Math\Angle.h" />
     <ClInclude Include="Math\Interfaces\ISizeComparable.h" />
     <ClInclude Include="Math\Math.h" />
+    <ClInclude Include="Math\Colors\FColor.h" />
+    <ClInclude Include="Math\Colors\BColor.h" />
+    <ClInclude Include="Math\Colors\Colors.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />
@@ -25,5 +28,7 @@
     <ClCompile Include="Math\Vectors\Vector3D.cpp" />
     <ClCompile Include="Math\Vectors\Vector4D.cpp" />
     <ClCompile Include="Math\Angle.cpp" />
+    <ClCompile Include="Math\Colors\FColor.cpp" />
+    <ClCompile Include="Math\Colors\BColor.cpp" />
   </ItemGroup>
 </Project>

@@ -2,5 +2,7 @@
 
 #include "SMath.h"
 #include "MathConstants.h"
-#include "Vectors/Vector.h"
 #include "Angle.h"
+
+#include "Vectors/Vector.h"
+#include "Colors/Colors.h"
