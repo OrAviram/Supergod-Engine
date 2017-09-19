@@ -499,6 +499,13 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(third == -30);
 		}
 
-		// TODO: MAYBE test conversions (depends on if they will even exist).
+		TEST_METHOD(ConversionTests)
+		{
+			Vector3D threeD = Vector2D(1, 2);
+			Assert::IsTrue(threeD == Vector3D(1, 2, 0));
+
+			Vector4D fourD = Vector2D(-1, 2.2f);
+			Assert::IsTrue(fourD == Vector4D(-1, 2.2f, 0, 0));
+		}
 	};
 }

@@ -1,4 +1,6 @@
 #include "Vector2D.h"
+#include "Vector3D.h"
+#include "Vector4D.h"
 #include "../SMath.h"
 #include <functional>
 
@@ -12,6 +14,16 @@ namespace SupergodEngine { namespace Math
 	Vector2D::Vector2D(const float& x, const float& y)
 		: x(x), y(y)
 	{
+	}
+
+	Vector2D::operator Vector3D() const
+	{
+		return Vector3D(x, y, 0);
+	}
+
+	Vector2D::operator Vector4D() const
+	{
+		return Vector4D(x, y, 0, 0);
 	}
 
 	bool Vector2D::Equals(const Vector2D& other) const

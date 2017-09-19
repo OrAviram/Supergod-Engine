@@ -623,5 +623,21 @@ namespace SupergodEngineTesting
 			Assert::AreEqual(dist, 6.f);
 			Assert::AreEqual(sqrDist, 36.f);
 		}
+
+		TEST_METHOD(ConversionTests)
+		{
+			Vector2D first = (Vector2D)Vector4D(1, 2, 3, 4);
+			Assert::IsTrue(first == Vector2D(1, 2));
+
+			Vector3D second = (Vector3D)Vector4D(4.2f, -1, 3, 4);
+			Assert::IsTrue(second == Vector3D(4.2f, -1, 3));
+
+			// TODO: Bring those back when FColor and Quternion exist.
+			//FColor color = Vector4D(2, -1, 3, 10);
+			//Assert::AreEqual(color, FColor(2, -1, 3, 10));
+			//
+			//Quaternion quaternion = Vector4D(2, -1, 3, 5);
+			//Assert::AreEqual(quaternion, Quaternion(5, 2, -1, 3));
+		}
 	};
 }

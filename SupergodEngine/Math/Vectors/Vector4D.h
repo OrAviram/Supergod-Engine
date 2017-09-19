@@ -78,6 +78,16 @@ namespace SupergodEngine { namespace Math
 		{
 			return components[index];
 		}
+		
+		/// <summary>
+		/// Creates a new Vector2D with x and y as its components.
+		/// </summary>
+		explicit operator Vector2D() const;
+
+		/// <summary>
+		/// Creates a new Vector3D with x, y and z as its components.
+		/// </summary>
+		explicit operator Vector3D() const;
 
         #pragma region Specific Vector3D Axes.
         // X y and z combinations:

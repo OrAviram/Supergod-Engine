@@ -575,5 +575,24 @@ namespace SupergodEngineTesting
 			result = left.Cross(right);
 			AssertUtils::CloseEnough(result, Vector3D(-.3f, .1f, .2f));
 		}
+
+		TEST_METHOD(ConversionTests)
+		{
+			Vector2D twoD = (Vector2D)Vector3D(1, 2, 3);
+			Assert::IsTrue(twoD == Vector2D(1, 2));
+
+			Vector4D fourD = Vector3D(-1, 2.2f, 3);
+			Assert::IsTrue(fourD == Vector4D(-1, 2.2f, 3, 0));
+
+			// TODO: Bring those back when EulerAngles exists.
+			// Euler angles.
+			//{
+			//	Vector3D vec = Vector3D(RandFloat100(), RandFloat100(), RandFloat100());
+			//	EulerAngles angles = vec;
+			//	AssertUtils::CloseEnough(angles.Pitch, Angle::WrapRadians(vec.x));
+			//	AssertUtils::CloseEnough(angles.Yaw, Angle::WrapRadians(vec.y));
+			//	AssertUtils::CloseEnough(angles.Roll, Angle::WrapRadians(vec.z));
+			//}
+		}
 	};
 }

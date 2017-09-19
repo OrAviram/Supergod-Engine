@@ -4,6 +4,9 @@
 
 namespace SupergodEngine { namespace Math
 {
+	struct Vector3D;
+	struct Vector4D;
+
 	/// <summary>
 	/// Represents a 2-component mathematical vector.
 	/// </summary>
@@ -70,6 +73,16 @@ namespace SupergodEngine { namespace Math
 		{
 			return components[index];
 		}
+
+		/// <summary>
+		/// Creates a new Vector3D that uses the x and y components of this and sets z to 0.
+		/// </summary>
+		operator Vector3D() const;
+
+		/// <summary>
+		/// Creates a new Vector4D that uses the x and y components of this and sets the other components to 0.
+		/// </summary>
+		operator Vector4D() const;
 
 		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>

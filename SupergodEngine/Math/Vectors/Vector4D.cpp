@@ -43,6 +43,16 @@ namespace SupergodEngine { namespace Math
 	{
 	}
 
+	Vector4D::operator Vector2D() const
+	{
+		return Vector2D(x, y);
+	}
+
+	Vector4D::operator Vector3D() const
+	{
+		return Vector3D(x, y, z);
+	}
+
 	bool Vector4D::Equals(const Vector4D& other) const
 	{
 		return x == other.x && y == other.y && z == other.z && w == other.w;

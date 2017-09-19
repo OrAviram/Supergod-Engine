@@ -1,9 +1,12 @@
 #pragma once
+
 #include "IVector.h"
 #include "Vector2D.h"
 
 namespace SupergodEngine { namespace Math
 {
+	struct Vector4D;
+
 	/// <summary>
 	/// Represents a 3-component mathematical vector.
 	/// </summary>
@@ -86,6 +89,17 @@ namespace SupergodEngine { namespace Math
 		{
 			return components[index];
 		}
+
+		/// <summary>
+		/// Creates a new Vector2D with x and y as its components.
+		/// </summary>
+		explicit operator Vector2D() const;
+
+		/// <summary>
+		/// Creates a new Vector4D with x, y, z and 0 as its components.
+		/// </summary>
+		/// <returns></returns>
+		operator Vector4D() const;
 
 		#pragma region Axis Combinations.
 		/// <summary>A Vector2D with the x and y components of this vector.</summary>
