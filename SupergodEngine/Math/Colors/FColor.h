@@ -4,6 +4,7 @@
 #include "IColor.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
 #include "../Interfaces/ILerpable.h"
+#include "../Interfaces/IClampable.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -12,8 +13,69 @@ namespace SupergodEngine { namespace Math
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor final : public IColor<FColor>, ILerpable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, IScalarDividable<FColor>, IMultipliable<FColor>
+	struct SUPERGOD_API FColor final : public IColor<FColor>, public ILerpable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, public IScalarDividable<FColor>, public IMultipliable<FColor>
 	{
+		#pragma region Presets for common colors.
+		
+        #pragma region Simple RGB and clear.
+        /// <summary>Clear color. RGBA is (0, 0, 0, 0).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Clear, (0, 0, 0, 0))
+
+        /// <summary>Red color. RGBA is (1, 0, 0, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Red, (1, 0, 0, 1))
+
+        /// <summary>Green color. RGBA is (0, 1, 0, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Green, (0, 1, 0, 1))
+
+        /// <summary>Blue color. RGBA is (0, 0, 1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Blue, (0, 0, 1, 1))
+		#pragma endregion
+
+        #pragma region Basic combinations (yellow, pink, cyan).
+        /// <summary>Blue color. RGBA is (1, 1, 0, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Yellow, (1, 1, 0, 1))
+
+        /// <summary>Pink color. RGBA is (1, 0, 1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Pink, (1, 0, 1, 1))
+
+        /// <summary>Cyan color. RGBA is (0, 1, 1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Cyan, (0, 1, 1, 1))
+		#pragma endregion
+
+        #pragma region Complex combinations (purple, teal and orange).
+        /// <summary>Purple color. RGBA is (0.3, 0, 1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Purple, (.3f, 0, 1, 1))
+
+        /// <summary>Teal color. RGBA is (0, 1, 0.6, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Teal, (0, 1, .6f, 1))
+
+        /// <summary>Orange color. RGBA is (1, 0.2, 0, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Orange, (1, .2f, 0, 1))
+		#pragma endregion
+
+        #pragma region No hue.
+        /// <summary>White color. RGBA is (1, 1, 1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, White, (1, 1, 1, 1))
+
+        /// <summary>Black color. RGBA is (0, 0, 0, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Black, (0, 0, 0, 1))
+
+        /// <summary>Very dark gray color. RGBA is (0.02, 0.02, 0.02, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, VeryDarkGray, (.02f, .02f, .02f, 1))
+
+        /// <summary>Dark gray color. RGBA is (0.1, 0.1, 0.1, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, DarkGray, (.1f, .1f, .1f, 1))
+
+        /// <summary>Medium gray color. RGBA is (0.5, 0.5, 0.5, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, Gray, (.5f, .5f, .5f, 1))
+
+        /// <summary>Light gray color. RGBA is (0.75, 0.75, 0.75, 1).</summary>
+		DEFINE_STRUCT_VALUE_PRESET(FColor, LightGray, (.75f, .75f, .75f, 1))
+        #pragma endregion
+
+		#pragma endregion
+
+
 		union
 		{
 			struct { float red, green, blue, alpha; };
