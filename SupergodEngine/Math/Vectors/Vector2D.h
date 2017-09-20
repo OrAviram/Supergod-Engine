@@ -54,7 +54,7 @@ namespace SupergodEngine { namespace Math
 		Vector2D();
 
 		/// <summary>Creates a new 2D vector and initializes its components to x and y.</summary>
-		explicit Vector2D(const float& x, const float& y);
+		Vector2D(const float& x, const float& y);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.

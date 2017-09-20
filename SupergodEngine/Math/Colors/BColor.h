@@ -23,6 +23,6 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
-		explicit BColor(const byte& red, const byte& green, const byte& blue, const byte& alpha);
+		BColor(const byte& red, const byte& green, const byte& blue, const byte& alpha);
 	};
 } }

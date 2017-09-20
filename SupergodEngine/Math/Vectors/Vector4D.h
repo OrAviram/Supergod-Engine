@@ -41,25 +41,25 @@ namespace SupergodEngine { namespace Math
 		Vector4D();
 
 		/// <summary>Initializes a new Vector4D for with an x, a y, a z, and a w.</summary>
-		explicit Vector4D(const float& x, const float& y, const float& z, const float& w);
+		Vector4D(const float& x, const float& y, const float& z, const float& w);
 
 		/// <summary>Initializes a new Vector4D with a vector for x and y and a vector for z and w.</summary>
-		explicit Vector4D(const Vector2D& xy, const Vector2D& zw);
+		Vector4D(const Vector2D& xy, const Vector2D& zw);
 
 		/// <summary>Initializes a new Vector4D with a vector for x, y and z and a const float& for w.</summary>
-		explicit Vector4D(const Vector3D& xyz, const float& w);
+		Vector4D(const Vector3D& xyz, const float& w);
 
 		/// <summary>Initializes a new Vector4D with a const float& for x and a vector for y, z and w.</summary>
-		explicit Vector4D(const float& x, const Vector3D& yzw);
+		Vector4D(const float& x, const Vector3D& yzw);
 
 		/// <summary>Initializes a new Vector4D with a const float& for x, y, and a vector for z and w.</summary>
-		explicit Vector4D(const float& x, const float& y, const Vector2D& zw);
+		Vector4D(const float& x, const float& y, const Vector2D& zw);
 
 		/// <summary>Initializes a new Vector4D with a const float& for x, a vector for y and z, and a const float& for w.</summary>
-		explicit Vector4D(const float& x, const Vector2D& yz, const float& w);
+		Vector4D(const float& x, const Vector2D& yz, const float& w);
 
 		/// <summary>Initializes a new Vector4D with a vector for x and y and floats for z and w.</summary>
-		explicit Vector4D(const Vector2D& xy, const float& z, const float& w);
+		Vector4D(const Vector2D& xy, const float& z, const float& w);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.

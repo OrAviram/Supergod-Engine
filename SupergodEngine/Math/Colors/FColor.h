@@ -22,6 +22,6 @@ namespace SupergodEngine { namespace Math
 		/// <summary>
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
-		explicit FColor(const float& red, const float& green, const float& blue, const float& alpha);
+		FColor(const float& red, const float& green, const float& blue, const float& alpha);
 	};
 } }
