@@ -37,5 +37,7 @@ namespace SupergodEngineTesting
 				Assert::AreEqual((uint)color, uintValue);
 			});
 		}
+
+		// TODO: Unit test addition, subtraction multiplication, division and construction for FColor.
 	};
 }

@@ -2,20 +2,21 @@
 
 #include "Common/CommonDefines.h"
 #include "IColor.h"
+#include "../Interfaces/ArithmeticInterfaces.h"
 
 namespace SupergodEngine { namespace Math
 {
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor final : public IColor<FColor>
+	struct SUPERGOD_API FColor final : public IColor<FColor>, public IAddable<FColor>, public ISubtractable<FColor>
 	{
 		union
 		{
 			struct { float red, green, blue, alpha; };
 			float components[4];
 		};
-
+		
 		/// <summary>
 		/// Creates a new color with all of its components set to 0.
 		/// </summary>
@@ -36,6 +37,18 @@ namespace SupergodEngine { namespace Math
 		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
 		/// </summary>
 		bool CloseEnough(const FColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		#pragma endregion
+
+		#pragma region Addition and subtraction.
+		/// <summary>
+		/// Adds every component of this to its corresponding component in other.
+		/// </summary>
+		FColor Add(const FColor& other) const override;
+
+		/// <summary>
+		/// Subtracts every component of other from its corresponding component in this.
+		/// </summary>
+		FColor Subtract(const FColor& other) const override;
 		#pragma endregion
 
 		#pragma region Inversion.
