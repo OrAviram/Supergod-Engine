@@ -22,4 +22,9 @@ namespace SupergodEngine { namespace Math
 	{
 		return SMath::CloseEnough(red, other.red, threshold) && SMath::CloseEnough(green, other.green, threshold) && SMath::CloseEnough(blue, other.blue, threshold) && SMath::CloseEnough(alpha, other.alpha, threshold);
 	}
+
+	FColor FColor::Inverted() const
+	{
+		return FColor(1 - red, 1 - blue, 1 - green, alpha);
+	}
 } }

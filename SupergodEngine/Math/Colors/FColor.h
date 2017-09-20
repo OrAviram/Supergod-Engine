@@ -37,5 +37,12 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		bool CloseEnough(const FColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 		#pragma endregion
+
+		#pragma region Inversion.
+		/// <summary>
+		/// Invertes (subtracts every component OTHER THAN ALPGA from 1) this color. The alpha won't change.
+		/// </summary>
+		FColor Inverted() const override;
+		#pragma endregion
 	};
 } }

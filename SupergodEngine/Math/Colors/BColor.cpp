@@ -33,4 +33,9 @@ namespace SupergodEngine { namespace Math
 	{
 		return SMath::CloseEnough(red, other.red, threshold) && SMath::CloseEnough(green, other.green, threshold) && SMath::CloseEnough(blue, other.blue, threshold) && SMath::CloseEnough(alpha, other.alpha, threshold);
 	}
+
+	BColor BColor::Inverted() const
+	{
+		return BColor(255 - red, 255 - blue, 255 - green, alpha);
+	}
 } }

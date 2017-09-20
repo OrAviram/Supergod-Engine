@@ -136,5 +136,12 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		bool CloseEnough(const BColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 		#pragma endregion
+
+		#pragma region Inversion
+		/// <summary>
+		/// Invertes (subtracts every component OTHER THAN ALPGA from 255) this color. The alpha won't change.
+		/// </summary>
+		BColor Inverted() const override;
+		#pragma endregion
 	};
 } }
