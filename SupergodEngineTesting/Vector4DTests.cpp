@@ -632,10 +632,10 @@ namespace SupergodEngineTesting
 			Vector3D second = (Vector3D)Vector4D(4.2f, -1, 3, 4);
 			Assert::IsTrue(second == Vector3D(4.2f, -1, 3));
 
-			// TODO: Bring those back when FColor and Quternion exist.
-			//FColor color = Vector4D(2, -1, 3, 10);
-			//Assert::AreEqual(color, FColor(2, -1, 3, 10));
-			//
+			FColor color = Vector4D(2, -1, 3, 10);
+			AssertUtils::AreEqual(color, FColor(2, -1, 3, 10));
+			
+			// TODO: Bring that back when Quternion exists.
 			//Quaternion quaternion = Vector4D(2, -1, 3, 5);
 			//Assert::AreEqual(quaternion, Quaternion(5, 2, -1, 3));
 		}

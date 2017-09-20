@@ -9,11 +9,12 @@
 namespace SupergodEngine { namespace Math
 {
 	struct Vector4D;
+	struct BColor;
 
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor final : public IColor<FColor>, public ILerpable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, public IScalarDividable<FColor>, public IMultipliable<FColor>
+	struct SUPERGOD_API FColor final : public IColor<FColor>, public ILerpable<FColor>, public IClampable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, public IScalarDividable<FColor>, public IMultipliable<FColor>
 	{
 		#pragma region Presets for common colors.
 		
@@ -75,7 +76,6 @@ namespace SupergodEngine { namespace Math
 
 		#pragma endregion
 
-
 		union
 		{
 			struct { float red, green, blue, alpha; };
@@ -97,7 +97,10 @@ namespace SupergodEngine { namespace Math
 		/// </summary>
 		operator Vector4D() const;
 
-		// TODO: Add conversion to BColor when clamping and normalizing exists.
+		/// <summary>
+		/// Creates a new color made of 4 bytes that is the same as this one. Some precision might be lost.
+		/// </summary>
+		explicit operator BColor() const;
 
 		#pragma region Comparison methods.
 		/// <summary>
@@ -158,6 +161,29 @@ namespace SupergodEngine { namespace Math
 		/// Invertes (subtracts every component OTHER THAN ALPGA from 1) this color. The alpha won't change.
 		/// </summary>
 		FColor Inverted() const override;
+		#pragma endregion
+
+		#pragma region Clamping and normalizing.
+		/// <summary>
+		/// Clamps every component of this between its corresponding component in min and its corresponding component in max.
+		/// </summary>
+		FColor Clamp(const FColor& min, const FColor& max) const override;
+
+		/// <summary>
+		/// Gets a version of this with all of its components clamped between 0 and 1. The returned value will always be a valid color.
+		/// </summary>
+		inline FColor Normalized() const
+		{
+			return Clamp(Black(), White());
+		}
+
+		/// <summary>
+		/// Gets a version of color with all of its components clamped between 0 and 1. The returned value will always be a valid color.
+		/// </summary>
+		static inline FColor Normalize(const FColor& color)
+		{
+			return color.Normalized();
+		}
 		#pragma endregion
 	};
 } }

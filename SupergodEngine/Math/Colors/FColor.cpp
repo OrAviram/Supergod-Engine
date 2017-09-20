@@ -1,4 +1,5 @@
 #include "FColor.h"
+#include "BColor.h"
 #include "../SMath.h"
 #include "../Vectors/Vector4D.h"
 
@@ -19,6 +20,14 @@ namespace SupergodEngine { namespace Math
 		return Vector4D(red, green, blue, alpha);
 	}
 
+	FColor::operator BColor() const
+	{
+		#define FLOAT_TO_BYTE(source) (byte)(source * 255)
+		FColor source = Normalized();
+		return BColor(FLOAT_TO_BYTE(source.red), FLOAT_TO_BYTE(source.green), FLOAT_TO_BYTE(source.blue), FLOAT_TO_BYTE(source.alpha));
+		#undef FLOAT_TO_BYTE
+	}
+	
 	bool FColor::Equals(const FColor& other) const
 	{
 		return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
@@ -62,5 +71,10 @@ namespace SupergodEngine { namespace Math
 	FColor FColor::Inverted() const
 	{
 		return FColor(1 - red, 1 - blue, 1 - green, alpha);
+	}
+
+	FColor FColor::Clamp(const FColor& min, const FColor& max) const
+	{
+		return FColor(SMath::Clamp(red, min.red, max.red), SMath::Clamp(green, min.green, max.green), SMath::Clamp(blue, min.blue, max.blue), SMath::Clamp(alpha, min.alpha, max.alpha));
 	}
 } }

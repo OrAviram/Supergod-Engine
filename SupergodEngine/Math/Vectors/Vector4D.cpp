@@ -1,5 +1,6 @@
 #include <functional>
 #include "Vector4D.h"
+#include "../Colors/FColor.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -51,6 +52,11 @@ namespace SupergodEngine { namespace Math
 	Vector4D::operator Vector3D() const
 	{
 		return Vector3D(x, y, z);
+	}
+
+	Vector4D::operator FColor() const
+	{
+		return FColor(x, y, z, w);
 	}
 
 	bool Vector4D::Equals(const Vector4D& other) const

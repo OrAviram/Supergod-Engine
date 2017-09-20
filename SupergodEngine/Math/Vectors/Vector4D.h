@@ -6,6 +6,8 @@
 
 namespace SupergodEngine { namespace Math
 {
+	struct FColor;
+
 	/// <summary>
 	/// Represents a 4-component mathematical vector.
 	/// </summary>
@@ -88,6 +90,11 @@ namespace SupergodEngine { namespace Math
 		/// Creates a new Vector3D with x, y and z as its components.
 		/// </summary>
 		explicit operator Vector3D() const;
+
+		/// <summary>
+		/// Creates a new color with red green blue alpha set as x y z w (in that order).
+		/// </summary>
+		operator FColor() const;
 
         #pragma region Specific Vector3D Axes.
         // X y and z combinations:
