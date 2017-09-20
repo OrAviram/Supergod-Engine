@@ -1,5 +1,6 @@
 #include "FColor.h"
 #include "../SMath.h"
+#include "../Vectors/Vector4D.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -11,6 +12,11 @@ namespace SupergodEngine { namespace Math
 	FColor::FColor(const float& red, const float& green, const float& blue, const float& alpha)
 		: red(red), green(green), blue(blue), alpha(alpha)
 	{
+	}
+
+	FColor::operator Vector4D() const
+	{
+		return Vector4D(red, green, blue, alpha);
 	}
 
 	bool FColor::Equals(const FColor& other) const
@@ -31,6 +37,26 @@ namespace SupergodEngine { namespace Math
 	FColor FColor::Subtract(const FColor& other) const
 	{
 		return FColor(red - other.red, green - other.green, blue - other.blue, alpha - other.alpha);
+	}
+
+	FColor FColor::Multiply(const FColor& other) const
+	{
+		return FColor(red * other.red, green * other.green, blue * other.blue, alpha * other.alpha);
+	}
+
+	FColor FColor::Multiply(const float& scalar) const
+	{
+		return FColor(red * scalar, green * scalar, blue * scalar, alpha * scalar);
+	}
+
+	FColor FColor::Divide(const FColor& other) const
+	{
+		return FColor(red / other.red, green / other.green, blue / other.blue, alpha / other.alpha);
+	}
+
+	FColor FColor::Divide(const float& scalar) const
+	{
+		return FColor(red / scalar, green / scalar, blue / scalar, alpha / scalar);
 	}
 
 	FColor FColor::Inverted() const

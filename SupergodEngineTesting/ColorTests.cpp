@@ -86,7 +86,57 @@ namespace SupergodEngineTesting
 			});
 
 		}
+
+		TEST_METHOD(ScalingTests)
+		{
+			FColor color(1, 1, 1, 1);
+			float scalar = .5f;
+
+			FColor result1 = color * scalar;
+			FColor result2 = scalar * color;
+
+			Assert::IsTrue(result1.red == .5f);
+			Assert::IsTrue(result1.red == result2.red);
+
+			Assert::IsTrue(result1.green == .5f);
+			Assert::IsTrue(result1.green == result2.green);
+
+			Assert::IsTrue(result1.blue == .5f);
+			Assert::IsTrue(result1.blue == result2.blue);
+
+			Assert::IsTrue(result1.alpha == .5f);
+			Assert::IsTrue(result1.alpha == result2.alpha);
+
+			result1 /= scalar;
+			AssertUtils::AreEqual(result1, result2 / scalar);
+			AssertUtils::AreEqual(result1, color);
+		}
 		
-		// TODO: Unit test multiplication and division for FColor.
+		TEST_METHOD(MultiplicationDivisionTests)
+		{
+			FColor a(1, 1, 1, 1);
+			FColor b(2, 3, 4, -1);
+
+			FColor result1 = a * b;
+			FColor result2 = b * a;
+
+			Assert::IsTrue(result1.red == 2);
+			Assert::IsTrue(result1.red == result2.red);
+
+			Assert::IsTrue(result1.green == 3);
+			Assert::IsTrue(result1.green == result2.green);
+
+			Assert::IsTrue(result1.blue == 4);
+			Assert::IsTrue(result1.blue == result2.blue);
+
+			Assert::IsTrue(result1.alpha == -1);
+			Assert::IsTrue(result1.alpha == result2.alpha);
+
+			result1 /= b;
+			AssertUtils::AreEqual(result1, a);
+
+			result2 /= a;
+			AssertUtils::AreEqual(result2, b);
+		}
 	};
 }

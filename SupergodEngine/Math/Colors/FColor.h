@@ -3,13 +3,16 @@
 #include "Common/CommonDefines.h"
 #include "IColor.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
+#include "../Interfaces/ILerpable.h"
 
 namespace SupergodEngine { namespace Math
 {
+	struct Vector4D;
+
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor final : public IColor<FColor>, public IAddable<FColor>, public ISubtractable<FColor>
+	struct SUPERGOD_API FColor final : public IColor<FColor>, ILerpable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, IScalarDividable<FColor>, IMultipliable<FColor>
 	{
 		union
 		{
@@ -26,6 +29,13 @@ namespace SupergodEngine { namespace Math
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
 		FColor(const float& red, const float& green, const float& blue, const float& alpha);
+
+		/// <summary>
+		/// Creates a new Vector4D with its x y z w components set to red green blue alpha (in that order).
+		/// </summary>
+		operator Vector4D() const;
+
+		// TODO: Add conversion to BColor when clamping and normalizing exists.
 
 		#pragma region Comparison methods.
 		/// <summary>
@@ -49,6 +59,36 @@ namespace SupergodEngine { namespace Math
 		/// Subtracts every component of other from its corresponding component in this.
 		/// </summary>
 		FColor Subtract(const FColor& other) const override;
+		#pragma endregion
+
+		#pragma region Multiplication and division.
+		/// <summary>
+		/// Multiplies every component of this by its corresponding component in other.
+		/// </summary>
+		FColor Multiply(const FColor& other) const override;
+
+		/// <summary>
+		/// Multiplies every component of this by scalar.
+		/// </summary>
+		FColor Multiply(const float& scalar) const override;
+
+		/// <summary>
+		/// Divides every component of this by its corresponding component in other.
+		/// </summary>
+		FColor Divide(const FColor& other) const override;
+
+		/// <summary>
+		/// Divides every component of this by scalar.
+		/// </summary>
+		FColor Divide(const float& scalar) const override;
+
+		/// <summary>
+		/// Multiplies every component of color by scalar.
+		/// </summary>
+		friend FColor operator*(const float& scalar, const FColor& color)
+		{
+			return color.Multiply(scalar);
+		}
 		#pragma endregion
 
 		#pragma region Inversion.
