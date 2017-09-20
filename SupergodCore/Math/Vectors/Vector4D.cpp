@@ -2,7 +2,7 @@
 #include "Vector4D.h"
 #include "../Colors/FColor.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	Vector4D::Vector4D()
 		: x(0), y(0), z(0), w(0)

@@ -6,7 +6,7 @@
 #include "../Interfaces/ILerpable.h"
 #include "../Interfaces/IClampable.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	struct Vector4D;
 	struct BColor;

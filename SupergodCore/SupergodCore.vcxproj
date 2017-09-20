@@ -37,9 +37,9 @@
     <ClInclude Include="Math\Vectors\Vector2D.h" />
     <ClInclude Include="Math\Vectors\Vector3D.h" />
     <ClInclude Include="Math\Vectors\Vector4D.h" />
-    <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\MathConstants.h" />
+    <ClInclude Include="SupergodCore.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Angle.cpp" />
@@ -56,6 +56,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SupergodEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectName>SupergodCore</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

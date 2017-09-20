@@ -1,7 +1,7 @@
 #pragma once
 #include "Common/CommonDefines.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Interface for things that can compare their sizes (bigger than or smaller than).

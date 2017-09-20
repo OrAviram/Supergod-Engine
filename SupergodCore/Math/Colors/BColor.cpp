@@ -2,7 +2,7 @@
 #include "FColor.h"
 #include "../SMath.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	BColor::BColor()
 		: red(0), green(0), blue(0), alpha(0)

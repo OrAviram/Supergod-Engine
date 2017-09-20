@@ -1,6 +1,6 @@
 #include "Angle.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	Angle::Angle()
 	{

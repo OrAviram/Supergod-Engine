@@ -4,7 +4,7 @@
 #include "Common/CommonDefines.h"
 #include "MathConstants.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Collection of common Supergod math functions.

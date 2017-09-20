@@ -3,7 +3,7 @@
 #include "Common/CommonDefines.h"
 #include "../Interfaces/ISupergodEquatable.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Interface color structs can implement.

@@ -7,8 +7,8 @@
 #include <CppUnitTest.h>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-#include <SupergodEngine.h>
-using namespace SupergodEngine;
+#include <SupergodCore.h>
+using namespace SupergodCore;
 
 namespace AssertUtils
 {

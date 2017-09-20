@@ -3,7 +3,7 @@
 #include "Common/CommonDefines.h"
 #include "../MathConstants.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// An interface that adds all the comparison methods needed to compare it like a real supergod object!<para/>

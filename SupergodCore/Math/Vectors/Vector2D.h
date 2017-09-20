@@ -2,7 +2,7 @@
 
 #include "IVector.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	struct Vector3D;
 	struct Vector4D;

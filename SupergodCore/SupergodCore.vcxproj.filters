@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClInclude Include="Math\MathConstants.h" />
     <ClInclude Include="Common\CommonDefines.h" />
-    <ClInclude Include="SupergodEngine.h" />
     <ClInclude Include="Math\Vectors\IVector.h" />
     <ClInclude Include="Math\Vectors\Vector.h" />
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
@@ -22,6 +21,7 @@
     <ClInclude Include="Math\Colors\BColor.h" />
     <ClInclude Include="Math\Colors\Colors.h" />
     <ClInclude Include="Math\Colors\IColor.h" />
+    <ClInclude Include="SupergodCore.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />

@@ -4,7 +4,7 @@
 #include "../SMath.h"
 #include <functional>
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	Vector2D::Vector2D()
 		: x(0), y(0)

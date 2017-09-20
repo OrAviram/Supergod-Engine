@@ -2,7 +2,7 @@
 #include "MathConstants.h"
 #include <cmath>
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	bool SMath::CloseEnough(const float& a, const float& b, float threshold)
 	{

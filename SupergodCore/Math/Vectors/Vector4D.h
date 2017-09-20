@@ -4,7 +4,7 @@
 #include "Vector2D.h"
 #include "Vector3D.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	struct FColor;
 

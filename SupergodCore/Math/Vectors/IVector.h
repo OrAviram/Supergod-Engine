@@ -14,7 +14,7 @@ namespace std
 	class function;
 }
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Interface vector structs can implement.<para/>

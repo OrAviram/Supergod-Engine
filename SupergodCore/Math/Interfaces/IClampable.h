@@ -2,7 +2,7 @@
 
 #include "Common/CommonDefines.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Interface that types that can be clamped between a minimum and a maximum can implement.<para/>

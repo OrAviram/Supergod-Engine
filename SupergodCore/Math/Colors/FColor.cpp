@@ -3,7 +3,7 @@
 #include "../SMath.h"
 #include "../Vectors/Vector4D.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	FColor::FColor()
 		: red(0), green(0), blue(0), alpha(0)

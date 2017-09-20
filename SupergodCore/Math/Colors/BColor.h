@@ -3,7 +3,7 @@
 #include "Common/CommonDefines.h"
 #include "IColor.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	struct FColor;
 

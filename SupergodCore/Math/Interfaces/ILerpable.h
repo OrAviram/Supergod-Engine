@@ -3,7 +3,7 @@
 #include "../SMath.h"
 #include "ArithmeticInterfaces.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	template<class T>
 	interface SUPERGOD_API ILerpable : public IAddable<T>, public IScalarMultipliable<T>

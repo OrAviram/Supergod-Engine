@@ -5,7 +5,7 @@
 #include "Common/CommonDefines.h"
 #include "../MathConstants.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Not sure if that's a word, but I had an interface in my previous system that only had the Abs method in it, so I decided to keep it...<para/>

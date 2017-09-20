@@ -1,6 +1,6 @@
 #pragma once
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// A collection of common mathematical constants.

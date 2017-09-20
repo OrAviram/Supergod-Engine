@@ -2,7 +2,7 @@
 
 #include "Common/CommonDefines.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	#define ARITHMETIC_INTERFACE(interfaceName, functionName, sign, secondType, secondName) \
 		template<class T> \

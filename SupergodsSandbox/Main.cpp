@@ -1,8 +1,8 @@
 #include <iostream>
-#include <SupergodEngine.h>
+#include <SupergodCore.h>
 
 using namespace std;
-using namespace SupergodEngine;
+using namespace SupergodCore;
 
 void main()
 {

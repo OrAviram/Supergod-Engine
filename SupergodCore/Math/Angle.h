@@ -9,7 +9,7 @@
 #include "Interfaces/ISizeComparable.h"
 #include "Interfaces/ArithmeticInterfaces.h"
 
-namespace SupergodEngine { namespace Math
+namespace SupergodCore { namespace Math
 {
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
