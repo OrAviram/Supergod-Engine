@@ -63,7 +63,13 @@ static void TestVectorProjection(T source, T target)
 	AssertUtils::CloseEnough(newResult, oldResult, .001f);
 }
 
-
+/// <summary>
+/// Generates a random float between 0 and 1.
+/// </summary>
+static float RandFloat()
+{
+	return static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX);
+}
 
 /// <summary>
 /// Runs a test multiple times with customization to how it's ran.
