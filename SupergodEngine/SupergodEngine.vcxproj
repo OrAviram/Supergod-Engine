@@ -23,6 +23,7 @@
     <ClInclude Include="Math\Colors\BColor.h" />
     <ClInclude Include="Math\Colors\Colors.h" />
     <ClInclude Include="Math\Colors\FColor.h" />
+    <ClInclude Include="Math\Colors\IColor.h" />
     <ClInclude Include="Math\Math.h" />
     <ClInclude Include="Math\Angle.h" />
     <ClInclude Include="Math\Interfaces\ArithmeticInterfaces.h" />

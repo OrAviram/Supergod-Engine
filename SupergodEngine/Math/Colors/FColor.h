@@ -1,12 +1,14 @@
 #pragma once
+
 #include "Common/CommonDefines.h"
+#include "IColor.h"
 
 namespace SupergodEngine { namespace Math
 {
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor
+	struct SUPERGOD_API FColor final : public IColor<FColor>
 	{
 		union
 		{
@@ -23,5 +25,17 @@ namespace SupergodEngine { namespace Math
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
 		FColor(const float& red, const float& green, const float& blue, const float& alpha);
+
+		#pragma region Comparison methods.
+		/// <summary>
+		/// Are all of the components of this equal to other?
+		/// </summary>
+		bool Equals(const FColor& other) const override;
+
+		/// <summary>
+		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
+		/// </summary>
+		bool CloseEnough(const FColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		#pragma endregion
 	};
 } }

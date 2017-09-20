@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Common/CommonDefines.h"
+#include "IColor.h"
 
 namespace SupergodEngine { namespace Math
 {
@@ -8,7 +10,7 @@ namespace SupergodEngine { namespace Math
 	/// <summary>
 	/// Represents a 32 bit color with 4 bytes from 0 to the maximum value of a byte.
 	/// </summary>
-	struct SUPERGOD_API BColor
+	struct SUPERGOD_API BColor final : public IColor<BColor>
 	{
 		#pragma region Presets for common colors.
 		
@@ -122,5 +124,17 @@ namespace SupergodEngine { namespace Math
 		{
 			return components[index];
 		}
+	
+		#pragma region Comparison methods.
+		/// <summary>
+		/// Are all of the components of this equal to other?
+		/// </summary>
+		bool Equals(const BColor& other) const override;
+
+		/// <summary>
+		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
+		/// </summary>
+		bool CloseEnough(const BColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		#pragma endregion
 	};
 } }
