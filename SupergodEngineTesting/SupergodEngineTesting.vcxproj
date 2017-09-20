@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AngleTests.cpp" />
+    <ClCompile Include="ColorTests.cpp" />
     <ClCompile Include="SMathTests.cpp" />
     <ClCompile Include="Vector2DTests.cpp" />
     <ClCompile Include="Vector3DTests.cpp" />

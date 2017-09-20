@@ -16,5 +16,6 @@
     <ClCompile Include="Vector3DTests.cpp" />
     <ClCompile Include="Vector4DTests.cpp" />
     <ClCompile Include="AngleTests.cpp" />
+    <ClCompile Include="ColorTests.cpp" />
   </ItemGroup>
 </Project>

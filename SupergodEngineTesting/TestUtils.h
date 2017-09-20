@@ -1,5 +1,8 @@
 #pragma once
+
 #include <functional>
+#include <random>
+#include <ctime>
 
 #include <CppUnitTest.h>
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -59,6 +62,8 @@ static void TestVectorProjection(T source, T target)
 
 	AssertUtils::CloseEnough(newResult, oldResult, .001f);
 }
+
+
 
 /// <summary>
 /// Runs a test multiple times with customization to how it's ran.
