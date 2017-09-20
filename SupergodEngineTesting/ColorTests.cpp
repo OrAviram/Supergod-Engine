@@ -30,7 +30,7 @@ namespace SupergodEngineTesting
 				Assert::AreEqual(a, color[3]);
 
 				uint uintValue = std::rand();
-
+				
 				color = uintValue;
 				Assert::AreEqual(color.value, BColor(uintValue).value);
 				Assert::AreEqual(color.value, uintValue);
