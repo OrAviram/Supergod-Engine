@@ -15,7 +15,6 @@ namespace SupergodCore { namespace Math
 	/// The base interface for IMatrix{TMatrix, TVector}. This is only used when trying to reference a matrix of a generic type.<para/>
 	/// When implementing, use IMatrix{TMatrix, TVector}.
 	/// </summary>
-	/// <typeparam name="T">The type of the matrix.</typeparam>
 	template<class T>
 	interface SUPERGOD_API IMatrix<T> : public ISupergodEquatable<T>, public IAbsolutable<T>, public ILerpable<T>, public IClampable<T>, public ISubtractable<T>, public IMultipliable<T>, public INegatable<T>, public IScalarDividable<T>
 	{
@@ -55,7 +54,10 @@ namespace SupergodCore { namespace Math
 		}
 	};
 
-
+	/// <summary>
+	/// An interface all matrices can implement.<para/>
+	/// TVector is the type of the vector for rows and columns.
+	/// </summary>
 	template<class TMatrix, class TVector>
 	interface SUPERGOD_API IMatrix<TMatrix, TVector> : public IMatrix<TMatrix>
 	{
