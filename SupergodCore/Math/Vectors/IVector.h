@@ -24,6 +24,9 @@ namespace SupergodCore { namespace Math
 	interface SUPERGOD_API IVector : public ISupergodEquatable<T>, public IAbsolutable<T>, public IClampable<T>, public ILerpable<T>,
 		public ISubtractable<T>, public INegatable<T>, public IDividable<T>, public IScalarDividable<T>, public IMultipliable<T>
 	{
+		virtual const float& operator[](int index) const = 0;
+		virtual float& operator[](int index) = 0;
+
 		virtual float& BiggestComponent() = 0;
 		virtual float& SmallestComponent() = 0;
 		virtual const float& BiggestComponent() const = 0;

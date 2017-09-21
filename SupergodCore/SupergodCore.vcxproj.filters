@@ -22,6 +22,10 @@
     <ClInclude Include="Math\Colors\Colors.h" />
     <ClInclude Include="Math\Colors\IColor.h" />
     <ClInclude Include="SupergodCore.h" />
+    <ClInclude Include="Math\Interfaces\ITransformer.h" />
+    <ClInclude Include="Math\Interfaces\IRotator.h" />
+    <ClInclude Include="Math\Matrices\Matrix.h" />
+    <ClInclude Include="Math\Matrices\IMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IVector.h"
+#include "../Interfaces/ITransformer.h"
 
 namespace SupergodCore { namespace Math
 {
@@ -60,7 +61,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0 or 1).</param>
-		inline float& operator[](int index)
+		inline float& operator[](int index) override
 		{
 			return components[index];
 		}
@@ -69,7 +70,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0 or 1).</param>
-		inline const float& operator[](int index) const
+		inline const float& operator[](int index) const override
 		{
 			return components[index];
 		}
@@ -83,6 +84,16 @@ namespace SupergodCore { namespace Math
 		/// Creates a new Vector4D that uses the x and y components of this and sets the other components to 0.
 		/// </summary>
 		operator Vector4D() const;
+
+		/// <summary>
+		/// Transform this vector by transformer.
+		/// </summary>
+		/// <returns>The transformed vector.</returns>
+		template<class TTransformer>
+		inline Vector2D Transform(const ITransformer<TTransformer, Vector2D> transformer) const
+		{
+			return transformer.TransformVector(*this);
+		}
 
 		#pragma region Comparison methods (Equals, ContainsComponent and CloseEnough).
 		/// <summary>

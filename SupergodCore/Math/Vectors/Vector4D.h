@@ -67,7 +67,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0, 1, 2 or 3).</param>
-		inline float& operator[](int index)
+		inline float& operator[](int index) override
 		{
 			return components[index];
 		}
@@ -76,7 +76,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0, 1, 2 or 3).</param>
-		inline const float& operator[](int index) const
+		inline const float& operator[](int index) const override
 		{
 			return components[index];
 		}
