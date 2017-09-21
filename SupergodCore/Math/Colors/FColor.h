@@ -90,7 +90,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
-		FColor(const float& red, const float& green, const float& blue, const float& alpha);
+		FColor(float red, float green, float blue, float alpha);
 
 		/// <summary>
 		/// Creates a new Vector4D with its x y z w components set to red green blue alpha (in that order).
@@ -111,7 +111,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const FColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const FColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 		#pragma endregion
 
 		#pragma region Addition and subtraction.
@@ -135,7 +135,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		FColor Multiply(const float& scalar) const override;
+		FColor Multiply(float scalar) const override;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in other.
@@ -145,12 +145,12 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		FColor Divide(const float& scalar) const override;
+		FColor Divide(float scalar) const override;
 
 		/// <summary>
 		/// Multiplies every component of color by scalar.
 		/// </summary>
-		friend FColor operator*(const float& scalar, const FColor& color)
+		friend FColor operator*(float scalar, const FColor& color)
 		{
 			return color.Multiply(scalar);
 		}

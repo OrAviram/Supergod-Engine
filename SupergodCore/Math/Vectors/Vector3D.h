@@ -64,13 +64,13 @@ namespace SupergodCore { namespace Math
 		Vector3D();
 
 		/// <summary>Creates a new 3D vector and initializes its components to x, y and z.</summary>
-		Vector3D(const float& x, const float& y, const float& z);
+		Vector3D(float x, float y, float z);
 
 		/// <summary>Creates a new 3D vector and initializes its x and y components to xy and its z component to z.</summary>
-		Vector3D(const Vector2D& xy, const float& z);
+		Vector3D(const Vector2D& xy, float z);
 
 		/// <summary>Creates a new 3D vector and initializes its x component x and its y and z components to yz.</summary>
-		Vector3D(const float& x, const Vector2D& yz);
+		Vector3D(float x, const Vector2D& yz);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.
@@ -132,13 +132,13 @@ namespace SupergodCore { namespace Math
 		/// See SupergodEngine::Math::Smath::CloseEnough.
 		/// </summary>
 		/// <param name="threshold">The threshold for each component to be considered close enough.</param>
-		bool CloseEnough(const Vector3D& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Vector3D& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 
 		/// <summary>
 		/// Does any component pass test?
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
-		bool ContainsComponent(const std::function<bool(const float&)>& test) const override;
+		bool ContainsComponent(const std::function<bool(float)>& test) const override;
 		#pragma endregion
 
 		#pragma region Addition, subtraction and negation.
@@ -172,7 +172,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		Vector3D Multiply(const float& scalar) const override;
+		Vector3D Multiply(float scalar) const override;
 
 		/// <summary>
 		/// Gets the cross product of this and other.
@@ -192,7 +192,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		Vector3D Divide(const float& scalar) const override;
+		Vector3D Divide(float scalar) const override;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in scalar.
@@ -237,7 +237,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Clamps every component of this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Vector3D ClampComponents(const float& min, const float& max) const override;
+		Vector3D ClampComponents(float min, float max) const override;
 		#pragma endregion
 	};
 } }

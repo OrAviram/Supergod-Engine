@@ -13,7 +13,7 @@ namespace SupergodCore { namespace Math
 	interface SUPERGOD_API ISupergodEquatable
 	{
 		virtual bool Equals(const T& other) const = 0;
-		virtual bool CloseEnough(const T& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const = 0;
+		virtual bool CloseEnough(const T& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const = 0;
 		
 		/// <summary>
 		/// Checks if this equals to other.
@@ -50,7 +50,7 @@ namespace SupergodCore { namespace Math
 		/// Is first close enough to second with the threshold of threshold?
 		/// </summary>
 		template<class T>
-		inline bool CloseEnough(const ISupergodEquatable<T>& first, const T& second, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
+		inline bool CloseEnough(const ISupergodEquatable<T>& first, const T& second, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD)
 		{
 			return first.CloseEnough(second, threshold);
 		}

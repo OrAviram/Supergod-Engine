@@ -54,7 +54,7 @@ namespace SupergodCore { namespace Math
 		Vector2D();
 
 		/// <summary>Creates a new 2D vector and initializes its components to x and y.</summary>
-		Vector2D(const float& x, const float& y);
+		Vector2D(float x, float y);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.
@@ -95,13 +95,13 @@ namespace SupergodCore { namespace Math
 		/// See SupergodEngine::Math::Smath::CloseEnough.
 		/// </summary>
 		/// <param name="threshold">The threshold for each component to be considered close enough.</param>
-		bool CloseEnough(const Vector2D& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Vector2D& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 
 		/// <summary>
 		/// Does any component pass test?
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
-		bool ContainsComponent(const std::function<bool(const float&)>& test) const override;
+		bool ContainsComponent(const std::function<bool(float)>& test) const override;
 		#pragma endregion
 
 		#pragma region Addition, subtraction and negation.
@@ -135,14 +135,14 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		Vector2D Multiply(const float& scalar) const override;
+		Vector2D Multiply(float scalar) const override;
 		#pragma endregion
 
 		#pragma region Division.
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		Vector2D Divide(const float& scalar) const override;
+		Vector2D Divide(float scalar) const override;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in scalar.
@@ -187,7 +187,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Clamps every component of this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Vector2D ClampComponents(const float& min, const float& max) const override;
+		Vector2D ClampComponents(float min, float max) const override;
 		#pragma endregion
 	};
 } }

@@ -60,7 +60,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
         /// Wraps value between 0 to 2pi using SMath::Wrap.
         /// </summary>
-        static float WrapRadians(const float& value)
+        static float WrapRadians(float value)
         {
             return SMath::Wrap(value, Constants::TAU);
         }
@@ -68,7 +68,7 @@ namespace SupergodCore { namespace Math
         /// <summary>
         /// Wraps value between 0 to 2pi using SMath::Wrap.
         /// </summary>
-        static float WrapDegrees(const float& value)
+        static float WrapDegrees(float value)
         {
             return SMath::Wrap(value, 360);
         }
@@ -76,7 +76,7 @@ namespace SupergodCore { namespace Math
         /// <summary>
         /// Wraps value between 0 to 2pi using SMath::Wrap.
         /// </summary>
-        static float WrapRevolutions(const float& value)
+        static float WrapRevolutions(float value)
         {
             return SMath::Wrap(value, 1);
         }
@@ -91,7 +91,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as radians from 0 to 2pi.
 		/// </summary>
-		inline float SetRadians(const float& value) { return _radians = WrapRadians(value); }
+		inline float SetRadians(float value) { return _radians = WrapRadians(value); }
 
 		/// <summary>
 		/// Gets the angle as radians from -pi to pi.
@@ -101,7 +101,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as radians from -pi to pi.
 		/// </summary>
-		inline float SetNegativeRadians(const float& value) { return SetRadians(value + Constants::PI); }
+		inline float SetNegativeRadians(float value) { return SetRadians(value + Constants::PI); }
 
 		/// <summary>
 		/// Gets the angle as degrees from 0 to 360.
@@ -111,7 +111,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as degrees from 0 to 360.
 		/// </summary>
-		inline float SetDegrees(const float& value) { return SetRadians(value * DEG_TO_RAD); }
+		inline float SetDegrees(float value) { return SetRadians(value * DEG_TO_RAD); }
 
 		/// <summary>
 		/// Gets the angle as degrees from -180 to 180.
@@ -121,7 +121,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as degrees from -180 to 180.
 		/// </summary>
-		inline float SetNegativeDegrees(const float& value) { return SetDegrees(value + 180); }
+		inline float SetNegativeDegrees(float value) { return SetDegrees(value + 180); }
 
 		/// <summary>
 		/// Gets the angle as revolutions from 0 to 1.
@@ -131,7 +131,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as revolutions from 0 to 1.
 		/// </summary>
-		inline float SetRevolutions(const float& value) { return SetRadians(value * REV_TO_RAD); }
+		inline float SetRevolutions(float value) { return SetRadians(value * REV_TO_RAD); }
 
 		/// <summary>
 		/// Gets the angle as revolutions from -0.5 to 0.5.
@@ -141,7 +141,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Sets the angle as revolutions from -0.5 to 0.5.
 		/// </summary>
-		inline float SetNegativeRevolutions(const float& value) { return SetRevolutions(value + .5f); }
+		inline float SetNegativeRevolutions(float value) { return SetRevolutions(value + .5f); }
 		#pragma endregion
 
 		/// <summary>
@@ -175,7 +175,7 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		/// <param name="angle">The value of the angle.</param>
 		/// <param name="measurement">The type of measurement to measure the angles with.</param>
-		Angle(const float& angle, const Measurement& measurement = Measurement::Radians);
+		Angle(float angle, const Measurement& measurement = Measurement::Radians);
 
 		/// <summary>
 		/// Gets the angle as radians.
@@ -194,7 +194,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Is the distance between the radians of this and the radians of other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const Angle& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Angle& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 		
 		/// <summary>
 		/// Are the radians of this bigger than the radians of other?
@@ -211,12 +211,12 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies the radians of this by scalar.
 		/// </summary>
-		Angle Multiply(const float& scalar) const override;
+		Angle Multiply(float scalar) const override;
 
 		/// <summary>
 		/// Multiplies scalar by the radians of angle.
 		/// </summary>
-		friend Angle operator*(const float& scalar, const Angle& angle)
+		friend Angle operator*(float scalar, const Angle& angle)
 		{
 			return angle.Multiply(scalar);
 		}
@@ -224,7 +224,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Divides the radians of this by scalar.
 		/// </summary>
-		Angle Divide(const float& scalar) const override;
+		Angle Divide(float scalar) const override;
 		#pragma endregion
 
 		#pragma region Addition and subtraction.

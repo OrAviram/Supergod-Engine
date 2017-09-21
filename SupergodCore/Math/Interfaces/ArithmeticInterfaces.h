@@ -8,12 +8,12 @@ namespace SupergodCore { namespace Math
 		template<class T> \
 		interface SUPERGOD_API interfaceName \
 		{ \
-			virtual T functionName(const secondType& secondName) const = 0; \
-			inline T operator sign(const secondType& secondName) const \
+			virtual T functionName(secondType secondName) const = 0; \
+			inline T operator sign(secondType secondName) const \
 			{ \
 				return functionName(secondName); \
 			} \
-			inline T operator sign=(const secondType& secondName) \
+			inline T operator sign=(secondType secondName) \
 			{ \
 				T& t = (T&)*this; \
 				t = functionName(secondName); \
@@ -21,7 +21,7 @@ namespace SupergodCore { namespace Math
 			} \
 		}
 
-	#define TWO_SIDED_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) ARITHMETIC_INTERFACE(interfaceName, functionName, sign, T, other)
+	#define TWO_SIDED_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) ARITHMETIC_INTERFACE(interfaceName, functionName, sign, const T&, other)
 	#define SCALAR_ARITHMETIC_INTERFACE(interfaceName, functionName, sign) ARITHMETIC_INTERFACE(interfaceName, functionName, sign, float, scalar)
 
 	/// <summary>
@@ -107,7 +107,7 @@ namespace SupergodCore { namespace Math
 		/// Divides target by scalar.
 		/// </summary>
 		template<class T>
-		inline T Divide(const T& target, const float& scalar)
+		inline T Divide(const T& target, float scalar)
 		{
 			return target.Divide(scalar);
 		}
@@ -116,7 +116,7 @@ namespace SupergodCore { namespace Math
 		/// Multiplies target by scalar.
 		/// </summary>
 		template<class T>
-		inline T Multiply(const T& target, const float& scalar)
+		inline T Multiply(const T& target, float scalar)
 		{
 			return target.Multiply(scalar);
 		}

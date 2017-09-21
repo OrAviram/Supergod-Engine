@@ -69,16 +69,16 @@ namespace SupergodEngineTesting
 		TEST_METHOD(ContainsAxisTest)
 		{
 			Vector4D vector(1, 2, 10, 6);
-			Assert::IsTrue(vector.ContainsComponent([&](const float& value) { return value == 10; }));
-			Assert::IsTrue(vector.ContainsComponent([&](const float& value) { return value == 2; }));
-			Assert::IsTrue(vector.ContainsComponent([&](const float& value) { return value == 1; }));
-			Assert::IsTrue(vector.ContainsComponent([&](const float& value) { return value == 6; }));
-			Assert::IsFalse(vector.ContainsComponent([&](const float& value) { return value == 5; }));
+			Assert::IsTrue(vector.ContainsComponent([&](float value) { return value == 10; }));
+			Assert::IsTrue(vector.ContainsComponent([&](float value) { return value == 2; }));
+			Assert::IsTrue(vector.ContainsComponent([&](float value) { return value == 1; }));
+			Assert::IsTrue(vector.ContainsComponent([&](float value) { return value == 6; }));
+			Assert::IsFalse(vector.ContainsComponent([&](float value) { return value == 5; }));
 
-			Assert::IsTrue(Vector::ContainsComponent(vector, [&](const float& value) { return value == 10; }));
-			Assert::IsTrue(Vector::ContainsComponent(vector, [&](const float& value) { return value == 2; }));
-			Assert::IsTrue(Vector::ContainsComponent(vector, [&](const float& value) { return value == 1; }));
-			Assert::IsFalse(Vector::ContainsComponent(vector, [&](const float& value) { return value == 5; }));
+			Assert::IsTrue(Vector::ContainsComponent(vector, [&](float value) { return value == 10; }));
+			Assert::IsTrue(Vector::ContainsComponent(vector, [&](float value) { return value == 2; }));
+			Assert::IsTrue(Vector::ContainsComponent(vector, [&](float value) { return value == 1; }));
+			Assert::IsFalse(Vector::ContainsComponent(vector, [&](float value) { return value == 5; }));
 		}
 
 		TEST_METHOD(IndexerTest)

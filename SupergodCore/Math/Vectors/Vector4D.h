@@ -43,25 +43,25 @@ namespace SupergodCore { namespace Math
 		Vector4D();
 
 		/// <summary>Initializes a new Vector4D for with an x, a y, a z, and a w.</summary>
-		Vector4D(const float& x, const float& y, const float& z, const float& w);
+		Vector4D(float x, float y, float z, float w);
 
 		/// <summary>Initializes a new Vector4D with a vector for x and y and a vector for z and w.</summary>
 		Vector4D(const Vector2D& xy, const Vector2D& zw);
 
-		/// <summary>Initializes a new Vector4D with a vector for x, y and z and a const float& for w.</summary>
-		Vector4D(const Vector3D& xyz, const float& w);
+		/// <summary>Initializes a new Vector4D with a vector for x, y and z and a float for w.</summary>
+		Vector4D(const Vector3D& xyz, float w);
 
-		/// <summary>Initializes a new Vector4D with a const float& for x and a vector for y, z and w.</summary>
-		Vector4D(const float& x, const Vector3D& yzw);
+		/// <summary>Initializes a new Vector4D with a float for x and a vector for y, z and w.</summary>
+		Vector4D(float x, const Vector3D& yzw);
 
-		/// <summary>Initializes a new Vector4D with a const float& for x, y, and a vector for z and w.</summary>
-		Vector4D(const float& x, const float& y, const Vector2D& zw);
+		/// <summary>Initializes a new Vector4D with a float for x, y, and a vector for z and w.</summary>
+		Vector4D(float x, float y, const Vector2D& zw);
 
-		/// <summary>Initializes a new Vector4D with a const float& for x, a vector for y and z, and a const float& for w.</summary>
-		Vector4D(const float& x, const Vector2D& yz, const float& w);
+		/// <summary>Initializes a new Vector4D with a float for x, a vector for y and z, and a float for w.</summary>
+		Vector4D(float x, const Vector2D& yz, float w);
 
 		/// <summary>Initializes a new Vector4D with a vector for x and y and floats for z and w.</summary>
-		Vector4D(const Vector2D& xy, const float& z, const float& w);
+		Vector4D(const Vector2D& xy, float z, float w);
 
 		/// <summary>
 		/// Gets a reference to a component at the index of index.
@@ -169,13 +169,13 @@ namespace SupergodCore { namespace Math
 		/// See SupergodEngine::Math::Smath::CloseEnough.
 		/// </summary>
 		/// <param name="threshold">The threshold for each component to be considered close enough.</param>
-		bool CloseEnough(const Vector4D& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Vector4D& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 
 		/// <summary>
 		/// Does any component pass test?
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
-		bool ContainsComponent(const std::function<bool(const float&)>& test) const override;
+		bool ContainsComponent(const std::function<bool(float)>& test) const override;
 		#pragma endregion
 
 		#pragma region Addition, subtraction and negation.
@@ -209,14 +209,14 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		Vector4D Multiply(const float& scalar) const override;
+		Vector4D Multiply(float scalar) const override;
 		#pragma endregion
 
 		#pragma region Division.
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		Vector4D Divide(const float& scalar) const override;
+		Vector4D Divide(float scalar) const override;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in scalar.
@@ -261,7 +261,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Clamps every component of this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Vector4D ClampComponents(const float& min, const float& max) const override;
+		Vector4D ClampComponents(float min, float max) const override;
 		#pragma endregion
 	};
 } }

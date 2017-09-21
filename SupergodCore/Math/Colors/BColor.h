@@ -92,7 +92,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Creates a new color with specified red, green, blue and alpha values.
 		/// </summary>
-		BColor(const byte& red, const byte& green, const byte& blue, const byte& alpha);
+		BColor(byte red, byte green, byte blue, byte alpha);
 
 		/// <summary>
 		/// Creates a new color made of 4 floats that is the same color as this.
@@ -134,7 +134,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const BColor& other, const float& threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const BColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
 		#pragma endregion
 
 		#pragma region Inversion

@@ -11,7 +11,7 @@ namespace SupergodCore { namespace Math
 	{
 	}
 	
-	Vector2D::Vector2D(const float& x, const float& y)
+	Vector2D::Vector2D(float x, float y)
 		: x(x), y(y)
 	{
 	}
@@ -31,12 +31,12 @@ namespace SupergodCore { namespace Math
 		return x == other.x && y == other.y;
 	}
 
-	bool Vector2D::CloseEnough(const Vector2D& other, const float& threshold) const
+	bool Vector2D::CloseEnough(const Vector2D& other, float threshold) const
 	{
 		return SMath::CloseEnough(x, other.x, threshold) && SMath::CloseEnough(y, other.y, threshold);
 	}
 
-	bool Vector2D::ContainsComponent(const std::function<bool(const float&)>& test) const
+	bool Vector2D::ContainsComponent(const std::function<bool(float)>& test) const
 	{
 		return test(x) || test(y);
 	}
@@ -66,12 +66,12 @@ namespace SupergodCore { namespace Math
 		return Vector2D(x * other.x, y * other.y);
 	}
 	
-	Vector2D Vector2D::Multiply(const float& scalar) const
+	Vector2D Vector2D::Multiply(float scalar) const
 	{
 		return Vector2D(x * scalar, y * scalar);
 	}
 
-	Vector2D Vector2D::Divide(const float& scalar) const
+	Vector2D Vector2D::Divide(float scalar) const
 	{
 		return Vector2D(x / scalar, y / scalar);
 	}
@@ -111,7 +111,7 @@ namespace SupergodCore { namespace Math
 		return Vector2D(SMath::Clamp(x, min.x, max.x), SMath::Clamp(y, min.y, max.y));
 	}
 
-	Vector2D Vector2D::ClampComponents(const float& min, const float& max) const
+	Vector2D Vector2D::ClampComponents(float min, float max) const
 	{
 		return Vector2D(SMath::Clamp(x, min, max), SMath::Clamp(y, min, max));
 	}

@@ -11,17 +11,17 @@ namespace SupergodCore { namespace Math
 	{
 	}
 
-	Vector3D::Vector3D(const float & x, const float & y, const float & z)
+	Vector3D::Vector3D(float x, float y, float z)
 		: x(x), y(y), z(z)
 	{
 	}
 
-	Vector3D::Vector3D(const Vector2D& xy, const float& z)
+	Vector3D::Vector3D(const Vector2D& xy, float z)
 		: x(xy.x), y(xy.y), z(z)
 	{
 	}
 
-	Vector3D::Vector3D(const float& x, const Vector2D& yz)
+	Vector3D::Vector3D(float x, const Vector2D& yz)
 		: x(x), y(yz.x), z(yz.y)
 	{
 	}
@@ -41,12 +41,12 @@ namespace SupergodCore { namespace Math
 		return x == other.x && y == other.y && z == other.z;
 	}
 
-	bool Vector3D::CloseEnough(const Vector3D& other, const float& threshold) const
+	bool Vector3D::CloseEnough(const Vector3D& other, float threshold) const
 	{
 		return SMath::CloseEnough(x, other.x, threshold) && SMath::CloseEnough(y, other.y, threshold) && SMath::CloseEnough(z, other.z, threshold);
 	}
 
-	bool Vector3D::ContainsComponent(const std::function<bool(const float&)>& test) const
+	bool Vector3D::ContainsComponent(const std::function<bool(float)>& test) const
 	{
 		return test(x) || test(y) || test(z);
 	}
@@ -76,7 +76,7 @@ namespace SupergodCore { namespace Math
 		return Vector3D(x * other.x, y * other.y, z * other.z);
 	}
 
-	Vector3D Vector3D::Multiply(const float& scalar) const
+	Vector3D Vector3D::Multiply(float scalar) const
 	{
 		return Vector3D(x * scalar, y * scalar, z * scalar);
 	}
@@ -89,7 +89,7 @@ namespace SupergodCore { namespace Math
 			x * other.y - y * other.x);
 	}
 
-	Vector3D Vector3D::Divide(const float& scalar) const
+	Vector3D Vector3D::Divide(float scalar) const
 	{
 		return Vector3D(x / scalar, y / scalar, z / scalar);
 	}
@@ -129,7 +129,7 @@ namespace SupergodCore { namespace Math
 		return Vector3D(SMath::Clamp(x, min.x, max.x), SMath::Clamp(y, min.y, max.y), SMath::Clamp(z, min.z, max.z));
 	}
 
-	Vector3D Vector3D::ClampComponents(const float& min, const float& max) const
+	Vector3D Vector3D::ClampComponents(float min, float max) const
 	{
 		return Vector3D(SMath::Clamp(x, min, max), SMath::Clamp(y, min, max), SMath::Clamp(z, min, max));
 	}

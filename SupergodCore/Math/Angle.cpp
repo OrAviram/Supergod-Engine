@@ -7,7 +7,7 @@ namespace SupergodCore { namespace Math
 		SetRadians(0);
 	}
 
-	Angle::Angle(const float& angle, const Measurement& measurement)
+	Angle::Angle(float angle, const Measurement& measurement)
 	{
 		switch (measurement)
 		{
@@ -30,7 +30,7 @@ namespace SupergodCore { namespace Math
 		return GetRadians() == other.GetRadians();
 	}
 
-	bool Angle::CloseEnough(const Angle& other, const float& threshold) const
+	bool Angle::CloseEnough(const Angle& other, float threshold) const
 	{
 		return SMath::CloseEnough(GetRadians(), other.GetRadians(), threshold);
 	}
@@ -45,12 +45,12 @@ namespace SupergodCore { namespace Math
 		return GetRadians() < other.GetRadians();
 	}
 
-	Angle Angle::Multiply(const float& scalar) const
+	Angle Angle::Multiply(float scalar) const
 	{
 		return GetRadians() * scalar;
 	}
 	
-	Angle Angle::Divide(const float& scalar) const
+	Angle Angle::Divide(float scalar) const
 	{
 		return GetRadians() / scalar;
 	}

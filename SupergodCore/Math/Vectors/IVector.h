@@ -31,8 +31,8 @@ namespace SupergodCore { namespace Math
 
 		virtual float Dot(const T& other) const = 0;
 
-		virtual bool ContainsComponent(const std::function<bool(const float&)>& test) const = 0;
-		virtual T ClampComponents(const float& min, const float& max) const = 0;
+		virtual bool ContainsComponent(const std::function<bool(float)>& test) const = 0;
+		virtual T ClampComponents(float min, float max) const = 0;
 
 		/// <summary>
 		/// Gets the magnitude (length) of this vector.
@@ -65,7 +65,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Gets a vector pointing in the same direction as this with a magnitude that is clamped between min and max.
 		/// </summary>
-		inline T ClampMagnitude(const float& min, const float& max) const
+		inline T ClampMagnitude(float min, float max) const
 		{
 			float magnitude = Magnitude();
 			T normalized = *this / magnitude;
@@ -75,7 +75,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Gets a vector pointing in the same direction as this with a magnitude of magnitude.
 		/// </summary>
-		inline T SetMagnitude(const float& magnitude) const
+		inline T SetMagnitude(float magnitude) const
 		{
 			return Normalized() * magnitude;
 		}
@@ -154,7 +154,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of vector by scalar.
 		/// </summary>
-		friend T operator*(const float& scalar, const T& vector)
+		friend T operator*(float scalar, const T& vector)
 		{
 			return vector * scalar;
 		}
@@ -215,7 +215,7 @@ namespace SupergodCore { namespace Math
 		///	</summary>
 		/// <param name="test">The test to run for each component.</param>
 		template<class T>
-		inline bool ContainsComponent(const IVector<T>& vector, const std::function<bool(const float&)>& test)
+		inline bool ContainsComponent(const IVector<T>& vector, const std::function<bool(float)>& test)
 		{
 			return vector.ContainsComponent(test);
 		}
@@ -233,7 +233,7 @@ namespace SupergodCore { namespace Math
 		/// Clamps all of the components of vector so they are never smaller than min and never bigger than max.
 		///	</summary>
 		template<class T>
-		inline T ClampComponents(const IVector<T>& vector, const float& min, const float& max)
+		inline T ClampComponents(const IVector<T>& vector, float min, float max)
 		{
 			return vector.ClampComponents(min, max);
 		}
@@ -269,7 +269,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a vector pointing in the same direction as this with a magnitude that is clamped between min and max.
 		/// </summary>
 		template<class T>
-		inline T ClampMagnitude(const IVector<T>& vector, const float& min, const float& max)
+		inline T ClampMagnitude(const IVector<T>& vector, float min, float max)
 		{
 			return vector.ClampMagnitude(min, max);
 		}
@@ -278,7 +278,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a vector pointing in the same direction as this with a magnitude of magnitude.
 		/// </summary>
 		template<class T>
-		inline T SetMagnitude(const IVector<T>& vector, const float& magnitude)
+		inline T SetMagnitude(const IVector<T>& vector, float magnitude)
 		{
 			return vector.SetMagnitude(magnitude);
 		}

@@ -14,7 +14,7 @@ namespace SupergodCore { namespace Math
 	{
 	}
 
-	BColor::BColor(const byte& red, const byte& green, const byte& blue, const byte& alpha)
+	BColor::BColor(byte red, byte green, byte blue, byte alpha)
 		: red(red), green(green), blue(blue), alpha(alpha)
 	{
 	}
@@ -29,7 +29,7 @@ namespace SupergodCore { namespace Math
 		return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
 	}
 
-	bool BColor::CloseEnough(const BColor& other, const float& threshold) const
+	bool BColor::CloseEnough(const BColor& other, float threshold) const
 	{
 		return SMath::CloseEnough(red, other.red, threshold) && SMath::CloseEnough(green, other.green, threshold) && SMath::CloseEnough(blue, other.blue, threshold) && SMath::CloseEnough(alpha, other.alpha, threshold);
 	}

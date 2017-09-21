@@ -48,7 +48,7 @@ namespace SupergodCore { namespace Math
 		/// <param name="target">The value to interpolate to.</param>
 		/// <param name="alpha">The interpolation factor.</param>
 		/// <param name="clampAlpha">Should alpha be clamped between 0 and 1?</param>
-		inline float Lerp(const float& source, const float& target, float alpha, bool clampAlpha = true)
+		inline float Lerp(float source, float target, float alpha, bool clampAlpha = true)
 		{
 			if (clampAlpha)
 				alpha = SMath::Clamp(alpha, 0, 1);

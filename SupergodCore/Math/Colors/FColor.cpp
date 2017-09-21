@@ -10,7 +10,7 @@ namespace SupergodCore { namespace Math
 	{
 	}
 
-	FColor::FColor(const float& red, const float& green, const float& blue, const float& alpha)
+	FColor::FColor(float red, float green, float blue, float alpha)
 		: red(red), green(green), blue(blue), alpha(alpha)
 	{
 	}
@@ -33,7 +33,7 @@ namespace SupergodCore { namespace Math
 		return red == other.red && green == other.green && blue == other.blue && alpha == other.alpha;
 	}
 
-	bool FColor::CloseEnough(const FColor& other, const float& threshold) const
+	bool FColor::CloseEnough(const FColor& other, float threshold) const
 	{
 		return SMath::CloseEnough(red, other.red, threshold) && SMath::CloseEnough(green, other.green, threshold) && SMath::CloseEnough(blue, other.blue, threshold) && SMath::CloseEnough(alpha, other.alpha, threshold);
 	}
@@ -53,7 +53,7 @@ namespace SupergodCore { namespace Math
 		return FColor(red * other.red, green * other.green, blue * other.blue, alpha * other.alpha);
 	}
 
-	FColor FColor::Multiply(const float& scalar) const
+	FColor FColor::Multiply(float scalar) const
 	{
 		return FColor(red * scalar, green * scalar, blue * scalar, alpha * scalar);
 	}
@@ -63,7 +63,7 @@ namespace SupergodCore { namespace Math
 		return FColor(red / other.red, green / other.green, blue / other.blue, alpha / other.alpha);
 	}
 
-	FColor FColor::Divide(const float& scalar) const
+	FColor FColor::Divide(float scalar) const
 	{
 		return FColor(red / scalar, green / scalar, blue / scalar, alpha / scalar);
 	}
