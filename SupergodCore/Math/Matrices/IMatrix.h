@@ -67,6 +67,9 @@ namespace SupergodCore { namespace Math
 		virtual const TVector& GetColumn(int index) const = 0;
 		virtual TVector& GetColumn(int index) = 0;
 
+		virtual const TVector& GetRow(int index) const = 0;
+		virtual TVector& GetRow(int index) = 0;
+
 		virtual TVector Multiply(const TVector& vector) const = 0;
 		virtual TVector ClampRows(const TVector& min, const TVector& max) const = 0;
 		virtual TVector ClampColumns(const TVector& min, const TVector& max) const = 0;
