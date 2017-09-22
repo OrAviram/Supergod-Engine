@@ -1,5 +1,6 @@
 #include "Matrix4x4.h"
 #include "../Vectors/Vector4D.h"
+#include "../Vectors/Vector3D.h"
 #include <memory>
 
 namespace SupergodCore { namespace Math
@@ -45,6 +46,70 @@ namespace SupergodCore { namespace Math
 			firstColumn.z, secondColumn.z, thirdColumn.z, fourthColumn.z,
 			firstColumn.w, secondColumn.w, thirdColumn.w, fourthColumn.w
 			);
+	}
+
+	Matrix4x4 Matrix4x4::Scale(float x, float y, float z)
+	{
+		return Matrix4x4(
+			x, 0, 0, 0,
+			0, y, 0, 0,
+			0, 0, z, 0,
+			0, 0, 0, 1);
+	}
+
+	Matrix4x4 Matrix4x4::Scale(const Vector3D& scale)
+	{
+		return Scale(scale.x, scale.y, scale.z);
+	}
+
+	Matrix4x4 Matrix4x4::Translate(float x, float y, float z)
+	{
+		return Matrix4x4(
+			0, 0, 0, x,
+			0, 0, 0, y,
+			0, 0, 0, z,
+			0, 0, 0, 1);
+	}
+
+	Matrix4x4 Matrix4x4::Translate(const Vector3D& translation)
+	{
+		return Translate(translation.x, translation.y, translation.z);
+	}
+
+	Matrix4x4 Matrix4x4::RotateX(const Angle& angle)
+	{
+		float cos = SMath::Cos(angle);
+		float sin = SMath::Sin(angle);
+
+		return Matrix4x4(
+			1, 0, 0, 0,
+			0, cos, -sin, 0,
+			0, sin, cos, 0,
+			0, 0, 0, 1);
+	}
+
+	Matrix4x4 Matrix4x4::RotateY(const Angle& angle)
+	{
+		float cos = SMath::Cos(angle);
+		float sin = SMath::Sin(angle);
+
+		return Matrix4x4(
+			cos, 0, sin, 0,
+			0, 1, 0, 0,
+			-sin, 0, cos, 0,
+			0, 0, 0, 1);
+	}
+
+	Matrix4x4 Matrix4x4::RotateZ(const Angle& angle)
+	{
+		float cos = SMath::Cos(angle);
+		float sin = SMath::Sin(angle);
+
+		return Matrix4x4(
+			cos, -sin, 0, 0,
+			sin, cos, 0, 0,
+			0, 0, 1, 0,
+			0, 0, 0, 1);
 	}
 
 	bool Matrix4x4::CloseEnough(const Matrix4x4& other, float threshold) const

@@ -5,6 +5,8 @@
 
 namespace SupergodCore { namespace Math
 {
+	struct Angle;
+	struct Vector3D;
 	struct Vector4D;
 
 	// TODO: Implement IMatrix. For now I just don't need all of its methods, so I am only implementing ISupergodEquatable.
@@ -65,6 +67,52 @@ namespace SupergodCore { namespace Math
 			const Vector4D& secondColumn,
 			const Vector4D& thirdColumn,
 			const Vector4D& fourthColumn);
+		#pragma endregion
+
+		// TODO: Add conversions from other types of rotations.
+		#pragma region Basic transformation construction methods.
+		/// <summary>
+		/// Creates a scale matrix.
+		/// </summary>
+		/// <param name="x">The scale on the x axis.</param>
+		/// <param name="y">The scale on the y axis.</param>
+		/// <param name="z">The scale on the z axis.</param>
+		static Matrix4x4 Scale(float x, float y, float z);
+
+		/// <summary>
+		/// Creates a scale matrix.
+		/// </summary>
+		/// <param name="scale">The scale to make on the x, y and z axes.</param>
+		static Matrix4x4 Scale(const Vector3D& scale);
+
+		/// <summary>
+		/// Creates a translation matrix.
+		/// </summary>
+		/// <param name="x">The translation on the x axis.</param>
+		/// <param name="y">The translation on the y axis.</param>
+		/// <param name="z">The translation on the z axis.</param>
+		static Matrix4x4 Translate(float x, float y, float z);
+
+		/// <summary>
+		/// Creates a translation matrix.
+		/// </summary>
+		/// <param name="translation">The translation on the x, y and z axes.</param>
+		static Matrix4x4 Translate(const Vector3D& translation);
+
+		/// <summary>
+		/// Creates a rotation matrix that will rotate by angle around the x axis.
+		/// </summary>
+		static Matrix4x4 RotateX(const Angle& angle);
+
+		/// <summary>
+		/// Creates a rotation matrix that will rotate by angle around the y axis.
+		/// </summary>
+		static Matrix4x4 RotateY(const Angle& angle);
+
+		/// <summary>
+		/// Creates a rotation matrix that will rotate by angle around the z axis.
+		/// </summary>
+		static Matrix4x4 RotateZ(const Angle& angle);
 		#pragma endregion
 
 		#pragma region Comparison methods(Equals, Operators, GetHashCode, CloseEnough).

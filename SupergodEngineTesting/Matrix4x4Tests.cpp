@@ -88,5 +88,9 @@ namespace SupergodEngineTesting
 			Assert::IsTrue(first.CloseEnough(second, 1.f));
 			Assert::IsFalse(first.CloseEnough(second, .5f));
 		}
+
+		// TODO: TEST THE TRANSFORMATIONS. I just kinda forgot I needed multiplication for that, so I already added the actual methods...
+		#pragma region Transformation tests.
+		#pragma endregion
 	};
 }
