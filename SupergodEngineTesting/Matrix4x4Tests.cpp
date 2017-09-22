@@ -7,15 +7,6 @@ namespace SupergodEngineTesting
 	TEST_CLASS(Matrix4x4Tests)
 	{
 	public:
-		// I still don't have equality methods for matrix, so this is a utility method to check for that.
-		void CheckMatrixEquality(const Matrix4x4& a, const Matrix4x4& b)
-		{
-			for (int i = 0; i < 16; i++)
-			{
-				Assert::AreEqual(a.elements16[i], b.elements16[i]);
-			}
-		}
-
 		TEST_METHOD(ConstructorTest)
 		{
 			Matrix4x4 test1(
@@ -30,7 +21,7 @@ namespace SupergodEngineTesting
 				Vector4D(9, 10, 11, 12),
 				Vector4D(13, 14, 15, 16));
 
-			CheckMatrixEquality(test1, test2);
+			AssertUtils::AreEqual(test1, test2);
 
 			Assert::AreEqual(test1.r0c0, 1.f);
 			Assert::AreEqual(test1.r0c1, 2.f);
@@ -67,7 +58,35 @@ namespace SupergodEngineTesting
 					}
 				}
 			});
-			CheckMatrixEquality(Matrix4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), Matrix4x4());
+			AssertUtils::AreEqual(Matrix4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), Matrix4x4());
+		}
+
+		TEST_METHOD(EqualityTests)
+		{
+			Assert::IsTrue(Matrix4x4(10, 10, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) == Matrix4x4(10, 10, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+			Assert::IsFalse(Matrix4x4(10, 10, 2, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) == Matrix4x4(10, 10, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+			Assert::IsTrue(Matrix4x4(10, 10, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0).Equals(Matrix4x4(10, 10, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)));
+			Assert::IsFalse(Matrix4x4(10, 10, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0).Equals(Matrix4x4(10, 10, 2, 442, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)));
+		
+			Assert::IsFalse(Matrix4x4(10, 10, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) != Matrix4x4(10, 10, 1, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+			Assert::IsTrue(Matrix4x4(10, 10, 1, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0) != Matrix4x4(10, 10, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+		
+			Matrix4x4 first(
+				1, 2, 3, 4,
+				5, 6, 7, 8,
+				9, 10, 11, 12,
+				13, 14, 15, 16
+				);
+
+			Matrix4x4 second(
+				1, 2, 3, 4,
+				5, 6, 7, 8,
+				9, 10, 11, 12,
+				13, 14, 15, 17
+				);
+
+			Assert::IsTrue(first.CloseEnough(second, 1.f));
+			Assert::IsFalse(first.CloseEnough(second, .5f));
 		}
 	};
 }

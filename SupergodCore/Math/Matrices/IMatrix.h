@@ -19,7 +19,7 @@ namespace SupergodCore { namespace Math
 	interface SUPERGOD_API IMatrix<T> : public ISupergodEquatable<T>, public IAbsolutable<T>, public ILerpable<T>, public IClampable<T>, public ISubtractable<T>, public IMultipliable<T>, public INegatable<T>, public IScalarDividable<T>
 	{
 		virtual const float& operator[](int index) const = 0;
-		virtual float& operator[](int index) const = 0;
+		virtual float& operator[](int index) = 0;
 
 		virtual const float& operator() (int row, int column) const = 0;
 		virtual float& operator() (int row, int column) = 0;

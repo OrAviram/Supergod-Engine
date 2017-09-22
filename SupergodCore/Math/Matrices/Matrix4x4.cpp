@@ -28,7 +28,7 @@ namespace SupergodCore { namespace Math
 		r0c0 = r1c1 = r2c2 = r3c3 = diagonal;
 	}
 
-	Matrix4x4 Matrix4x4::FromRows(Vector4D firstRow, Vector4D secondRow, Vector4D thirdRow, Vector4D fourthRow)
+	Matrix4x4 Matrix4x4::FromRows(const Vector4D& firstRow, const Vector4D& secondRow, const Vector4D& thirdRow, const Vector4D& fourthRow)
 	{
 		return Matrix4x4(
 			firstRow.x, firstRow.y, firstRow.z, firstRow.w,
@@ -37,7 +37,7 @@ namespace SupergodCore { namespace Math
 			fourthRow.x, fourthRow.y, fourthRow.z, fourthRow.w);
 	}
 
-	Matrix4x4 Matrix4x4::FromColumns(Vector4D firstColumn, Vector4D secondColumn, Vector4D thirdColumn, Vector4D fourthColumn)
+	Matrix4x4 Matrix4x4::FromColumns(const Vector4D& firstColumn, const Vector4D& secondColumn, const Vector4D& thirdColumn, const Vector4D& fourthColumn)
 	{
 		return Matrix4x4(
 			firstColumn.x, secondColumn.x, thirdColumn.x, fourthColumn.x,
@@ -45,5 +45,25 @@ namespace SupergodCore { namespace Math
 			firstColumn.z, secondColumn.z, thirdColumn.z, fourthColumn.z,
 			firstColumn.w, secondColumn.w, thirdColumn.w, fourthColumn.w
 			);
+	}
+
+	bool Matrix4x4::CloseEnough(const Matrix4x4& other, float threshold) const
+	{
+		for (int i = 0; i < 16; i++)
+		{
+			if (!SMath::CloseEnough(elements16[i], other.elements16[i], threshold))
+				return false;
+		}
+		return true;
+	}
+
+	bool Matrix4x4::Equals(const Matrix4x4& other) const
+	{
+		for (int i = 0; i < 16; i++)
+		{
+			if (elements16[i] != other.elements16[i])
+				return false;
+		}
+		return true;
 	}
 } }

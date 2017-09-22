@@ -7,10 +7,12 @@ namespace SupergodCore { namespace Math
 {
 	struct Vector4D;
 
+	// TODO: Implement IMatrix. For now I just don't need all of its methods, so I am only implementing ISupergodEquatable.
+
 	/// <summary>
 	/// Represents a 4 by 4 mathematical matrix.
 	/// </summary>
-	struct SUPERGOD_API Matrix4x4 final
+	struct SUPERGOD_API Matrix4x4 final : public ISupergodEquatable<Matrix4x4>
 	{
 		union
 		{
@@ -45,22 +47,36 @@ namespace SupergodCore { namespace Math
 		/// <param name="diagonal">The value of the diagonal elements.</param>
 		Matrix4x4(float diagonal);
 
+		#pragma region Basic construction methods.
 		/// <summary>
 		/// Creates a new matrix with vectors for the rows.
 		/// </summary>
 		static Matrix4x4 FromRows(
-			Vector4D firstRow,
-			Vector4D secondRow,
-			Vector4D thirdRow,
-			Vector4D fourthRow);
+			const Vector4D& firstRow,
+			const Vector4D& secondRow,
+			const Vector4D& thirdRow,
+			const Vector4D& fourthRow);
 
 		/// <summary>
 		/// Creates a new matrix with vectors for the columns.
 		/// </summary>
 		static Matrix4x4 FromColumns(
-			Vector4D firstColumn,
-			Vector4D secondColumn,
-			Vector4D thirdColumn,
-			Vector4D fourthColumn);
+			const Vector4D& firstColumn,
+			const Vector4D& secondColumn,
+			const Vector4D& thirdColumn,
+			const Vector4D& fourthColumn);
+		#pragma endregion
+
+		#pragma region Comparison methods(Equals, Operators, GetHashCode, CloseEnough).
+		/// <summary>
+		/// Is the distance between each element in this and its corresponding elemtn in other smaller or equal to threshold?
+		/// </summary>
+		bool CloseEnough(const Matrix4x4& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		
+		/// <summary>
+		/// Is every element of this the same as its corresponding component in other?
+		/// </summary>
+		bool Equals(const Matrix4x4& other) const override;
+		#pragma endregion
 	};
 } }
