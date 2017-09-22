@@ -72,6 +72,14 @@ static float RandFloat()
 }
 
 /// <summary>
+/// Generates a random float between min and max.
+/// </summary>
+static float RandFloat(float min, float max)
+{
+	return min + RandFloat() * (max - min);
+}
+
+/// <summary>
 /// Runs a test multiple times with customization to how it's ran.
 /// </summary>
 /// <param name="start">The start index of the loop.</param>
