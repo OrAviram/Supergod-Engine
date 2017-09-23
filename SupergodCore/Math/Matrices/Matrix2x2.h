@@ -170,7 +170,10 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies vector by matrix (where vector is a row vector). This will NOT transform vector.
 		/// </summary>
-		inline friend Vector2D operator*(const Vector2D& vector, const Matrix2x2& matrix);
+		inline friend Vector2D operator*(const Vector2D& vector, const Matrix2x2& matrix)
+		{
+			return Multiply(vector, matrix);
+		}
 
 		/// <summary>
 		/// Multiplies every component of this by scalar.
