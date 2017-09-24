@@ -157,7 +157,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies every component of vector by scalar.
 		/// </summary>
-		friend T operator*(float scalar, const T& vector)
+		inline friend T operator*(float scalar, const T& vector)
 		{
 			return vector * scalar;
 		}

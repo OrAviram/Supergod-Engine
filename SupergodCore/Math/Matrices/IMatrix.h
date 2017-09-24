@@ -50,7 +50,15 @@ namespace SupergodCore { namespace Math
 		/// <returns></returns>
 		inline T Inverted() const
 		{
-			return 1 / Determinant() * Adjugate();
+			return Adjugate() / Determinant();
+		}
+		
+		/// <summary>
+		/// Multiplies every element of matrix by scalar.
+		/// </summary>
+		inline friend T operator*(float scalar, const T& matrix)
+		{
+			return matrix * scalar;
 		}
 	};
 
@@ -61,18 +69,15 @@ namespace SupergodCore { namespace Math
 	template<class TMatrix, class TVector>
 	interface SUPERGOD_API IMatrix<TMatrix, TVector> : public IMatrix<TMatrix>
 	{
-		const TVector& GetRow(int index) const = 0;
-		TVector& GetRow(int index) = 0;
+		virtual const TVector& GetRow(int index) const = 0;
+		virtual TVector& GetRow(int index) = 0;
 
 		virtual const TVector& GetColumn(int index) const = 0;
 		virtual TVector& GetColumn(int index) = 0;
 
-		virtual const TVector& GetRow(int index) const = 0;
-		virtual TVector& GetRow(int index) = 0;
-
 		virtual TVector Multiply(const TVector& vector) const = 0;
-		virtual TVector ClampRows(const TVector& min, const TVector& max) const = 0;
-		virtual TVector ClampColumns(const TVector& min, const TVector& max) const = 0;
+		virtual TMatrix ClampRows(const TVector& min, const TVector& max) const = 0;
+		virtual TMatrix ClampColumns(const TVector& min, const TVector& max) const = 0;
 	};
 
 	/// <summary>

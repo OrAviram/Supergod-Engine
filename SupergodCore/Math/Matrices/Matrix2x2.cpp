@@ -19,14 +19,14 @@ namespace SupergodCore { namespace Math
 	{
 	}
 
-	static Matrix2x2 FromRows(const Vector2D& firstRow, const Vector2D& secondRow)
+	Matrix2x2 Matrix2x2::FromRows(const Vector2D& firstRow, const Vector2D& secondRow)
 	{
 		return Matrix2x2(
 			firstRow.x, firstRow.y,
 			secondRow.x, secondRow.y);
 	}
 
-	static Matrix2x2 FromColumns(const Vector2D& firstRow, const Vector2D& secondRow)
+	Matrix2x2 Matrix2x2::FromColumns(const Vector2D& firstRow, const Vector2D& secondRow)
 	{
 		return Matrix2x2(
 			firstRow.x, secondRow.x,
@@ -133,7 +133,7 @@ namespace SupergodCore { namespace Math
 	{
 		return Matrix2x2(
 			GetRow(0).Dot(other.GetColumn(0)), GetRow(0).Dot(other.GetColumn(1)),
-			GetRow(1).Dot(other.GetColumn(0)), GetRow(1).Dot(other.GetColumn(1)))
+			GetRow(1).Dot(other.GetColumn(0)), GetRow(1).Dot(other.GetColumn(1)));
 	}
 
 	Vector2D Matrix2x2::Multiply(const Vector2D& vector) const
@@ -196,7 +196,7 @@ namespace SupergodCore { namespace Math
 	{
 		return Matrix2x2(
 			r1c1, r1c0,
-			f0c1, r0c0);
+			r0c1, r0c0);
 	}
 
 	Matrix2x2 Matrix2x2::Cofactor() const

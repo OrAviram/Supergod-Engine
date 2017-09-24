@@ -6,6 +6,7 @@
 namespace SupergodCore { namespace Math
 {
 	struct Vector2D;
+	struct Angle;
 
 	/// <summary>
 	/// Represents a 2 by to mathematical matrix. This is useful for very simple transformations.<para/>
@@ -167,13 +168,13 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		static Vector2D Multiply(const Vector2D& vector, const Matrix2x2& matrix);
 
-		/// <summary>
-		/// Multiplies vector by matrix (where vector is a row vector). This will NOT transform vector.
-		/// </summary>
-		inline friend Vector2D operator*(const Vector2D& vector, const Matrix2x2& matrix)
-		{
-			return Multiply(vector, matrix);
-		}
+		///// <summary>
+		///// Multiplies vector by matrix (where vector is a row vector). This will NOT transform vector.
+		///// </summary>
+		//inline friend Vector2D operator*(const Vector2D& vector, const Matrix2x2& matrix)
+		//{
+		//	return Multiply(vector, matrix);
+		//}
 
 		/// <summary>
 		/// Multiplies every component of this by scalar.
@@ -239,6 +240,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>Clamps each element of each row in this so that it's never smaller than the corresponding element in min and never bigger than the corresponding element in max.</summary>
 		Matrix2x2 ClampRows(const Vector2D& min, const Vector2D& max) const override;
 
+		/// <summary>Clamps each element of each column in this so that it's never smaller than the corresponding element in min and never bigger than the corresponding element in max.</summary>
 		Matrix2x2 ClampColumns(const Vector2D& min, const Vector2D& max) const override;
 		#pragma endregion
 	};
