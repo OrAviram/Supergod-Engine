@@ -105,14 +105,17 @@ namespace SupergodCore { namespace Math
 		Vector2D& GetColumn(int index) override;
 
 		/// <summary>
-		/// Gets a reference to the row at the index of index.
+		/// Gets the value of the row at the index of index. (Will construct a new vector.)
 		/// </summary>
-		const Vector2D& GetRow(int index) const override;
+		/// <param name="index">The index of the row.</param>
+		Vector2D GetRow(int index) const override;
 
 		/// <summary>
-		/// Gets a reference to the row at the index of index.
+		/// Sets the value of the row at the index of index.
 		/// </summary>
-		Vector2D& GetRow(int index) override;
+		/// <param name="index">The index of the row.</param>
+		/// <returns>The new value of the row.</returns>
+		Vector2D SetRow(int index, const Vector2D& value) override;
 
 		/// <summary>
 		/// Gets a reference to the component at index.
@@ -157,24 +160,11 @@ namespace SupergodCore { namespace Math
 		/// Multiplies this matrix by other.
 		/// </summary>
 		Matrix2x2 Multiply(const Matrix2x2& other) const override;
-
+		
 		/// <summary>
 		/// Multiplies this by vector (where vector is a column vector). This will transform vector.
 		/// </summary>
 		Vector2D Multiply(const Vector2D& vector) const override;
-
-		/// <summary>
-		/// Multiplies vector by this (where vector is a row vector). This will NOT transform vector.
-		/// </summary>
-		static Vector2D Multiply(const Vector2D& vector, const Matrix2x2& matrix);
-
-		///// <summary>
-		///// Multiplies vector by matrix (where vector is a row vector). This will NOT transform vector.
-		///// </summary>
-		//inline friend Vector2D operator*(const Vector2D& vector, const Matrix2x2& matrix)
-		//{
-		//	return Multiply(vector, matrix);
-		//}
 
 		/// <summary>
 		/// Multiplies every component of this by scalar.

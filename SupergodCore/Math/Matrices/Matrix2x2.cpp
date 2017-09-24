@@ -78,14 +78,16 @@ namespace SupergodCore { namespace Math
 	}
 
 	// TODO: There is no way this is correct, but I will only be sure after testing...
-	const Vector2D& Matrix2x2::GetRow(int index) const
+	Vector2D Matrix2x2::GetRow(int index) const
 	{
-		return *(Vector2D*)&elements2x2[0][index];
+		return Vector2D(elements2x2[index][0], elements2x2[index][1]);
 	}
 
-	Vector2D& Matrix2x2::GetRow(int index)
+	Vector2D Matrix2x2::SetRow(int index, const Vector2D& value)
 	{
-		return *(Vector2D*)&elements2x2[0][index];
+		elements2x2[index][0] = value.x;
+		elements2x2[index][1] = value.y;
+		return value;
 	}
 
 	const float& Matrix2x2::operator[](int index) const
@@ -141,13 +143,6 @@ namespace SupergodCore { namespace Math
 		return
 			vector.x * GetColumn(0) +
 			vector.y * GetColumn(1);
-	}
-
-	Vector2D Matrix2x2::Multiply(const Vector2D& vector, const Matrix2x2& matrix)
-	{
-		return Vector2D(
-			vector.Dot(matrix.GetColumn(0)),
-			vector.Dot(matrix.GetColumn(1)));
 	}
 
 	Matrix2x2 Matrix2x2::Multiply(float scalar) const

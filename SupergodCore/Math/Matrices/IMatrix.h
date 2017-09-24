@@ -69,8 +69,8 @@ namespace SupergodCore { namespace Math
 	template<class TMatrix, class TVector>
 	interface SUPERGOD_API IMatrix<TMatrix, TVector> : public IMatrix<TMatrix>
 	{
-		virtual const TVector& GetRow(int index) const = 0;
-		virtual TVector& GetRow(int index) = 0;
+		virtual TVector GetRow(int index) const = 0;
+		virtual TVector SetRow(int index, const TVector& value) = 0;
 
 		virtual const TVector& GetColumn(int index) const = 0;
 		virtual TVector& GetColumn(int index) = 0;
@@ -78,6 +78,14 @@ namespace SupergodCore { namespace Math
 		virtual TVector Multiply(const TVector& vector) const = 0;
 		virtual TMatrix ClampRows(const TVector& min, const TVector& max) const = 0;
 		virtual TMatrix ClampColumns(const TVector& min, const TVector& max) const = 0;
+
+		/// <summary>
+		/// Multiplies vector by this (where vector is a row vector). This will NOT transform vector.
+		/// </summary>
+		inline friend TVector operator*(const TVector& vector, const TMatrix& matrix)
+		{
+			return matrix.Transposed().Multiply(vector);
+		}
 	};
 
 	/// <summary>
@@ -175,6 +183,15 @@ namespace SupergodCore { namespace Math
 		inline T Invert(const IMatrix<T>& matrix)
 		{
 			return matrix.Inverted();
+		}
+
+		/// <summary>
+		/// Multiplies vector by this (where vector is a row vector). This will NOT transform vector.
+		/// </summary>
+		template<class TVector, class TMatrix>
+		inline TVector Multiply(const TVector& vector, const TMatrix& matrix)
+		{
+			return vector * matrix;
 		}
 	}
 } }
