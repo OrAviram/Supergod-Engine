@@ -18,5 +18,6 @@
     <ClCompile Include="AngleTests.cpp" />
     <ClCompile Include="ColorTests.cpp" />
     <ClCompile Include="Matrix4x4Tests.cpp" />
+    <ClCompile Include="Matrix2x2Tests.cpp" />
   </ItemGroup>
 </Project>

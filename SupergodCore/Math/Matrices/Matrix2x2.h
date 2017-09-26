@@ -14,6 +14,29 @@ namespace SupergodCore { namespace Math
 	/// </summary>
 	struct SUPERGOD_API Matrix2x2 : public IMatrix<Matrix2x2, Vector2D>
 	{
+		#pragma region Common matrices.
+		/// <summary>
+		/// The multiplicative identity:<para/>
+		/// [1 0]<para/>
+		/// [0 1]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix2x2, Identity, (1, 0, 0, 1))
+
+		/// <summary>
+		/// The additive identity:<para/>
+		/// [0 0]<para/>
+		/// [0 0]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix2x2, Zero, (0, 0, 0, 0))
+
+		/// <summary>
+		/// The component-wise multiplicative identity:<para/>
+		/// [1 1]<para/>
+		/// [1 1]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix2x2, One, (1, 1, 1, 1))
+		#pragma endregion
+
 		union
 		{
 			struct
