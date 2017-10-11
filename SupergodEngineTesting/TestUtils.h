@@ -80,6 +80,14 @@ static float RandFloat(float min, float max)
 }
 
 /// <summary>
+/// Generates a random float between -100 and 100.
+/// </summary>
+static float RandFloat100()
+{
+	return RandFloat(-100, 100);
+}
+
+/// <summary>
 /// Runs a test multiple times with customization to how it's ran.
 /// </summary>
 /// <param name="start">The start index of the loop.</param>

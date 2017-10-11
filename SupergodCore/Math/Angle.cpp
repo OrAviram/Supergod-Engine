@@ -25,22 +25,22 @@ namespace SupergodCore { namespace Math
 		}
 	}
 
-	bool Angle::Equals(const Angle& other) const
+	bool Angle::Equals(Angle other) const
 	{
 		return GetRadians() == other.GetRadians();
 	}
 
-	bool Angle::CloseEnough(const Angle& other, float threshold) const
+	bool Angle::CloseEnough(Angle other, float threshold) const
 	{
 		return SMath::CloseEnough(GetRadians(), other.GetRadians(), threshold);
 	}
 
-	bool Angle::BiggerThan(const Angle& other) const
+	bool Angle::BiggerThan(Angle other) const
 	{
 		return GetRadians() > other.GetRadians();
 	}
 
-	bool Angle::SmallerThan(const Angle& other) const
+	bool Angle::SmallerThan(Angle other) const
 	{
 		return GetRadians() < other.GetRadians();
 	}
@@ -55,12 +55,12 @@ namespace SupergodCore { namespace Math
 		return GetRadians() / scalar;
 	}
 
-	Angle Angle::Add(const Angle& other) const
+	Angle Angle::Add(Angle other) const
 	{
 		return GetRadians() + other.GetRadians();
 	}
 
-	Angle Angle::Subtract(const Angle& other) const
+	Angle Angle::Subtract(Angle other) const
 	{
 		return GetRadians() - other.GetRadians();
 	}
@@ -75,7 +75,7 @@ namespace SupergodCore { namespace Math
 		return Constants::TAU - GetRadians();
 	}
 
-	Angle Angle::Clamp(const Angle& min, const Angle& max) const
+	Angle Angle::Clamp(Angle min, Angle max) const
 	{
 		return SMath::Clamp(GetRadians(), min, max);
 	}

@@ -9,7 +9,7 @@ namespace SupergodCore { namespace Math
 	struct Angle;
 
 	/// <summary>
-	/// Represents a 2 by to mathematical matrix. This is useful for very simple transformations.<para/>
+	/// Represents a 2 by 2 mathematical matrix. This is useful for very simple transformations.<para/>
 	/// For more complicated transformations in 2D, use Matrix3x3, and for more complicated transformations in 3D, use Matrix4x4.
 	/// </summary>
 	struct SUPERGOD_API_CLASS Matrix2x2 : public MatrixBase<Matrix2x2, Vector2D>
@@ -48,8 +48,8 @@ namespace SupergodCore { namespace Math
 			/// <summary>
 			/// The elements of the matrix as a float array where:<para/>
 			///		index = 0: r0c0<para/>
-			///		index = 1: r1c0<para/>
-			///		index = 2: r0c1<para/>
+			///		index = 1: r0c1<para/>
+			///		index = 2: r1c0<para/>
 			///		index = 3: r1c1
 			/// </summary>
 			float elements4[4];
@@ -112,7 +112,7 @@ namespace SupergodCore { namespace Math
 		/// Creates a rotation matrix.
 		/// </summary>
 		/// <param name="rotation">The angle of rotation.</param>
-		static Matrix2x2 Rotate(const Angle& rotation);
+		static Matrix2x2 Rotate(Angle rotation);
 
 		/// <summary>
 		/// Creates a shear matrix.

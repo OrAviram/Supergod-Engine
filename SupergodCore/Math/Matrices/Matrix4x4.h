@@ -104,17 +104,17 @@
 //		/// <summary>
 //		/// Creates a rotation matrix that will rotate by angle around the x axis.
 //		/// </summary>
-//		static Matrix4x4 RotateX(const Angle& angle);
+//		static Matrix4x4 RotateX(Angle angle);
 //
 //		/// <summary>
 //		/// Creates a rotation matrix that will rotate by angle around the y axis.
 //		/// </summary>
-//		static Matrix4x4 RotateY(const Angle& angle);
+//		static Matrix4x4 RotateY(Angle angle);
 //
 //		/// <summary>
 //		/// Creates a rotation matrix that will rotate by angle around the z axis.
 //		/// </summary>
-//		static Matrix4x4 RotateZ(const Angle& angle);
+//		static Matrix4x4 RotateZ(Angle angle);
 //		#pragma endregion
 //
 //		#pragma region Special transformations(Look, LookAt and projection matrices).

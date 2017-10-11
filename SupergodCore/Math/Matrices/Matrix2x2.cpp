@@ -45,7 +45,7 @@ namespace SupergodCore { namespace Math
 		return Scale(scale.x, scale.y);
 	}
 
-	Matrix2x2 Matrix2x2::Rotate(const Angle& rotation)
+	Matrix2x2 Matrix2x2::Rotate(Angle rotation)
 	{
 		float sin = SMath::Sin(rotation);
 		float cos = SMath::Cos(rotation);
@@ -168,8 +168,8 @@ namespace SupergodCore { namespace Math
 	Matrix2x2 Matrix2x2::Subtract(const Matrix2x2& other) const
 	{
 		return Matrix2x2(
-			r0c0 / other.r0c0, r0c1 / other.r0c1,
-			r1c0 / other.r1c0, r1c1 / other.r1c1);
+			r0c0 - other.r0c0, r0c1 - other.r0c1,
+			r1c0 - other.r1c0, r1c1 - other.r1c1);
 	}
 
 	Matrix2x2 Matrix2x2::Negated() const
@@ -235,13 +235,13 @@ namespace SupergodCore { namespace Math
 	{
 		return FromRows(
 			GetRow(0).Clamp(min, max),
-			GetRow(0).Clamp(min, max));
+			GetRow(1).Clamp(min, max));
 	}
 
 	Matrix2x2 Matrix2x2::ClampColumns(const Vector2D& min, const Vector2D& max) const
 	{
 		return FromColumns(
 			GetColumn(0).Clamp(min, max),
-			GetColumn(0).Clamp(min, max));
+			GetColumn(1).Clamp(min, max));
 	}
 } }

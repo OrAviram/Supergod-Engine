@@ -60,8 +60,6 @@ namespace SupergodCore { namespace Math
 	template<class T>
 	struct SUPERGOD_API_CLASS INegatable
 	{
-		//virtual T Negated() const = 0;
-
 		/// <summary>
 		/// Negates this.
 		/// </summary>

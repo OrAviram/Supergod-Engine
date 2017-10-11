@@ -86,6 +86,14 @@ namespace SupergodCore { namespace Math
 		{
 			return matrix.Transposed().Multiply(vector);
 		}
+
+		/// <summary>
+		/// Multiplies vector by this (where vector is a row vector). This will NOT transform vector.
+		/// </summary>
+		inline friend TVector operator*(const TMatrix& matrix, const TVector& vector)
+		{
+			return matrix.Multiply(vector);
+		}
 	};
 
 	/// <summary>
@@ -133,7 +141,7 @@ namespace SupergodCore { namespace Math
 		/// Gets the determinant of matrix.
 		/// </summary>
 		template<class T>
-		inline T Det(const T& matrix)
+		inline float Det(const T& matrix)
 		{
 			return matrix.Determinant();
 		}

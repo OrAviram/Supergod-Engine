@@ -79,7 +79,7 @@
 //		return Translate(translation.x, translation.y, translation.z);
 //	}
 //
-//	Matrix4x4 Matrix4x4::RotateX(const Angle& angle)
+//	Matrix4x4 Matrix4x4::RotateX(Angle angle)
 //	{
 //		float cos = SMath::Cos(angle);
 //		float sin = SMath::Sin(angle);
@@ -91,7 +91,7 @@
 //			0, 0, 0, 1);
 //	}
 //
-//	Matrix4x4 Matrix4x4::RotateY(const Angle& angle)
+//	Matrix4x4 Matrix4x4::RotateY(Angle angle)
 //	{
 //		float cos = SMath::Cos(angle);
 //		float sin = SMath::Sin(angle);
@@ -103,7 +103,7 @@
 //			0, 0, 0, 1);
 //	}
 //
-//	Matrix4x4 Matrix4x4::RotateZ(const Angle& angle)
+//	Matrix4x4 Matrix4x4::RotateZ(Angle angle)
 //	{
 //		float cos = SMath::Cos(angle);
 //		float sin = SMath::Sin(angle);

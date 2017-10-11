@@ -188,22 +188,22 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Are the radians of this the same as the radians of other?
 		/// </summary>
-		bool Equals(const Angle& other) const;
+		bool Equals(Angle other) const;
 
 		/// <summary>
 		/// Is the distance between the radians of this and the radians of other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const Angle& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
+		bool CloseEnough(Angle other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 		
 		/// <summary>
 		/// Are the radians of this bigger than the radians of other?
 		/// </summary>
-		bool BiggerThan(const Angle& other) const;
+		bool BiggerThan(Angle other) const;
 
 		/// <summary>
 		/// Are the radians of this smaller than the radians of other?
 		/// </summary>
-		bool SmallerThan(const Angle& other) const;
+		bool SmallerThan(Angle other) const;
 		#pragma endregion
 		
 		#pragma region Scaling (scalar multiplication and division).
@@ -215,7 +215,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Multiplies scalar by the radians of angle.
 		/// </summary>
-		friend Angle operator*(float scalar, const Angle& angle)
+		friend Angle operator*(float scalar, Angle angle)
 		{
 			return angle.Multiply(scalar);
 		}
@@ -230,12 +230,12 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Adds the radians of this and the radians of other.
 		/// </summary>
-		Angle Add(const Angle& other) const;
+		Angle Add(Angle other) const;
 
 		/// <summary>
 		/// Subtracts the radians of other from the radians of this.
 		/// </summary>
-		Angle Subtract(const Angle& other) const;
+		Angle Subtract(Angle other) const;
 		#pragma endregion
 
 		#pragma region Flipping and reflecting.
@@ -244,7 +244,7 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		Angle Flipped() const;
 
-		static inline Angle Flip(const Angle& angle)
+		static inline Angle Flip(Angle angle)
 		{
 			return angle.Flipped();
 		}
@@ -257,7 +257,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Takes the rotation of angle and puts it on the other side of the circle (subtract it from 360 degrees).
 		/// </summary>
-		static inline Angle Reflect(const Angle& angle)
+		static inline Angle Reflect(Angle angle)
 		{
 			return angle.Reflection();
 		}
@@ -275,7 +275,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Clamps this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Angle Clamp(const Angle& min, const Angle& max) const;
+		Angle Clamp(Angle min, Angle max) const;
 		#pragma endregion
 
 	private:
