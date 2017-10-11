@@ -7,17 +7,14 @@ namespace SupergodCore { namespace Math
 	/// Interface for things that can compare their sizes (bigger than or smaller than).
 	/// </summary>
 	template<class T>
-	interface ISizeComparable
+	struct ISizeComparable
 	{
-		virtual bool BiggerThan(const T& other) const = 0;
-		virtual bool SmallerThan(const T& other) const = 0;
-
 		/// <summary>
 		/// Is this bigger than other?
 		/// </summary>
 		inline bool operator>(const T& other) const
 		{
-			return BiggerThan(other);
+			return TEMPLATED_INTERFACE_THIS.BiggerThan(other);
 		}
 
 		/// <summary>
@@ -25,7 +22,7 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		inline bool operator<(const T& other) const
 		{
-			return SmallerThan(other);
+			return TEMPLATED_INTERFACE_THIS.SmallerThan(other);
 		}
 	};
 
@@ -38,7 +35,7 @@ namespace SupergodCore { namespace Math
 		/// Is bigger actually bigger than smaller?
 		/// </summary>
 		template<class T>
-		inline bool BiggerThan(const ISizeComparable<T>& bigger, const T& smaller)
+		inline bool BiggerThan(const T& bigger, const T& smaller)
 		{
 			return bigger.BiggerThan(smaller);
 		}
@@ -47,7 +44,7 @@ namespace SupergodCore { namespace Math
 		/// Is smaller actually smaller than bigger?
 		/// </summary>
 		template<class T>
-		inline bool SmallerThan(const ISizeComparable<T>& smaller, const T& bigger)
+		inline bool SmallerThan(const T& smaller, const T& bigger)
 		{
 			return smaller.SmallerThan(bigger);
 		}

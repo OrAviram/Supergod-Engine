@@ -19,13 +19,13 @@ namespace SupergodEngineTesting
 
 		TEST_METHOD(ClampTest)
 		{
-			float test = SMath::Clamp(5, 6, 10);
+			float test = SMath::Clamp(5.f, 6, 10);
 			Assert::AreEqual(test, 6.f);
 
-			test = SMath::Clamp(5, 4, 10);
+			test = SMath::Clamp(5.f, 4, 10);
 			Assert::AreEqual(test, 5.f);
 
-			test = SMath::Clamp(20, 4, 10);
+			test = SMath::Clamp(20.f, 4, 10);
 			Assert::AreEqual(test, 10.f);
 		}
 
@@ -139,9 +139,9 @@ namespace SupergodEngineTesting
 
 		TEST_METHOD(AbsTest)
 		{
-			Assert::AreEqual(5.f, SMath::Abs(5));
-			Assert::AreEqual(5.f, SMath::Abs(-5));
-			Assert::AreNotEqual(4.f, SMath::Abs(-5));
+			Assert::AreEqual(5.f, SMath::Abs(5.f));
+			Assert::AreEqual(5.f, SMath::Abs(-5.f));
+			Assert::AreNotEqual(4.f, SMath::Abs(-5.f));
 		}
 
 		TEST_METHOD(WrapTest)

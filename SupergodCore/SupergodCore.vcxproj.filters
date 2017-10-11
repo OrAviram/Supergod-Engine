@@ -3,11 +3,7 @@
   <ItemGroup>
     <ClInclude Include="Math\MathConstants.h" />
     <ClInclude Include="Common\CommonDefines.h" />
-    <ClInclude Include="Math\Vectors\IVector.h" />
-    <ClInclude Include="Math\Vectors\Vector.h" />
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
-    <ClInclude Include="Math\Interfaces\IAbsolutable.h" />
-    <ClInclude Include="Math\Interfaces\IClampable.h" />
     <ClInclude Include="Math\Vectors\Vector2D.h" />
     <ClInclude Include="Math\SMath.h" />
     <ClInclude Include="Math\Interfaces\ArithmeticInterfaces.h" />
@@ -20,14 +16,15 @@
     <ClInclude Include="Math\Colors\FColor.h" />
     <ClInclude Include="Math\Colors\BColor.h" />
     <ClInclude Include="Math\Colors\Colors.h" />
-    <ClInclude Include="Math\Colors\IColor.h" />
     <ClInclude Include="SupergodCore.h" />
     <ClInclude Include="Math\Interfaces\ITransformer.h" />
     <ClInclude Include="Math\Interfaces\IRotator.h" />
-    <ClInclude Include="Math\Matrices\Matrix.h" />
-    <ClInclude Include="Math\Matrices\IMatrix.h" />
     <ClInclude Include="Math\Matrices\Matrix4x4.h" />
     <ClInclude Include="Math\Matrices\Matrix2x2.h" />
+    <ClInclude Include="Math\Vectors\Vectors.h" />
+    <ClInclude Include="Math\Matrices\Matrices.h" />
+    <ClInclude Include="Math\Matrices\MatrixCommon.h" />
+    <ClInclude Include="Math\Vectors\VectorCommon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />

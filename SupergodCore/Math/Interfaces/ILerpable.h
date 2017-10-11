@@ -6,7 +6,7 @@
 namespace SupergodCore { namespace Math
 {
 	template<class T>
-	interface SUPERGOD_API ILerpable : public IAddable<T>, public IScalarMultipliable<T>
+	struct SUPERGOD_API_CLASS ILerpable : public IAddable<T>, public IScalarMultipliable<T>
 	{
 		/// <summary>
 		/// Linearly interpolates between this and target by alpha.
@@ -36,7 +36,7 @@ namespace SupergodCore { namespace Math
 		/// <param name="alpha">The interpolation factor.</param>
 		/// <param name="clampAlpha">Should alpha be clamped between 0 and 1?</param>
 		template<class T>
-		inline T Lerp(const ILerpable<T>& source, const T& target, float alpha, bool clampAlpha = true)
+		inline T Lerp(const T& source, const T& target, float alpha, bool clampAlpha = true)
 		{
 			return source.Lerp(target, alpha, clampAlpha);
 		}

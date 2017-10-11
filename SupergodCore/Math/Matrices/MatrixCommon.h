@@ -3,37 +3,37 @@
 #include "Common/CommonDefines.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
 #include "../Interfaces/ISupergodEquatable.h"
-#include "../Interfaces/IAbsolutable.h"
 #include "../Interfaces/ILerpable.h"
-#include "../Interfaces/IClampable.h"
+
+// I want to keep the virtual methods here for now, in case I will use it again...even though I doubt it will happen.
 
 namespace SupergodCore { namespace Math
 {
-	template<class ...> interface IMatrix;
+	template<class ...> struct MatrixBase;
 
 	/// <summary>
-	/// The base interface for IMatrix{TMatrix, TVector}. This is only used when trying to reference a matrix of a generic type.<para/>
-	/// When implementing, use IMatrix{TMatrix, TVector}.
+	/// The base struct for IMatrix{TMatrix, TVector}. This is only used when trying to reference a matrix of a generic type.<para/>
+	/// When deriving, use IMatrix{TMatrix, TVector}.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API IMatrix<T> : public ISupergodEquatable<T>, public IAbsolutable<T>, public ILerpable<T>, public IClampable<T>, public ISubtractable<T>, public IMultipliable<T>, public INegatable<T>, public IScalarDividable<T>
+	struct SUPERGOD_API_CLASS MatrixBase<T> : public ISupergodEquatable<T>, public ILerpable<T>, public ISubtractable<T>, public IMultipliable<T>, public INegatable<T>, public IScalarDividable<T>
 	{
-		virtual const float& operator[](int index) const = 0;
-		virtual float& operator[](int index) = 0;
+		//virtual const float& operator[](int index) const = 0;
+		//virtual float& operator[](int index) = 0;
 
-		virtual const float& operator() (int row, int column) const = 0;
-		virtual float& operator() (int row, int column) = 0;
+		//virtual const float& operator() (int row, int column) const = 0;
+		//virtual float& operator() (int row, int column) = 0;
 
-		virtual T MultiplyComponentWise(const T& other) const = 0;
+		//virtual T MultiplyComponentWise(const T& other) const = 0;
 
-		virtual T Transposed() const = 0;
-		virtual T Minor() const = 0;
-		virtual T Cofactor() const = 0;
+		//virtual T Transposed() const = 0;
+		//virtual T Minor() const = 0;
+		//virtual T Cofactor() const = 0;
 
-		virtual float Determinant() const = 0;
-		virtual float Trace() const = 0;
+		//virtual float Determinant() const = 0;
+		//virtual float Trace() const = 0;
 
-		virtual T ClampElements(float min, float max) const = 0;
+		//virtual T ClampElements(float min, float max) const = 0;
 
 		/// <summary>
 		/// Gets the transpose of the cofactor matrix.
@@ -41,7 +41,7 @@ namespace SupergodCore { namespace Math
 		/// <returns></returns>
 		inline T Adjugate() const
 		{
-			return Cofactor().Transposed();
+			return TEMPLATED_INTERFACE_THIS.Cofactor().Transposed();
 		}
 
 		/// <summary>
@@ -50,7 +50,7 @@ namespace SupergodCore { namespace Math
 		/// <returns></returns>
 		inline T Inverted() const
 		{
-			return Adjugate() / Determinant();
+			return TEMPLATED_INTERFACE_THIS.Adjugate() / TEMPLATED_INTERFACE_THIS.Determinant();
 		}
 		
 		/// <summary>
@@ -63,21 +63,21 @@ namespace SupergodCore { namespace Math
 	};
 
 	/// <summary>
-	/// An interface all matrices can implement.<para/>
+	/// A struct all matrices can derive from.<para/>
 	/// TVector is the type of the vector for rows and columns.
 	/// </summary>
 	template<class TMatrix, class TVector>
-	interface SUPERGOD_API IMatrix<TMatrix, TVector> : public IMatrix<TMatrix>
+	struct SUPERGOD_API_CLASS MatrixBase<TMatrix, TVector> : public MatrixBase<TMatrix>
 	{
-		virtual TVector GetRow(int index) const = 0;
-		virtual TVector SetRow(int index, const TVector& value) = 0;
+		//virtual TVector GetRow(int index) const = 0;
+		//virtual TVector SetRow(int index, const TVector& value) = 0;
 
-		virtual const TVector& GetColumn(int index) const = 0;
-		virtual TVector& GetColumn(int index) = 0;
+		//virtual const TVector& GetColumn(int index) const = 0;
+		//virtual TVector& GetColumn(int index) = 0;
 
-		virtual TVector Multiply(const TVector& vector) const = 0;
-		virtual TMatrix ClampRows(const TVector& min, const TVector& max) const = 0;
-		virtual TMatrix ClampColumns(const TVector& min, const TVector& max) const = 0;
+		//virtual TVector Multiply(const TVector& vector) const = 0;
+		//virtual TMatrix ClampRows(const TVector& min, const TVector& max) const = 0;
+		//virtual TMatrix ClampColumns(const TVector& min, const TVector& max) const = 0;
 
 		/// <summary>
 		/// Multiplies vector by this (where vector is a row vector). This will NOT transform vector.
@@ -97,7 +97,7 @@ namespace SupergodCore { namespace Math
 		/// Calls the ClampRows method on matrix and passes min as the minimum and max as the maximum.
 		/// </summary>
 		template<class TMatrix, class TVector>
-		inline TMatrix ClampRows(const IMatrix<TMatrix, TVector>& matrix, const TVector& min, const TVector& max)
+		inline TMatrix ClampRows(const TMatrix& matrix, const TVector& min, const TVector& max)
 		{
 			return matrix.ClampRows(min, max);
 		}
@@ -106,7 +106,7 @@ namespace SupergodCore { namespace Math
 		/// Calls the ClampColumns method on matrix and passes min as the minimum and max as the maximum.
 		/// </summary>
 		template<class TMatrix, class TVector>
-		inline TMatrix ClampColumns(const IMatrix<TMatrix, TVector>& matrix, const TVector& min, const TVector& max)
+		inline TMatrix ClampColumns(const TMatrix& matrix, const TVector& min, const TVector& max)
 		{
 			return matrix.ClampColumns(min, max);
 		}
@@ -115,7 +115,7 @@ namespace SupergodCore { namespace Math
 		/// Gest the Transposed property of matrix.
 		/// </summary>
 		template<class T>
-		inline T Transpose(const IMatrix<T>& matrix)
+		inline T Transpose(const T& matrix)
 		{
 			return matrix.Transposed();
 		}
@@ -124,7 +124,7 @@ namespace SupergodCore { namespace Math
 		/// Gest the Cofactor property of matrix.
 		/// </summary>
 		template<class T>
-		inline T Cofactor(const IMatrix<T>& matrix)
+		inline T Cofactor(const T& matrix)
 		{
 			return matrix.Cofactor();
 		}
@@ -133,7 +133,7 @@ namespace SupergodCore { namespace Math
 		/// Gets the determinant of matrix.
 		/// </summary>
 		template<class T>
-		inline T Det(const IMatrix<T>& matrix)
+		inline T Det(const T& matrix)
 		{
 			return matrix.Determinant();
 		}
@@ -142,7 +142,7 @@ namespace SupergodCore { namespace Math
 		/// Gets the trace of matrix.
 		/// </summary>
 		template<class T>
-		inline T Tr(const IMatrix<T>& matrix)
+		inline T Tr(const T& matrix)
 		{
 			return matrix.Trace();
 		}
@@ -151,7 +151,7 @@ namespace SupergodCore { namespace Math
 		/// Calls teh ClampAxes method of vector and passes min as the minimum and max as the maximum.
 		/// </summary>
 		template<class T>
-		inline T ClampElements(const IMatrix<T>& matrix, float min, float max)
+		inline T ClampElements(const T& matrix, float min, float max)
 		{
 			return matrix.ClampElements(min, max);
 		}
@@ -160,7 +160,7 @@ namespace SupergodCore { namespace Math
 		/// Calls the Abs method of matrix.
 		/// </summary>
 		template<class T>
-		inline T Abs(const IMatrix<T>& matrix)
+		inline T Abs(const T& matrix)
 		{
 			return matrix.Abs();
 		}
@@ -170,7 +170,7 @@ namespace SupergodCore { namespace Math
 		/// Same as the transpose of the cofactor matrix.
 		/// </summary>
 		template<class T>
-		inline T Adjugate(const IMatrix<T>& matrix)
+		inline T Adjugate(const T& matrix)
 		{
 			return matrix.Adjugate();
 		}
@@ -180,7 +180,7 @@ namespace SupergodCore { namespace Math
 		/// Same case when multiplying matrix by the resulting matrix from this method.
 		/// </summary>
 		template<class T>
-		inline T Invert(const IMatrix<T>& matrix)
+		inline T Invert(const T& matrix)
 		{
 			return matrix.Inverted();
 		}

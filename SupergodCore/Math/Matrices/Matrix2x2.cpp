@@ -67,26 +67,25 @@ namespace SupergodCore { namespace Math
 		return Shear(shear.x, shear.y);
 	}
 
-	const Vector2D& Matrix2x2::GetColumn(int index) const
+	const Vector2D& Matrix2x2::GetRow(int index) const
 	{
 		return *(Vector2D*)elements2x2[index];
 	}
 
-	Vector2D& Matrix2x2::GetColumn(int index)
+	Vector2D& Matrix2x2::GetRow(int index)
 	{
 		return *(Vector2D*)elements2x2[index];
 	}
 
-	// TODO: There is no way this is correct, but I will only be sure after testing...
-	Vector2D Matrix2x2::GetRow(int index) const
+	Vector2D Matrix2x2::GetColumn(int index) const
 	{
-		return Vector2D(elements2x2[index][0], elements2x2[index][1]);
+		return Vector2D(elements2x2[0][index], elements2x2[1][index]);
 	}
 
-	Vector2D Matrix2x2::SetRow(int index, const Vector2D& value)
+	Vector2D Matrix2x2::SetColumn(int index, const Vector2D& value)
 	{
-		elements2x2[index][0] = value.x;
-		elements2x2[index][1] = value.y;
+		elements2x2[0][index] = value.x;
+		elements2x2[1][index] = value.y;
 		return value;
 	}
 

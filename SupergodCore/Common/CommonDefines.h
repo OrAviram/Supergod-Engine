@@ -1,6 +1,7 @@
 #pragma once
 
-#define SUPERGOD_API __declspec(dllexport)
+#define SUPERGOD_API_FUNC __declspec(dllexport)
+#define SUPERGOD_API_CLASS __declspec(dllexport, empty_bases)
 #define ARRAY_ELEMENTS_COUNT(array) sizeof(array) / sizeof(*array)
 
 /// <summary>
@@ -19,6 +20,20 @@
 				static const type val value; \
 				return val; \
 			}
+
+/// <summary>
+/// A templated interface is an interface where the type of class for the template parameter is the type that implements the interface.<para/>
+/// This macro will use a static cast to cast this into a reference to the template type, where its name is templateName.<para/>
+/// Undefined in SupergodEngine.h.
+/// </summary>
+#define TEMPLATED_INTERFACE_THIS_CUSTOM_NAME(templateName) static_cast<const templateName&>(*this)
+
+/// <summary>
+/// A templated interface is an interface where the type of class for the template parameter is the type that implements the interface.<para/>
+/// This macro will use a static cast to cast this into a reference to the template type, where its name is T.<para/>
+/// Undefined in SupergodEngine.h.
+/// </summary>
+#define TEMPLATED_INTERFACE_THIS TEMPLATED_INTERFACE_THIS_CUSTOM_NAME(T)
 
 /// <summary>
 /// Represents an 8-bit unsigned integer.

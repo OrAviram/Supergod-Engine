@@ -4,17 +4,6 @@
 namespace SupergodCore { namespace Math
 {
 	/// <summary>
-	/// An interface for things that can transform vectors and be combined.
-	/// </summary>
-	template<class TTransformer, class TVector>
-	interface SUPERGOD_API ITransformer
-	{
-		virtual TVector TransformVector(const TVector& vector) const = 0;
-		virtual TTransformer CombineTransformations(const TTransformer& other) const = 0;
-		virtual TTransformer DiscombineTransformations(const TTransformer& other) const = 0;
-	};
-
-	/// <summary>
 	/// A namespace with static functions that call things from the ITransformer3D interface.
 	/// </summary>
 	namespace Transformer
@@ -26,7 +15,7 @@ namespace SupergodCore { namespace Math
 		/// <param name="transformer">The transformer to transform vector by.</param>
 		/// <returns>The transformed vector.</returns>
 		template<class TTransformer, class TVector>
-		inline TVector TransformVector(const TVector& vector, const ITransformer<TTransformer, TVector>& transformer)
+		inline TVector TransformVector(const TVector& vector, const TTransformer& transformer)
 		{
 			return transformer.TransformVector(vector);
 		}
@@ -38,7 +27,7 @@ namespace SupergodCore { namespace Math
 		/// <param name="vector">The vector to transform.</param>
 		/// <returns>The transformed vector.</returns>
 		template<class TTransformer, class TVector>
-		inline TVector TransformVector(const ITransformer<TTransformer, TVector>& transformer, const TVector& vector)
+		inline TVector TransformVector(const TTransformer, TVector& transformer, const TVector& vector)
 		{
 			return TransformVector(vector, transformer);
 		}
@@ -49,8 +38,8 @@ namespace SupergodCore { namespace Math
 		/// <param name="original">The first transform.</param>
 		/// <param name="transformer">The transform to combine original with.</param>
 		/// <returns>A combination of original and transformer.</returns>
-		template<class TTransformer, class TVector>
-		inline TTransformer CombineTransformations(const ITransformer<TTransformer, TVector>& original, const TTransformer& transformer)
+		template<class TTransformer>
+		inline TTransformer CombineTransformations(const TTransformer& original, const TTransformer& transformer)
 		{
 			return original.CombineTransformations(transformer);
 		}
@@ -60,8 +49,8 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		/// <param name="combination">The two transformations combined.</param>
 		/// <param name="secondTransformation">The transformation that when combined with the return value gives combination.</param>
-		template<class TTransformer, class TVector>
-		inline TTransformer DiscombineTransformations(const ITransformer<TTransformer, TVector>& combination, const TTransformer& secondTransformation)
+		template<class TTransformer>
+		inline TTransformer DiscombineTransformations(const TTransformer& combination, const TTransformer& secondTransformation)
 		{
 			return combination.DiscombineTransformations(secondTransformation);
 		}

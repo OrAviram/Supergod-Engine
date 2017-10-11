@@ -6,17 +6,17 @@ namespace SupergodCore { namespace Math
 {
 	#define ARITHMETIC_INTERFACE(interfaceName, functionName, sign, secondType, secondName) \
 		template<class T> \
-		interface SUPERGOD_API interfaceName \
+		struct SUPERGOD_API_CLASS interfaceName \
 		{ \
-			virtual T functionName(secondType secondName) const = 0; \
+			/*virtual T functionName(secondType secondName) const = 0;*/ \
 			inline T operator sign(secondType secondName) const \
 			{ \
-				return functionName(secondName); \
+				return TEMPLATED_INTERFACE_THIS.functionName(secondName); \
 			} \
 			inline T operator sign=(secondType secondName) \
 			{ \
-				T& t = (T&)*this; \
-				t = functionName(secondName); \
+				T& t = static_cast<T&>(*this); \
+				t = TEMPLATED_INTERFACE_THIS.functionName(secondName); \
 				return t; \
 			} \
 		}
@@ -58,16 +58,16 @@ namespace SupergodCore { namespace Math
 	/// Interface for classes that can be subtracted.
 	/// </summary>
 	template<class T>
-	interface SUPERGOD_API INegatable
+	struct SUPERGOD_API_CLASS INegatable
 	{
-		virtual T Negated() const = 0;
+		//virtual T Negated() const = 0;
 
 		/// <summary>
 		/// Negates this.
 		/// </summary>
 		inline T operator-() const
 		{
-			return Negated();
+			return TEMPLATED_INTERFACE_THIS.Negated();
 		}
 	};
 
@@ -137,6 +137,15 @@ namespace SupergodCore { namespace Math
 		inline T Negate(const T& target)
 		{
 			return target.Negated();
+		}
+
+		/// <summary>
+		/// Inverts target.
+		/// </summary>
+		template<class T>
+		inline T Invert(const T& target)
+		{
+			return target.Inverted();
 		}
 	}
 

@@ -452,7 +452,7 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
 
 			AssertUtils::AreEqual(Vector4D(-1, -2, -3, 0).Abs(), Vector4D(1, 2, 3, 0));
-			AssertUtils::AreEqual(Absolutable::Abs(Vector4D(1, 2, 3, 0)), Vector4D(1, 2, 3, 0));
+			AssertUtils::AreEqual(SMath::Abs(Vector4D(1, 2, 3, 0)), Vector4D(1, 2, 3, 0));
 		}
 
 		TEST_METHOD(AngleTest)

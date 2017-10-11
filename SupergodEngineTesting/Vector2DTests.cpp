@@ -289,7 +289,7 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(lengthVector.Normalized(), oldLengthVector.Normalized());
 
 			AssertUtils::AreEqual(Vector2D(-1, -2).Abs(), Vector2D(1, 2));
-			AssertUtils::AreEqual(Absolutable::Abs(Vector2D(1, 2)), Vector2D(1, 2));
+			AssertUtils::AreEqual(SMath::Abs(Vector2D(1, 2)), Vector2D(1, 2));
 		}
 
 		TEST_METHOD(LerpTest)

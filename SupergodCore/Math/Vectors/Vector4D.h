@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IVector.h"
+#include "VectorCommon.h"
 #include "Vector2D.h"
 #include "Vector3D.h"
 
@@ -11,7 +11,7 @@ namespace SupergodCore { namespace Math
 	/// <summary>
 	/// Represents a 4-component mathematical vector.
 	/// </summary>
-	struct SUPERGOD_API Vector4D final : public IVector<Vector4D>
+	struct SUPERGOD_API_CLASS Vector4D final : public VectorBase<Vector4D>
 	{
 		#pragma region Presets for common vectors.
 		/// <summary>(0, 0, 0, 0)</summary>
@@ -67,7 +67,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0, 1, 2 or 3).</param>
-		inline float& operator[](int index) override
+		inline float& operator[](int index) 
 		{
 			return components[index];
 		}
@@ -76,7 +76,7 @@ namespace SupergodCore { namespace Math
 		/// Gets a reference to a component at the index of index.
 		/// </summary>
 		/// <param name="index">The index of the component (0, 1, 2 or 3).</param>
-		inline const float& operator[](int index) const override
+		inline const float& operator[](int index) const 
 		{
 			return components[index];
 		}
@@ -162,88 +162,88 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Is every component of this same as its corresponding component in other?
 		/// </summary>
-		bool Equals(const Vector4D& other) const override;
+		bool Equals(const Vector4D& other) const;
 
 		/// <summary>
 		/// Is every component of this close enough to its corresponding component in other with the threshold of threshold?<para/>
 		/// See SupergodEngine::Math::Smath::CloseEnough.
 		/// </summary>
 		/// <param name="threshold">The threshold for each component to be considered close enough.</param>
-		bool CloseEnough(const Vector4D& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Vector4D& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 
 		/// <summary>
 		/// Does any component pass test?
 		/// </summary>
 		/// <param name="test">The test to run for each component.</param>
-		bool ContainsComponent(const std::function<bool(float)>& test) const override;
+		bool ContainsComponent(const std::function<bool(float)>& test) const;
 		#pragma endregion
 
 		#pragma region Addition, subtraction and negation.
 		/// <summary>
 		/// Adds every component of this with its corresponding component in other.
 		/// </summary>
-		Vector4D Add(const Vector4D& other) const override;
+		Vector4D Add(const Vector4D& other) const;
 
 		/// <summary>
 		/// Subtracts every component of other from its corresponding component in this.
 		/// </summary>
-		Vector4D Subtract(const Vector4D& other) const override;
+		Vector4D Subtract(const Vector4D& other) const;
 
 		/// <summary>
 		/// Negates every component of this.
 		/// </summary>
-		Vector4D Negated() const override;
+		Vector4D Negated() const;
 		#pragma endregion
 
 		#pragma region Multiplication (Dot and Multiply).
 		/// <summary>
 		/// Gets the dot product of this and other.
 		/// </summary>
-		float Dot(const Vector4D& other) const override;
+		float Dot(const Vector4D& other) const;
 
 		/// <summary>
 		/// Multiplies this and other component-wise.
 		/// </summary>
-		Vector4D Multiply(const Vector4D& other) const override;
+		Vector4D Multiply(const Vector4D& other) const;
 
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		Vector4D Multiply(float scalar) const override;
+		Vector4D Multiply(float scalar) const;
 		#pragma endregion
 
 		#pragma region Division.
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		Vector4D Divide(float scalar) const override;
+		Vector4D Divide(float scalar) const;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in scalar.
 		/// </summary>
-		Vector4D Divide(const Vector4D& other) const override;
+		Vector4D Divide(const Vector4D& other) const;
 		#pragma endregion
 
 		#pragma region BiggestComponent/BiggestComponent.
 		/// <summary>
 		/// Gets a reference to the biggest component in the vector.
 		/// </summary>
-		float& BiggestComponent() override;
+		float& BiggestComponent();
 
 		/// <summary>
 		/// Gets a reference to the smallest component in the vector.
 		/// </summary>
-		float& SmallestComponent() override;
+		float& SmallestComponent();
 
 		/// <summary>
 		/// Gets a reference to the biggest component in the vector.
 		/// </summary>
-		const float& BiggestComponent() const override;
+		const float& BiggestComponent() const;
 
 		/// <summary>
 		/// Gets a reference to the smallest component in the vector.
 		/// </summary>
-		const float& SmallestComponent() const override;
+		const float& SmallestComponent() const;
 		#pragma endregion
 
 		#pragma region Clamping methods.
@@ -251,17 +251,17 @@ namespace SupergodCore { namespace Math
 		/// Gets a vector where all of its components are the absolute value of their corresponding component in this.
 		/// </summary>
 		/// <returns></returns>
-		Vector4D Abs() const override;
+		Vector4D Abs() const;
 
 		/// <summary>
 		/// Clamps every component of this so it's never smaller than its corresponding component in min and never bigger than its corresponding component in max.
 		/// </summary>
-		Vector4D Clamp(const Vector4D& min, const Vector4D& max) const override;
+		Vector4D Clamp(const Vector4D& min, const Vector4D& max) const;
 
 		/// <summary>
 		/// Clamps every component of this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Vector4D ClampComponents(float min, float max) const override;
+		Vector4D ClampComponents(float min, float max) const;
 		#pragma endregion
 	};
 } }

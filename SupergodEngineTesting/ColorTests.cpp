@@ -112,6 +112,7 @@ namespace SupergodEngineTesting
 			AssertUtils::AreEqual(result1, color);
 		}
 		
+		/*
 		TEST_METHOD(MultiplicationDivisionTests)
 		{
 			FColor a(1, 1, 1, 1);
@@ -138,5 +139,6 @@ namespace SupergodEngineTesting
 			result2 /= a;
 			AssertUtils::AreEqual(result2, b);
 		}
+		*/
 	};
 }

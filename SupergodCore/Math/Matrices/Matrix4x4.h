@@ -3,7 +3,7 @@
 //#pragma once
 //
 //#include "Common/CommonDefines.h"
-//#include "IMatrix.h"
+//#include "MatrixCommon.h"
 //
 //namespace SupergodCore { namespace Math
 //{
@@ -126,90 +126,90 @@
 //		/// <summary>
 //		/// Multiplies every component of this by its corresponding component in other.
 //		/// </summary>
-//		Matrix4x4 MultiplyComponentWise(const Matrix4x4& other) const override;
+//		Matrix4x4 MultiplyComponentWise(const Matrix4x4& other) const;
 //
 //		/// <summary>
 //		/// Multiplies this matrix by other.
 //		/// </summary>
-//		Matrix4x4 Multiply(const Matrix4x4& other) const override;
+//		Matrix4x4 Multiply(const Matrix4x4& other) const;
 //
 //		/// <summary>
 //		/// Multiplies every component of this by scalar.
 //		/// </summary>
-//		Matrix4x4 Multiply(float scalar) const override;
+//		Matrix4x4 Multiply(float scalar) const;
 //
 //		/// <summary>
 //		/// Divides every elemnt of this by scalar.
 //		/// </summary>
-//		Matrix4x4 Divide(float scalar) const override;
+//		Matrix4x4 Divide(float scalar) const;
 //		#pragma endregion
 //		
 //		#pragma region Addition and subtraction.
 //		/// <summary>Adds every element of this to the corresponding element in other.</summary>
-//		Matrix4x4 Add(const Matrix4x4& other) const override;
+//		Matrix4x4 Add(const Matrix4x4& other) const;
 //		
 //		/// <summary>Subtracts every element of this by the corresponding element in other.</summary>
-//		Matrix4x4 Subtract(const Matrix4x4& other) const override;
+//		Matrix4x4 Subtract(const Matrix4x4& other) const;
 //		#pragma endregion
 //
 //		#pragma region Negating, transposing, minor, cofactor and absolute value.
 //		/// <summary>
 //		/// The matrix with all of its elements negated (multiplied by -1).
 //		/// </summary>
-//		Matrix4x4 Negated() const override;
+//		Matrix4x4 Negated() const;
 //
 //		/// <summary>
 //		/// Gets the transpose (replaced rows with columns and columns with rows) of this matrix.
 //		/// </summary>
-//		Matrix4x4 Transposed() const override;
+//		Matrix4x4 Transposed() const;
 //
 //		/// <summary>
 //		/// Gets the minor matrix of this.
 //		/// </summary>
-//		Matrix4x4 Minor() const override;
+//		Matrix4x4 Minor() const;
 //
 //		/// <summary>
 //		/// Gets the cofactor matrix of this.
 //		/// </summary>
-//		Matrix4x4 Cofactor() const override;
+//		Matrix4x4 Cofactor() const;
 //
 //		/// <summary>
 //		/// Gets a new matrix where each element has the absolute value of the corresponding element in this.
 //		/// </summary>
-//		Matrix4x4 Abs() const override;
+//		Matrix4x4 Abs() const;
 //		#pragma endregion
 //
 //		#pragma region Determinant and trace.
 //		/// <summary>The determinant (how much the area of a 1x1 square will be multiplied by after it's transformed with this matrix) of this matrix.</summary>
-//		float Determinant() const override;
+//		float Determinant() const;
 //
 //		/// <summary>Gest the trace (sum of diagonal elements) of this matrix.</summary>
-//		float Trace() const override;
+//		float Trace() const;
 //		#pragma endregion
 //
 //		#pragma region Clamp methods (Clamp, ClampElements, ClampRows. ClampColumns).
 //		/// <summary>Clamps each element of this so it's never smaller than the corresponding element in min and never bigger than the corresponding element in max.</summary>
-//		Matrix4x4 Clamp(const Matrix4x4& min, const Matrix4x4& max) const override;
+//		Matrix4x4 Clamp(const Matrix4x4& min, const Matrix4x4& max) const;
 //
 //		/// <summary>Clamps each element of this so it's never smaller than min and never bigger than max.</summary>
-//		Matrix4x4 ClampElements(float min, float max) const override;
+//		Matrix4x4 ClampElements(float min, float max) const;
 //
 //		/// <summary>Clamps each element of each row in this so that it's never smaller than the corresponding element in min and never bigger than the corresponding element in max.</summary>
-//		Matrix4x4 ClampRows(const Vector4D& min, const Vector4D& max) const override;
+//		Matrix4x4 ClampRows(const Vector4D& min, const Vector4D& max) const;
 //
-//		Matrix4x4 ClampColumns(const Vector4D& min, const Vector4D& max) const override;
+//		Matrix4x4 ClampColumns(const Vector4D& min, const Vector4D& max) const;
 //		#pragma endregion
 //
 //		#pragma region Comparison methods(Equals, Operators, GetHashCode, CloseEnough).
 //		/// <summary>
 //		/// Is the distance between each element in this and its corresponding elemtn in other smaller or equal to threshold?
 //		/// </summary>
-//		bool CloseEnough(const Matrix4x4& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+//		bool CloseEnough(const Matrix4x4& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 //		
 //		/// <summary>
 //		/// Is every element of this the same as its corresponding component in other?
 //		/// </summary>
-//		bool Equals(const Matrix4x4& other) const override;
+//		bool Equals(const Matrix4x4& other) const;
 //		#pragma endregion
 //	};
 //} }

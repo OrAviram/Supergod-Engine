@@ -1,10 +1,9 @@
 #pragma once
 
 #include "Common/CommonDefines.h"
-#include "IColor.h"
 #include "../Interfaces/ArithmeticInterfaces.h"
 #include "../Interfaces/ILerpable.h"
-#include "../Interfaces/IClampable.h"
+#include "../Interfaces/ISupergodEquatable.h"
 
 namespace SupergodCore { namespace Math
 {
@@ -14,7 +13,7 @@ namespace SupergodCore { namespace Math
 	/// <summary>
 	/// Represents a color as 4 floats from 0 to 1.
 	/// </summary>
-	struct SUPERGOD_API FColor final : public IColor<FColor>, public ILerpable<FColor>, public IClampable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, public IScalarDividable<FColor>, public IMultipliable<FColor>
+	struct SUPERGOD_API_CLASS FColor final : public ISupergodEquatable<FColor>, public ILerpable<FColor>, public ISubtractable<FColor>, public IDividable<FColor>, public IScalarDividable<FColor>, public IMultipliable<FColor>
 	{
 		#pragma region Presets for common colors.
 		
@@ -106,46 +105,46 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Are all of the components of this equal to other?
 		/// </summary>
-		bool Equals(const FColor& other) const override;
+		bool Equals(const FColor& other) const;
 
 		/// <summary>
 		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const FColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const FColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 		#pragma endregion
 
 		#pragma region Addition and subtraction.
 		/// <summary>
 		/// Adds every component of this to its corresponding component in other.
 		/// </summary>
-		FColor Add(const FColor& other) const override;
+		FColor Add(const FColor& other) const;
 
 		/// <summary>
 		/// Subtracts every component of other from its corresponding component in this.
 		/// </summary>
-		FColor Subtract(const FColor& other) const override;
+		FColor Subtract(const FColor& other) const;
 		#pragma endregion
 
 		#pragma region Multiplication and division.
 		/// <summary>
 		/// Multiplies every component of this by its corresponding component in other.
 		/// </summary>
-		FColor Multiply(const FColor& other) const override;
+		FColor Multiply(const FColor& other) const;
 
 		/// <summary>
 		/// Multiplies every component of this by scalar.
 		/// </summary>
-		FColor Multiply(float scalar) const override;
+		FColor Multiply(float scalar) const;
 
 		/// <summary>
 		/// Divides every component of this by its corresponding component in other.
 		/// </summary>
-		FColor Divide(const FColor& other) const override;
+		FColor Divide(const FColor& other) const;
 
 		/// <summary>
 		/// Divides every component of this by scalar.
 		/// </summary>
-		FColor Divide(float scalar) const override;
+		FColor Divide(float scalar) const;
 
 		/// <summary>
 		/// Multiplies every component of color by scalar.
@@ -160,14 +159,14 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Invertes (subtracts every component OTHER THAN ALPGA from 1) this color. The alpha won't change.
 		/// </summary>
-		FColor Inverted() const override;
+		FColor Inverted() const;
 		#pragma endregion
 
 		#pragma region Clamping and normalizing.
 		/// <summary>
 		/// Clamps every component of this between its corresponding component in min and its corresponding component in max.
 		/// </summary>
-		FColor Clamp(const FColor& min, const FColor& max) const override;
+		FColor Clamp(const FColor& min, const FColor& max) const;
 
 		/// <summary>
 		/// Gets a version of this with all of its components clamped between 0 and 1. The returned value will always be a valid color.

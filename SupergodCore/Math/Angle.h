@@ -4,7 +4,6 @@
 #include "MathConstants.h"
 #include "SMath.h"
 #include "Interfaces/ISupergodEquatable.h"
-#include "Interfaces/IClampable.h"
 #include "Interfaces/ILerpable.h"
 #include "Interfaces/ISizeComparable.h"
 #include "Interfaces/ArithmeticInterfaces.h"
@@ -14,7 +13,7 @@ namespace SupergodCore { namespace Math
 	/// <summary>
 	/// Struct wraping angles into radians, degrees and revolutions. It also handles wraping the value in a valid range for angles.
 	/// </summary>
-	struct SUPERGOD_API Angle final : public ISupergodEquatable<Angle>, public IClampable<Angle>, public ILerpable<Angle>, public ISizeComparable<Angle>, IScalarDividable<Angle>, ISubtractable<Angle>
+	struct SUPERGOD_API_CLASS Angle final : public ISupergodEquatable<Angle>, public ILerpable<Angle>, public ISizeComparable<Angle>, IScalarDividable<Angle>, ISubtractable<Angle>
 	{
 		#pragma region Common angle presets.
 		/// <summary>A zero angle.</summary>
@@ -189,29 +188,29 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Are the radians of this the same as the radians of other?
 		/// </summary>
-		bool Equals(const Angle& other) const override;
+		bool Equals(const Angle& other) const;
 
 		/// <summary>
 		/// Is the distance between the radians of this and the radians of other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const Angle& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const Angle& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 		
 		/// <summary>
 		/// Are the radians of this bigger than the radians of other?
 		/// </summary>
-		bool BiggerThan(const Angle& other) const override;
+		bool BiggerThan(const Angle& other) const;
 
 		/// <summary>
 		/// Are the radians of this smaller than the radians of other?
 		/// </summary>
-		bool SmallerThan(const Angle& other) const override;
+		bool SmallerThan(const Angle& other) const;
 		#pragma endregion
 		
 		#pragma region Scaling (scalar multiplication and division).
 		/// <summary>
 		/// Multiplies the radians of this by scalar.
 		/// </summary>
-		Angle Multiply(float scalar) const override;
+		Angle Multiply(float scalar) const;
 
 		/// <summary>
 		/// Multiplies scalar by the radians of angle.
@@ -224,19 +223,19 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Divides the radians of this by scalar.
 		/// </summary>
-		Angle Divide(float scalar) const override;
+		Angle Divide(float scalar) const;
 		#pragma endregion
 
 		#pragma region Addition and subtraction.
 		/// <summary>
 		/// Adds the radians of this and the radians of other.
 		/// </summary>
-		Angle Add(const Angle& other) const override;
+		Angle Add(const Angle& other) const;
 
 		/// <summary>
 		/// Subtracts the radians of other from the radians of this.
 		/// </summary>
-		Angle Subtract(const Angle& other) const override;
+		Angle Subtract(const Angle& other) const;
 		#pragma endregion
 
 		#pragma region Flipping and reflecting.
@@ -276,7 +275,7 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Clamps this so it's never smaller than min and never bigger than max.
 		/// </summary>
-		Angle Clamp(const Angle& min, const Angle& max) const override;
+		Angle Clamp(const Angle& min, const Angle& max) const;
 		#pragma endregion
 
 	private:

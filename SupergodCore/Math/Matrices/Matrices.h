@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IMatrix.h"
+#include "MatrixCommon.h"
 #include "Matrix2x2.h"
 #include "Matrix4x4.h"
 

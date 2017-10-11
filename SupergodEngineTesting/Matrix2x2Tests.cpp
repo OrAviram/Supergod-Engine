@@ -75,7 +75,7 @@ namespace SupergodEngineTesting
 			{
 				for (int column = 0; column < 2; column++)
 				{
-					setTest(row, column) = row * column;
+					setTest(row, column) = (float)row * (float)column;
 				}
 			}
 			Assert::IsTrue(setTest == Matrix2x2(0, 0, 0, 1));
@@ -94,36 +94,33 @@ namespace SupergodEngineTesting
 		{
 			Matrix2x2 matrix = Matrix2x2();
 
-			matrix.SetRow(0, Vector2D(2, 3));
+			matrix.GetRow(0) = Vector2D(2, 3);
 			AssertUtils::AreEqual(matrix.GetRow(0), Vector2D(2, 3));
 			Assert::AreEqual(matrix.r0c0, 2.f);
 			Assert::AreEqual(matrix.r0c1, 3.f);
 			Assert::AreEqual(matrix.r1c0, 0.f);
 			Assert::AreEqual(matrix.r1c1, 0.f);
 
-			matrix.SetRow(1, Vector2D(4, 5));
+			matrix.GetRow(1) = Vector2D(4, 5);
 			AssertUtils::AreEqual(matrix.GetRow(1), Vector2D(4, 5));
 			Assert::AreEqual(matrix.r0c0, 2.f);
 			Assert::AreEqual(matrix.r0c1, 3.f);
 			Assert::AreEqual(matrix.r1c0, 4.f);
 			Assert::AreEqual(matrix.r1c1, 5.f);
 
-			Assert::Fail(std::to_wstring(sizeof(Vector2D)).c_str());
-			matrix.GetColumn(0) = Vector2D(6, 7);
-			//AssertUtils::AreEqual(matrix.GetColumn(0), Vector2D(6, 7));
-			/*
+			matrix.SetColumn(0, Vector2D(6, 7));
+			AssertUtils::AreEqual(matrix.GetColumn(0), Vector2D(6, 7));
 			Assert::AreEqual(matrix.r0c0, 6.f);
 			Assert::AreEqual(matrix.r1c0, 7.f);
 			Assert::AreEqual(matrix.r0c1, 3.f);
 			Assert::AreEqual(matrix.r1c1, 5.f);
 
-			matrix.GetColumn(1) = Vector2D(8, 9);
+			matrix.SetColumn(1, Vector2D(8, 9));
 			AssertUtils::AreEqual(matrix.GetColumn(1), Vector2D(8, 9));
 			Assert::AreEqual(matrix.r0c0, 6.f);
 			Assert::AreEqual(matrix.r1c0, 7.f);
 			Assert::AreEqual(matrix.r0c1, 8.f);
 			Assert::AreEqual(matrix.r1c1, 9.f);
-			*/
 		}
 		#pragma endregion
 	};

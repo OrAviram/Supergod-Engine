@@ -4,6 +4,6 @@
 #include "MathConstants.h"
 #include "Angle.h"
 
-#include "Vectors/Vector.h"
+#include "Vectors/Vectors.h"
 #include "Colors/Colors.h"
-#include "Matrices/Matrix.h"
+#include "Matrices/Matrices.h"

@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Common/CommonDefines.h"
-#include "IColor.h"
+#include "../MathConstants.h"
+#include "../Interfaces/ISupergodEquatable.h"
 
 namespace SupergodCore { namespace Math
 {
@@ -10,7 +11,7 @@ namespace SupergodCore { namespace Math
 	/// <summary>
 	/// Represents a 32 bit color with 4 bytes from 0 to the maximum value of a byte.
 	/// </summary>
-	struct SUPERGOD_API BColor final : public IColor<BColor>
+	struct SUPERGOD_API_CLASS BColor final : public ISupergodEquatable<BColor>
 	{
 		#pragma region Presets for common colors.
 		
@@ -129,19 +130,19 @@ namespace SupergodCore { namespace Math
 		/// <summary>
 		/// Are all of the components of this equal to other?
 		/// </summary>
-		bool Equals(const BColor& other) const override;
+		bool Equals(const BColor& other) const;
 
 		/// <summary>
 		/// Is the distance between each component of this and its corresponding component in other smaller or equal to threshold?
 		/// </summary>
-		bool CloseEnough(const BColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const override;
+		bool CloseEnough(const BColor& other, float threshold = Constants::CLOSE_ENOUGH_DEFAULT_THRESHOLD) const;
 		#pragma endregion
 
 		#pragma region Inversion
 		/// <summary>
 		/// Invertes (subtracts every component OTHER THAN ALPGA from 255) this color. The alpha won't change.
 		/// </summary>
-		BColor Inverted() const override;
+		BColor Inverted() const;
 		#pragma endregion
 	};
 } }

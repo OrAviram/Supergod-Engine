@@ -3,6 +3,8 @@
 #include "Common/CommonDefines.h"
 #include "../Interfaces/ISupergodEquatable.h"
 
+// TODO: See what should be done with this file.
+
 namespace SupergodCore { namespace Math
 {
 	struct Vector3D;
@@ -12,17 +14,17 @@ namespace SupergodCore { namespace Math
 	/// The base interface for IRotator3D and IRotator2D. When implementing, use one of those two.
 	/// </summary>
 	template<class TRotator, class TVector>
-	interface SUPERGOD_API IRotatorBase : public ISupergodEquatable<TRotator>
+	struct SUPERGOD_API_CLASS IRotatorBase : public ISupergodEquatable<TRotator>
 	{
-		virtual TRotator CombineRotations(const TRotator& other) const = 0;
-		virtual TVector RotateVector(const TVector& vector) const = 0;
+		//virtual TRotator CombineRotations(const TRotator& other) const = 0;
+		//virtual TVector RotateVector(const TVector& vector) const = 0;
 	};
 
 	/// <summary>
 	/// Interface for 3D rotators.
 	/// </summary>
 	template<class TRotator>
-	interface SUPERGOD_API IRotator3D : IRotatorBase<TRotator, Vector3D>
+	struct SUPERGOD_API_CLASS IRotator3D : IRotatorBase<TRotator, Vector3D>
 	{
 		// TODO: Add those. Currently it just uses the C# syntax because I simply copied it from the C# version, but it will change.
 		/*
@@ -37,7 +39,7 @@ namespace SupergodCore { namespace Math
 	/// Interface for 2D rotators.
 	/// </summary>
 	template<class TRotator>
-	interface SUPERGOD_API IRotator2D : IRotatorBase<TRotator, Vector2D>
+	struct SUPERGOD_API_CLASS IRotator2D : IRotatorBase<TRotator, Vector2D>
 	{
 		// TODO: Do what I did in IRotator3D except the conversion are between the Complex struct I will make, the Angle struct and Matrix3x3.
 	};
