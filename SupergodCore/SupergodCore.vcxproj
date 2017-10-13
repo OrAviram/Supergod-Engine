@@ -31,6 +31,7 @@
     <ClInclude Include="Math\Interfaces\ILerpable.h" />
     <ClInclude Include="Math\Interfaces\ISizeComparable.h" />
     <ClInclude Include="Math\Interfaces\ISupergodEquatable.h" />
+    <ClInclude Include="Math\Matrices\Matrix3x3.h" />
     <ClInclude Include="Math\Matrices\MatrixCommon.h" />
     <ClInclude Include="Math\Matrices\Matrices.h" />
     <ClInclude Include="Math\Matrices\Matrix2x2.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="Math\Colors\BColor.cpp" />
     <ClCompile Include="Math\Colors\FColor.cpp" />
     <ClCompile Include="Math\Matrices\Matrix2x2.cpp" />
+    <ClCompile Include="Math\Matrices\Matrix3x3.cpp" />
     <ClCompile Include="Math\Matrices\Matrix4x4.cpp" />
     <ClCompile Include="Math\SMath.cpp" />
     <ClCompile Include="Math\Vectors\Vector4D.cpp" />

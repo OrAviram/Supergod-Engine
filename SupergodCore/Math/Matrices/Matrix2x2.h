@@ -9,7 +9,7 @@ namespace SupergodCore { namespace Math
 	struct Angle;
 
 	/// <summary>
-	/// Represents a 2 by 2 mathematical matrix. This is useful for very simple transformations.<para/>
+	/// Represents a 2 by 2 mathematical matrix. This is useful for simple linear transformations in 2D.<para/>
 	/// For more complicated transformations in 2D, use Matrix3x3, and for more complicated transformations in 3D, use Matrix4x4.
 	/// </summary>
 	struct SUPERGOD_API_CLASS Matrix2x2 : public MatrixBase<Matrix2x2, Vector2D>
@@ -61,7 +61,7 @@ namespace SupergodCore { namespace Math
 		};
 
 		/// <summary>
-		/// Creates a new 2 by 2 matrix and initializes all of its components to 0.
+		/// Creates a new 2 by 2 matrix and initializes all of its elements to 0.
 		/// </summary>
 		Matrix2x2();
 
@@ -96,7 +96,7 @@ namespace SupergodCore { namespace Math
 
 		#pragma region Transformation construction methods.
 		/// <summary>
-		/// Creates a scale matrix
+		/// Creates a scale matrix.
 		/// </summary>
 		/// <param name="x">The scale along the x axis.</param>
 		/// <param name="y">The scale along the y axis.</param>
@@ -130,45 +130,45 @@ namespace SupergodCore { namespace Math
 
 		#pragma region Indexers.
 		/// <summary>
-		/// Gets a reference to the column at the index of index.
+		/// Gets a reference to the row at the index of index.
 		/// </summary>
 		const Vector2D& GetRow(int index) const;
 
 		/// <summary>
-		/// Gets a reference to the column at the index of index.
+		/// Gets a reference to the row at the index of index.
 		/// </summary>
 		Vector2D& GetRow(int index);
 
 		/// <summary>
-		/// Gets the value of the row at the index of index. (Will construct a new vector.)
+		/// Gets the value of the column at the index of index. (Will construct a new vector.)
 		/// </summary>
-		/// <param name="index">The index of the row.</param>
+		/// <param name="index">The index of the column.</param>
 		Vector2D GetColumn(int index) const;
 
 		/// <summary>
-		/// Sets the value of the row at the index of index.
+		/// Sets the value of the column at the index of index.
 		/// </summary>
-		/// <param name="index">The index of the row.</param>
-		/// <returns>The new value of the row.</returns>
+		/// <param name="index">The index of the column.</param>
+		/// <returns>The new value of the column.</returns>
 		Vector2D SetColumn(int index, const Vector2D& value);
 
 		/// <summary>
-		/// Gets a reference to the component at index.
+		/// Gets a reference to the element at index.
 		/// </summary>
 		const float& operator[](int index) const;
 
 		/// <summary>
-		/// Gets a reference to the component at index.
+		/// Gets a reference to the element at index.
 		/// </summary>
 		float& operator[](int index);
 
 		/// <summary>
-		/// Gets a reference to the component at the row of row and column of column.
+		/// Gets a reference to the element at the row of row and column of column.
 		/// </summary>
 		const float& operator() (int row, int column) const;
 
 		/// <summary>
-		/// Gets a reference to the component at the row of row and column of column.
+		/// Gets a reference to the element at the row of row and column of column.
 		/// </summary>
 		float& operator() (int row, int column);
 		#pragma endregion

@@ -25,6 +25,7 @@
     <ClInclude Include="Math\Matrices\Matrices.h" />
     <ClInclude Include="Math\Matrices\MatrixCommon.h" />
     <ClInclude Include="Math\Vectors\VectorCommon.h" />
+    <ClInclude Include="Math\Matrices\Matrix3x3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Math\Vectors\Vector2D.cpp" />
@@ -36,5 +37,6 @@
     <ClCompile Include="Math\Colors\BColor.cpp" />
     <ClCompile Include="Math\Matrices\Matrix4x4.cpp" />
     <ClCompile Include="Math\Matrices\Matrix2x2.cpp" />
+    <ClCompile Include="Math\Matrices\Matrix3x3.cpp" />
   </ItemGroup>
 </Project>
