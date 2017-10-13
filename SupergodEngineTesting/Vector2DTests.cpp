@@ -135,9 +135,9 @@ namespace SupergodEngineTesting
 		{
 			Vector2D source(1, 1);
 			
-			AssertUtils::AreEqual(source.Reflect(Vector2D::Up()), Vector2D(-1, 1));
-			AssertUtils::AreEqual(source.Reflect(Vector2D::Right()), Vector2D(1, -1));
-			AssertUtils::AreEqual(source.Reflect(Vector2D::Right() * 2), Vector2D(1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector2D::UnitY()), Vector2D(-1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector2D::UnitX()), Vector2D(1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector2D::UnitX() * 2), Vector2D(1, -1));
 		}
 
 		TEST_METHOD(AngleTest)

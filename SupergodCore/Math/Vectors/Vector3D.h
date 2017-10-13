@@ -23,36 +23,21 @@ namespace SupergodCore { namespace Math
 		/// Gets a 3D vector with all of its components set to 1.
 		/// </summary>
 		DEFINE_STRUCT_VALUE_PRESET(Vector3D, One, (1, 1, 1))
-
+		
 		/// <summary>
 		/// Gets the 2D vector (1, 0, 0).
 		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Right, (1, 0, 0))
-
-		/// <summary>
-		/// Gets the 2D vector (-1, 0, 0).
-		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Left, (-1, 0, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector3D, UnitX, (1, 0, 0))
 
 		/// <summary>
 		/// Gets the 2D vector (0, 1, 0).
 		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Up, (0, 1, 0))
-
-		/// <summary>
-		/// Gets the 2D vector (0, -1, 0).
-		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Down, (0, -1, 0))
+		DEFINE_STRUCT_VALUE_PRESET(Vector3D, UnitY, (0, 1, 0))
 
 		/// <summary>
 		/// Gets the 2D vector (0, 0, 1).
 		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Forward, (0, 0, 1))
-
-		/// <summary>
-		/// Gets the 2D vector (0, 0, -1).
-		/// </summary>
-		DEFINE_STRUCT_VALUE_PRESET(Vector3D, Back, (0, 0, -1))
+		DEFINE_STRUCT_VALUE_PRESET(Vector3D, UnitZ, (0, 0, 1))
 		#pragma endregion
 
 		union

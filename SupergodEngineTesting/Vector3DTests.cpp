@@ -161,10 +161,10 @@ namespace SupergodEngineTesting
 		{
 			Vector3D source(1, 1, -1);
 
-			AssertUtils::AreEqual(source.Reflect(Vector3D::Up()), Vector3D(-1, 1, 1));
-			AssertUtils::AreEqual(source.Reflect(Vector3D::Right()), Vector3D(1, -1, 1));
-			AssertUtils::AreEqual(source.Reflect(Vector3D::Forward()), Vector3D(-1, -1, -1));
-			AssertUtils::AreEqual(source.Reflect(Vector3D::Forward() * 2), Vector3D(-1, -1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::UnitY()), Vector3D(-1, 1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::UnitX()), Vector3D(1, -1, 1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::UnitZ()), Vector3D(-1, -1, -1));
+			AssertUtils::AreEqual(source.Reflect(Vector3D::UnitZ() * 2), Vector3D(-1, -1, -1));
 		}
 
 		TEST_METHOD(AngleTest)
