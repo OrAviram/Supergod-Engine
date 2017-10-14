@@ -150,7 +150,7 @@ namespace SupergodCore { namespace Math
 		/// Gets the trace of matrix.
 		/// </summary>
 		template<class T>
-		inline T Tr(const T& matrix)
+		inline float Tr(const T& matrix)
 		{
 			return matrix.Trace();
 		}

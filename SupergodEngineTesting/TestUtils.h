@@ -137,3 +137,8 @@ static void Test01(std::function<void(float)> test)
 {
 	Test01(.01f, test);
 }
+
+static void TestAngle(std::function<void(Math::Angle)> test)
+{
+	TestMultiple(0, Math::Constants::TAU, Math::Constants::TAU / 256, test);
+}

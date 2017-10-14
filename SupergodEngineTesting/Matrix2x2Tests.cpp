@@ -493,28 +493,28 @@ namespace SupergodEngineTesting
 
 		TEST_METHOD(ConversionTests)
 		{
-			// TODO: Bring back when Matrix3x3 and Matrix4x4 exist.
+			// TODO: Bring back the 4 by 4 tests when Matrix4x4 exists.
 
-			//Test50([&](int i)
-			//{
-			//	Matrix2x2 matrix = Matrix2x2(RandFloat100(), RandFloat100(), RandFloat100(), RandFloat100());
-			//
-			//	Matrix3x3 threeBy3 = matrix;
-			//	Matrix4x4 fourBy4 = matrix;
-			//
-			//	Assert::AreEqual(threeBy3.r2c2, 1.f);
-			//	Assert::AreEqual(fourBy4.r2c2, 1.f);
-			//	Assert::AreEqual(fourBy4.r3c3, 1.f);
-			//
-			//	for (int r = 0; r < 2; r++)
-			//	{
-			//		for (int c = 0; c < 2; c++)
-			//		{
-			//			Assert::AreEqual(threeBy3[r, c], matrix[r, c]);
-			//			Assert::AreEqual(fourBy4[r, c], matrix[r, c]);
-			//		}
-			//	}
-			//});
+			Test50([&](int i)
+			{
+				Matrix2x2 matrix = Matrix2x2(RandFloat100(), RandFloat100(), RandFloat100(), RandFloat100());
+			
+				Matrix3x3 threeBy3 = matrix;
+				//Matrix4x4 fourBy4 = matrix;
+			
+				Assert::AreEqual(threeBy3.r2c2, 1.f);
+				//Assert::AreEqual(fourBy4.r2c2, 1.f);
+				//Assert::AreEqual(fourBy4.r3c3, 1.f);
+			
+				for (int r = 0; r < 2; r++)
+				{
+					for (int c = 0; c < 2; c++)
+					{
+						Assert::AreEqual(threeBy3(r, c), matrix(r, c));
+						//Assert::AreEqual(fourBy4(r, c), matrix(r, c));
+					}
+				}
+			});
 		}
 	};
 }

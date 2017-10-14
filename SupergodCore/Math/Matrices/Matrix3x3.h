@@ -6,15 +6,47 @@
 
 namespace SupergodCore { namespace Math
 {
+	// Inheriting from IRotator2D caused a few problems, so I removed it. The interface will probably be gone later, so it doesn't matter.
+
 	struct Angle;
 	struct Vector2D;
 	struct Vector3D;
+	struct Matrix2x2;
 
 	/// <summary>
 	/// Represents a 3 by 3 mathematical matrix. Useful for affine transformations in 2D.
 	/// </summary>
-	struct SUPERGOD_API_CLASS Matrix3x3 : public MatrixBase<Matrix3x3, Vector3D>, public IRotator2D<Matrix3x3>
+	struct SUPERGOD_API_CLASS Matrix3x3 : public MatrixBase<Matrix3x3, Vector3D>//, public IRotator2D<Matrix3x3>
 	{
+		#pragma region Presets for common matrices.
+		/// <summary>
+		/// The multiplicative identity:<para/>
+		/// [1 0 0 0]<para/>
+		/// [0 1 0 0]<para/>
+		/// [0 0 1 0]<para/>
+		/// [0 0 0 1]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix3x3, Identity, (1))
+
+		/// <summary>
+		/// The additive identity:<para/>
+		/// [0 0 0 0]<para/>
+		/// [0 0 0 0]<para/>
+		/// [0 0 0 0]<para/>
+		/// [0 0 0 0]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix3x3, Zero, )
+
+		/// <summary>
+		/// The component-wise multiplicative identity:<para/>
+		/// [1 1 1 1]<para/>
+		/// [1 1 1 1]<para/>
+		/// [1 1 1 1]<para/>
+		/// [1 1 1 1]
+		/// </summary>
+		DEFINE_STRUCT_VALUE_PRESET(Matrix3x3, One, (1, 1, 1, 1, 1, 1, 1, 1, 1))
+		#pragma endregion
+
 		union
 		{
 			struct
@@ -26,14 +58,15 @@ namespace SupergodCore { namespace Math
 
 			/// <summary>
 			/// The elements of the matrix as a float array where:<para/>
+			/// --<para/>
 			///		index = 0: r0c0<para/>
 			///		index = 1: r0c1<para/>
 			///		index = 2: r0c2<para/>
-			/// 
+			/// --<para/>
 			///		index = 3: r1c0<para/>
 			///		index = 4: r1c1<para/>
 			///		index = 5: r1c2<para/>
-			/// 
+			/// --<para/>
 			///		index = 6: r2c0<para/>
 			///		index = 7: r2c1<para/>
 			///		index = 8: r2c2
@@ -64,6 +97,11 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		/// <param name="diagonal">The value of the diagonal elements.</param>
 		Matrix3x3(float diagonal);
+
+		/// <summary>
+		/// Gets a 2 by 2 matrix with the top left corner of this.
+		/// </summary>
+		explicit operator Matrix2x2();
 
 		#pragma region Basic construction methods.
 		/// <summary>

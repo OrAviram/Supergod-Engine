@@ -29,6 +29,11 @@ namespace SupergodCore { namespace Math
 	{
 	}
 
+	Matrix3x3::operator Matrix2x2()
+	{
+		return Matrix2x2(r0c0, r0c1, r1c0, r1c1);
+	}
+
 	Matrix3x3 Matrix3x3::FromRows(
 		const Vector3D& firstRow,
 		const Vector3D& secondRow,

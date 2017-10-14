@@ -1,6 +1,7 @@
 #include "Matrix2x2.h"
 #include "../Vectors/Vector2D.h"
-#include <memory>
+#include "../Vectors/Vector3D.h"
+#include "Matrix3x3.h"
 
 namespace SupergodCore { namespace Math
 {
@@ -17,6 +18,14 @@ namespace SupergodCore { namespace Math
 	Matrix2x2::Matrix2x2(float diagonal)
 		: r0c0(diagonal), r0c1(0), r1c0(0), r1c1(diagonal)
 	{
+	}
+
+	Matrix2x2::operator Matrix3x3()
+	{
+		return Matrix3x3(
+			r0c0, r0c1, 0,
+			r1c0, r1c1, 0,
+			0, 0, 1);
 	}
 
 	Matrix2x2 Matrix2x2::FromRows(const Vector2D& firstRow, const Vector2D& secondRow)

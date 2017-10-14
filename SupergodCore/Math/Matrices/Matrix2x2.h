@@ -5,6 +5,7 @@
 
 namespace SupergodCore { namespace Math
 {
+	struct Matrix3x3;
 	struct Vector2D;
 	struct Angle;
 
@@ -77,6 +78,11 @@ namespace SupergodCore { namespace Math
 		/// </summary>
 		/// <param name="diagonal">The value for the diagonal elements.</param>
 		Matrix2x2(float diagonal);
+
+		/// <summary>
+		/// Creates a new 3 by 3 matrix where the top left corner is this, the bottom right elemnt is 1 and the rest of the elements are 0.
+		/// </summary>
+		operator Matrix3x3();
 
 		#pragma region Basic construction methods.
 		/// <summary>
