@@ -2,11 +2,11 @@
 
 #include "Common/CommonDefines.h"
 #include "MatrixCommon.h"
+#include "../Vectors/Vector2D.h"
 
 namespace SupergodCore { namespace Math
 {
 	struct Matrix3x3;
-	struct Vector2D;
 	struct Angle;
 
 	/// <summary>

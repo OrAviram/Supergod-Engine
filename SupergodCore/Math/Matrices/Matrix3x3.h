@@ -3,6 +3,7 @@
 #include "MatrixCommon.h"
 #include "../Interfaces/ITransformer.h"
 #include "../Interfaces/IRotator.h"
+#include "../Vectors/Vector3D.h"
 
 namespace SupergodCore { namespace Math
 {
@@ -10,7 +11,6 @@ namespace SupergodCore { namespace Math
 
 	struct Angle;
 	struct Vector2D;
-	struct Vector3D;
 	struct Matrix2x2;
 
 	/// <summary>

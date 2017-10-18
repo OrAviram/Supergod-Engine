@@ -1,8 +1,6 @@
 #include "Matrix3x3.h"
 #include "Matrix2x2.h"
 #include "../Angle.h"
-#include "../Vectors/Vector2D.h"
-#include "../Vectors/Vector3D.h"
 #include <memory>
 
 namespace SupergodCore { namespace Math
